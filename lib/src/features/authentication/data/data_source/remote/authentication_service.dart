@@ -13,7 +13,7 @@ class AuthenticationService {
   Future<ApiResponse<RegisterResponseModel>> signUp(
       {required RegisterRequestModel registerModel}) async {
     final ApiResponse<Map<String, dynamic>> response =
-        await _dioClient.post(url: 'signup', data: registerModel.toJson());
+        await _dioClient.post(url: 'auth/signup', data: registerModel.toJson());
     if (response.data != null) {
       final jsonDecode = RegisterResponseModel.fromJson(response.data!);
       return ApiResponse(data: jsonDecode);
@@ -27,7 +27,7 @@ class AuthenticationService {
   Future<ApiResponse<LoginResponseModel>> login(
       {required LoginRequestModel loginModel}) async {
     final ApiResponse<Map<String, dynamic>> response =
-        await _dioClient.post(url: 'login', data: loginModel.toJson());
+        await _dioClient.post(url: 'auth/login', data: loginModel.toJson());
     if (response.data != null) {
       final jsonDecode = LoginResponseModel.fromJson(response.data!);
       return ApiResponse(data: jsonDecode);
