@@ -21,22 +21,17 @@ class LoginPage extends StatelessWidget {
         listener: (context, state) {
           if (state is Authenticated) {
             // Handle successful authentication, e.g., navigate to home screen
-            if (LoadingDialog.isLoadingDialogVisible) {
-              Navigator.of(context).pop();
-            }
+            Navigator.of(context).pop();
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const HomePage(),
                 ));
           } else if (state is AuthenticationError) {
-            if (LoadingDialog.isLoadingDialogVisible) {
-              Navigator.of(context).pop();
-            }
-
             // Show error message
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text(state.message)));
+            Navigator.of(context).pop();
           } else if (state is AuthenticationLoading) {
             LoadingDialog.showLoadingDialog(context);
           }

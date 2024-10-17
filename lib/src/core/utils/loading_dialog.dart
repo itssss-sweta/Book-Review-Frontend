@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LoadingDialog {
-  static bool isLoadingDialogVisible = false;
-
   static void showLoadingDialog(BuildContext context) {
-    if (isLoadingDialogVisible) return;
-
-    isLoadingDialogVisible = true;
-
     showDialog(
       barrierDismissible: false,
       context: context,
@@ -20,6 +14,5 @@ class LoadingDialog {
         );
       },
     );
-    isLoadingDialogVisible = false;
   }
 }

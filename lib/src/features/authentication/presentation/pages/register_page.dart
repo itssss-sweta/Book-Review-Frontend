@@ -21,21 +21,16 @@ class RegisterPage extends StatelessWidget {
       body: BlocListener<AuthBloc, AuthenticationState>(
         listener: (context, state) {
           if (state is RegistrationSuccessful) {
-            if (LoadingDialog.isLoadingDialogVisible) {
-              Navigator.of(context).pop();
-            }
-            // Handle successful authentication, e.g., navigate to home screen
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const LoginPage(),
                 ));
+            Navigator.of(context).pop();
           } else if (state is RegistrationError) {
-            if (LoadingDialog.isLoadingDialogVisible) {
-              Navigator.of(context).pop();
-            }
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text(state.message)));
+            Navigator.of(context).pop();
           } else if (state is RegistrationLoading) {
             LoadingDialog.showLoadingDialog(context);
           }
