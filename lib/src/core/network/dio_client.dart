@@ -21,6 +21,7 @@ class DioClient {
         "content-type": "application/json",
         'Accept': 'application/json',
       },
+      connectTimeout: Endpoint.connectionTimeout,
     ),
   )..interceptors.add(LogInterceptor(
       responseBody: true,
