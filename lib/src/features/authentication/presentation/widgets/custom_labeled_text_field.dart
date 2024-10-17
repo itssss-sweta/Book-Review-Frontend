@@ -10,6 +10,8 @@ class CustomLabeledTextField extends StatelessWidget {
   final IconButton? suffixIcon;
   final TextInputType? keyboardType;
   final TextEditingController controller;
+  final String? Function(String?)? validator;
+
   const CustomLabeledTextField({
     super.key,
     this.isRequired = true,
@@ -19,6 +21,7 @@ class CustomLabeledTextField extends StatelessWidget {
     this.suffixIcon,
     this.keyboardType,
     required this.controller,
+    this.validator,
   });
 
   @override
@@ -43,10 +46,11 @@ class CustomLabeledTextField extends StatelessWidget {
         ),
         BaseTextField(
           hintText: hintText,
-          controller: TextEditingController(),
+          controller: controller,
           isObscure: isObscure,
           suffixIcon: suffixIcon,
           textInputType: keyboardType,
+          validator: validator,
         ),
       ],
     );

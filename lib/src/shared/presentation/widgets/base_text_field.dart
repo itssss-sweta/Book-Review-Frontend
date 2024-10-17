@@ -19,6 +19,8 @@ class BaseTextField extends StatelessWidget {
   /// Controls the text being entered in the field, allowing the text to be accessed or manipulated.
   final TextEditingController controller;
 
+  final String? Function(String?)? validator;
+
   /// Constructor for the BaseTextField widget.
   ///
   /// * [hintText] is required and defines the placeholder text displayed when the field is empty.
@@ -26,6 +28,7 @@ class BaseTextField extends StatelessWidget {
   /// * [suffixIcon] is an optional icon displayed at the end of the text field.
   /// * [textInputType] defines the type of keyboard layout to be shown, defaulting to standard text input.
   /// * [controller] is required and manages the text input by providing access to its current value.
+  /// * [validator]
   const BaseTextField({
     super.key,
     required this.hintText,
@@ -33,11 +36,12 @@ class BaseTextField extends StatelessWidget {
     this.suffixIcon,
     this.textInputType = TextInputType.text,
     required this.controller,
+    this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       decoration: InputDecoration(
           border: const UnderlineInputBorder(
             borderSide: BorderSide(color: AppColors.disabledButtonColor),
@@ -60,6 +64,7 @@ class BaseTextField extends StatelessWidget {
       keyboardType: textInputType,
       controller: controller,
       style: Theme.of(context).textTheme.bodyMedium,
+      validator: validator,
     );
   }
 }
