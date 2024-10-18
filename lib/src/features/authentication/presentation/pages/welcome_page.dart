@@ -52,12 +52,12 @@ class WelcomePage extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 30),
+                const SizedBox(height: 28),
                 RichText(
                   text: TextSpan(
                     text: 'Welcome to ',
@@ -73,13 +73,13 @@ class WelcomePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 8),
                 Text(
                   'Discover, Review, Connect – For the Love of Books.',
                   style: Theme.of(context).textTheme.labelLarge,
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 50),
+                const SizedBox(height: 48),
                 BasePrimaryButton(
                   label: 'Get Started',
                   onPressed: () {
@@ -88,7 +88,7 @@ class WelcomePage extends StatelessWidget {
                     ));
                   },
                 ),
-                const SizedBox(height: 15),
+                const SizedBox(height: 12),
                 BasePrimaryButton(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
