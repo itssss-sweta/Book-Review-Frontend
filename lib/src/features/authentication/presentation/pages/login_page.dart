@@ -1,3 +1,4 @@
+import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/core/utils/loading_dialog.dart';
 import 'package:book_review/src/core/utils/validators/form_validator.dart';
 import 'package:book_review/src/features/authentication/presentation/bloc/authentication_bloc.dart';
@@ -20,24 +21,22 @@ class LoginPage extends StatelessWidget {
       body: BlocListener<AuthBloc, AuthenticationState>(
         listener: (context, state) {
           if (state is Authenticated) {
-            // Handle successful authentication, e.g., navigate to home screen
-            Navigator.of(context).pop();
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const HomePage(),
                 ));
           } else if (state is AuthenticationError) {
-            // Show error message
+            Navigator.of(context).pop();
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text(state.message)));
-            Navigator.of(context).pop();
           } else if (state is AuthenticationLoading) {
-            LoadingDialog.showLoadingDialog(context);
+            LoadingDialog.showLoadingDialog(context,
+                loadingTitle: 'Logging you up....');
           }
         },
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           child: SingleChildScrollView(
             child: Form(
               key: authBloc.loginFormKey,
@@ -46,17 +45,17 @@ class LoginPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Login',
+                    'Hello there 👋',
                     style: Theme.of(context).textTheme.headlineLarge,
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 16),
                   CustomLabeledTextField(
                     controller: authBloc.loginEmailController,
                     hintText: 'example@xyz.com',
                     label: 'Email',
                     validator: TextFieldValidator.validateEmptyField,
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 16),
                   BlocBuilder<AuthBloc, AuthenticationState>(
                     builder: (context, state) {
                       return CustomLabeledTextField(
@@ -73,12 +72,42 @@ class LoginPage extends StatelessWidget {
                             authBloc.isLoginPasswordVisible
                                 ? Icons.visibility
                                 : Icons.visibility_off,
+                            color: AppColors.accentColor,
                           ),
                         ),
                       );
                     },
                   ),
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: false,
+                        onChanged: (value) {},
+                        checkColor: AppColors.white,
+                        activeColor: AppColors.accentColor,
+                      ),
+                      const SizedBox(width: 16),
+                      Text(
+                        'Remember Me',
+                        style: Theme.of(context).textTheme.labelLarge,
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 28),
+                  Center(
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Forgot Password',
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelLarge
+                            ?.copyWith(color: AppColors.secondaryColor),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 48),
                   BasePrimaryButton(
                     label: 'Login',
                     onPressed: () {

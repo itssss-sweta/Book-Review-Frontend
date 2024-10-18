@@ -7,7 +7,11 @@ class AuthenticationLoading extends AuthenticationState {}
 
 class RegistrationLoading extends AuthenticationState {}
 
-class RegistrationSuccessful extends AuthenticationState {}
+class RegistrationSuccessful extends AuthenticationState {
+  final String message;
+
+  RegistrationSuccessful({required this.message});
+}
 
 class Authenticated extends AuthenticationState {
   final String token;

@@ -52,7 +52,7 @@ class BaseTextField extends StatelessWidget {
           errorBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: AppColors.errorColor),
           ),
-          contentPadding: const EdgeInsets.only(top: 8, right: 20),
+          contentPadding: const EdgeInsets.only(top: 8, right: 16),
           hintText: hintText,
           hintStyle: Theme.of(context)
               .textTheme

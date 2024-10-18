@@ -1,15 +1,18 @@
+import 'package:book_review/src/features/authentication/presentation/widgets/custom_loader_widget.dart';
 import 'package:flutter/material.dart';
 
 class LoadingDialog {
-  static void showLoadingDialog(BuildContext context) {
+  /// A dialog that shows custom loading indicator and a title.
+  static void showLoadingDialog(BuildContext context,
+      {required String loadingTitle}) {
     showDialog(
       barrierDismissible: false,
       context: context,
       builder: (BuildContext context) {
-        return const Dialog(
+        return Dialog(
           backgroundColor: Colors.transparent,
-          child: Center(
-            child: CircularProgressIndicator(),
+          child: CustomLoaderWidget(
+            loadingTitle: loadingTitle,
           ),
         );
       },

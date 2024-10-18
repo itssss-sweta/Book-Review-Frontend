@@ -75,7 +75,7 @@ class AuthBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
     );
 
     if (response.success != null) {
-      emit(RegistrationSuccessful());
+      emit(RegistrationSuccessful(message: response.success?.message ?? ""));
     } else {
       emit(RegistrationError(
           message: response.error ?? "An unknown error occurred"));
