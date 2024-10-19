@@ -2,8 +2,15 @@ import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
+/// CustomLoaderWidget is widget that displays a loading animation
+/// along with a title message.
 class CustomLoaderWidget extends StatelessWidget {
+  /// The title that will be displayed under the loading animation.
   final String loadingTitle;
+
+  /// Constructor for the CustomLoaderWidget.
+  ///
+  /// The [loadingTitle] is required to provide a description of the task in progress.
   const CustomLoaderWidget({
     super.key,
     required this.loadingTitle,
