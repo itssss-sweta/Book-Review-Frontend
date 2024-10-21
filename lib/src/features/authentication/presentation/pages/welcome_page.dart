@@ -60,14 +60,18 @@ class WelcomePage extends StatelessWidget {
                 RichText(
                   text: TextSpan(
                     text: 'Welcome to ',
-                    style: Theme.of(context).textTheme.headlineLarge,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineLarge
+                        ?.copyWith(fontSize: 24),
                     children: [
                       TextSpan(
                         text: 'ReviewBook 👋',
                         style: Theme.of(context)
                             .textTheme
                             .headlineLarge
-                            ?.copyWith(color: AppColors.secondaryColor),
+                            ?.copyWith(
+                                color: AppColors.secondaryColor, fontSize: 24),
                       )
                     ],
                   ),
@@ -75,7 +79,7 @@ class WelcomePage extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   'Discover, Review, Connect – For the Love of Books.',
-                  style: Theme.of(context).textTheme.labelLarge,
+                  style: Theme.of(context).textTheme.labelMedium,
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 48),
