@@ -1,10 +1,15 @@
+import 'package:book_review/src/core/route/app_route.dart';
+import 'package:book_review/src/core/route/routes_name.dart';
 import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/features/authentication/presentation/bloc/authentication_bloc.dart';
-import 'package:book_review/src/features/authentication/presentation/pages/welcome_page.dart';
+import 'package:book_review/src/features/homepage/presentation/bloc/homepage_bloc.dart';
+import 'package:book_review/src/shared/data/data_source/local/cache_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  CacheServices.getCacheServicesInstance.initPreferences();
   runApp(const MyApp());
 }
 
@@ -13,8 +18,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) => AuthBloc(),
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => AuthBloc(),
+          ),
+          BlocProvider(
+            create: (context) => HomepPageBloc(),
+          ),
+        ],
         child: MaterialApp(
           title: 'Flutter Demo',
           theme: ThemeData(
@@ -88,7 +100,8 @@ class MyApp extends StatelessWidget {
               ),
             ),
           ),
-          home: const WelcomePage(),
+          onGenerateRoute: RouterClass.generateRoute,
+          initialRoute: RoutesName.splash,
         ));
   }
 }
