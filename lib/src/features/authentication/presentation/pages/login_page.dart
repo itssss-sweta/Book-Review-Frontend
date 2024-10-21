@@ -1,3 +1,4 @@
+import 'package:book_review/src/core/route/routes_name.dart';
 import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/core/utils/loading_dialog.dart';
 import 'package:book_review/src/core/utils/validators/form_validator.dart';
@@ -5,7 +6,6 @@ import 'package:book_review/src/features/authentication/presentation/bloc/authen
 import 'package:book_review/src/features/authentication/presentation/bloc/authentication_event.dart';
 import 'package:book_review/src/features/authentication/presentation/bloc/authentication_state.dart';
 import 'package:book_review/src/features/authentication/presentation/widgets/custom_labeled_text_field.dart';
-import 'package:book_review/src/features/homepage/presentation/pages/homepage.dart';
 import 'package:book_review/src/shared/presentation/widgets/base_primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,18 +21,17 @@ class LoginPage extends StatelessWidget {
       body: BlocListener<AuthBloc, AuthenticationState>(
         listener: (context, state) {
           if (state is Authenticated) {
-            Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const HomePage(),
-                ));
+            Navigator.of(context).pushNamedAndRemoveUntil(
+              RoutesName.home,
+              (route) => false,
+            );
           } else if (state is AuthenticationError) {
             Navigator.of(context).pop();
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text(state.message)));
           } else if (state is AuthenticationLoading) {
             LoadingDialog.showLoadingDialog(context,
-                loadingTitle: 'Logging you up....');
+                loadingTitle: 'Logging you in....');
           }
         },
         child: Padding(

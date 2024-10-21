@@ -1,6 +1,5 @@
+import 'package:book_review/src/core/route/routes_name.dart';
 import 'package:book_review/src/core/styles/app_colors.dart';
-import 'package:book_review/src/features/authentication/presentation/pages/login_page.dart';
-import 'package:book_review/src/features/authentication/presentation/pages/register_page.dart';
 import 'package:book_review/src/features/authentication/presentation/widgets/bottom_clipper.dart';
 import 'package:book_review/src/shared/presentation/widgets/base_primary_button.dart';
 import 'package:flutter/material.dart';
@@ -83,17 +82,13 @@ class WelcomePage extends StatelessWidget {
                 BasePrimaryButton(
                   label: 'Get Started',
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const RegisterPage(),
-                    ));
+                    Navigator.of(context).pushNamed(RoutesName.register);
                   },
                 ),
                 const SizedBox(height: 12),
                 BasePrimaryButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const LoginPage(),
-                    ));
+                    Navigator.of(context).pushNamed(RoutesName.login);
                   },
                   label: 'I Already Have an Account',
                   buttonColor: AppColors.cardColor,

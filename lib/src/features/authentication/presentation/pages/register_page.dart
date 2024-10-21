@@ -1,10 +1,10 @@
+import 'package:book_review/src/core/route/routes_name.dart';
 import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/core/utils/loading_dialog.dart';
 import 'package:book_review/src/core/utils/validators/form_validator.dart';
 import 'package:book_review/src/features/authentication/presentation/bloc/authentication_bloc.dart';
 import 'package:book_review/src/features/authentication/presentation/bloc/authentication_event.dart';
 import 'package:book_review/src/features/authentication/presentation/bloc/authentication_state.dart';
-import 'package:book_review/src/features/authentication/presentation/pages/login_page.dart';
 import 'package:book_review/src/features/authentication/presentation/widgets/custom_labeled_text_field.dart';
 import 'package:book_review/src/features/authentication/presentation/widgets/register_dialog_content.dart';
 import 'package:book_review/src/shared/presentation/widgets/base_primary_button.dart';
@@ -28,11 +28,7 @@ class RegisterPage extends StatelessWidget {
               (value) {
                 ScaffoldMessenger.of(context)
                     .showSnackBar(SnackBar(content: Text(state.message)));
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const LoginPage(),
-                    ));
+                Navigator.of(context).pushReplacementNamed(RoutesName.login);
               },
             );
           } else if (state is RegistrationError) {
@@ -127,7 +123,7 @@ class RegisterPage extends StatelessWidget {
                           false) {
                         if (authBloc.registerPasswordController.text ==
                             authBloc.registerConfirmPasswordController.text) {
-                          context.read<AuthBloc>().add(RegisterEvent());
+                          authBloc.add(RegisterEvent());
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                               content: Text(
