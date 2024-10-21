@@ -5,6 +5,7 @@ import 'package:book_review/src/features/authentication/domain/models/register_r
 import 'package:book_review/src/features/authentication/domain/repository/authentication_repository.dart';
 import 'package:book_review/src/features/authentication/presentation/bloc/authentication_event.dart';
 import 'package:book_review/src/features/authentication/presentation/bloc/authentication_state.dart';
+import 'package:book_review/src/shared/data/data_source/local/cache_services.dart';
 import 'package:flutter/material.dart';
 
 class AuthBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
@@ -54,6 +55,11 @@ class AuthBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
       ),
     );
     if (response.success != null) {
+      await CacheServices.getCacheServicesInstance
+          .saveAccessToken(response.success!.data?.token ?? '')
+          .then(
+            (value) => CacheServices.getCacheServicesInstance.saveIsLogin(true),
+          );
       emit(Authenticated(token: response.success!.data?.token ?? ''));
     } else {
       emit(AuthenticationError(
