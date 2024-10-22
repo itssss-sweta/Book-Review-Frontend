@@ -17,9 +17,15 @@ class SplashScreen extends StatelessWidget {
           child: BlocListener<SplashBloc, SplashState>(
             listener: (context, state) {
               if (state is SplashAuthenticated) {
-                Navigator.of(context).pushReplacementNamed(RoutesName.home);
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  RoutesName.home,
+                  (route) => false,
+                );
               } else if (state is SplashUnauthenticated) {
-                Navigator.of(context).pushReplacementNamed(RoutesName.welcome);
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  RoutesName.welcome,
+                  (route) => false,
+                );
               }
             },
             child: Center(
