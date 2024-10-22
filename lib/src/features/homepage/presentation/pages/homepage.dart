@@ -11,45 +11,65 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          actions: [
-            IconButton(
-                onPressed: () {
-                  context.read<HomepPageBloc>().add(LogoutEvent());
-                },
-                icon: const Icon(Icons.logout)),
-          ],
-        ),
-        body: BlocListener<HomepPageBloc, HomePageState>(
-          listener: (context, state) {
-            if (state is HomePageLoading) {
-              const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (state is LogoutLoading) {
-              LoadingDialog.showLoadingDialog(context,
-                  loadingTitle: 'Logging out...');
-            } else if (state is LogoutSuccessful) {
-              Navigator.of(context).pushNamedAndRemoveUntil(
-                RoutesName.login,
-                (route) => false,
-              );
-            }
-          },
-          child: ListView.builder(
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: const Text('Book1'),
-                subtitle: const Text('Nice book'),
-                trailing: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.favorite),
-                ),
-              );
-            },
+    return BlocProvider(
+      create: (context) => HomePageBloc()..add(BookListFetchEvent()),
+      child: Scaffold(
+          appBar: AppBar(
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    context.read<HomePageBloc>().add(LogoutEvent());
+                  },
+                  icon: const Icon(Icons.logout)),
+            ],
           ),
-        ));
+          body: BlocListener<HomePageBloc, HomePageState>(
+            listener: (context, state) {
+              if (state is BookListLoading) {
+                const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (state is LogoutLoading) {
+                LoadingDialog.showLoadingDialog(context,
+                    loadingTitle: 'Logging out...');
+              } else if (state is LogoutSuccessful) {
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  RoutesName.login,
+                  (route) => false,
+                );
+              }
+            },
+            child: BlocBuilder<HomePageBloc, HomePageState>(
+              builder: (context, state) {
+                if (state is BookListLoading) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (state is BookListLoaded) {
+                  final bookList = state.bookListModel;
+                  return ListView.builder(
+                    itemCount: bookList.books?.length,
+                    itemBuilder: (context, index) {
+                      final book = bookList.books?[index];
+                      return ListTile(
+                        title: Text(book?.title ?? ''),
+                        subtitle: Text(book?.author ?? ''),
+                        trailing: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.favorite),
+                        ),
+                      );
+                    },
+                  );
+                } else if (state is BookListError) {
+                  return Center(
+                    child: Text('Failed to load books: ${state.error}'),
+                  );
+                }
+                return const SizedBox();
+              },
+            ),
+          )),
+    );
   }
 }

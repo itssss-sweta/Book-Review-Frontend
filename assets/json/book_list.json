@@ -1,0 +1,314 @@
+{
+    "books": [
+      {
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "publication_year": 1960,
+        "genre": "Fiction",
+        "isbn": "978-0-06-112008-4",
+        "image_url": "https://example.com/to-kill-a-mockingbird.jpg",
+        "rating": 4.27,
+        "description": "A novel about the serious issues of rape and racial inequality, narrated by the young Scout Finch in the 1930s.",
+        "publisher": "J.B. Lippincott & Co."
+      },
+      {
+        "title": "1984",
+        "author": "George Orwell",
+        "publication_year": 1949,
+        "genre": "Dystopian",
+        "isbn": "978-0-452-28423-4",
+        "image_url": "https://example.com/1984.jpg",
+        "rating": 4.17,
+        "description": "A dystopian social science fiction novel and cautionary tale about the dangers of totalitarianism.",
+        "publisher": "Secker & Warburg"
+      },
+      {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "publication_year": 1925,
+        "genre": "Fiction",
+        "isbn": "978-0-7432-7356-5",
+        "image_url": "https://example.com/the-great-gatsby.jpg",
+        "rating": 3.91,
+        "description": "A story about the young and mysterious millionaire Jay Gatsby and his obsession with the beautiful Daisy Buchanan.",
+        "publisher": "Charles Scribner's Sons"
+      },
+      {
+        "title": "Moby Dick",
+        "author": "Herman Melville",
+        "publication_year": 1851,
+        "genre": "Adventure",
+        "isbn": "978-0-14-243724-7",
+        "image_url": "https://example.com/moby-dick.jpg",
+        "rating": 3.52,
+        "description": "The narrative of Captain Ahab's obsessive quest to avenge the whale that bit off his leg.",
+        "publisher": "Harper & Brothers"
+      },
+      {
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "publication_year": 1813,
+        "genre": "Romance",
+        "isbn": "978-0-19-953556-9",
+        "image_url": "https://example.com/pride-and-prejudice.jpg",
+        "rating": 4.25,
+        "description": "A romantic novel that charts the emotional development of the protagonist, Elizabeth Bennet.",
+        "publisher": "T. Egerton"
+      },
+      {
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "publication_year": 1951,
+        "genre": "Fiction",
+        "isbn": "978-0-316-76948-0",
+        "image_url": "https://example.com/the-catcher-in-the-rye.jpg",
+        "rating": 3.81,
+        "description": "A story about a young man's experiences in New York City after being expelled from prep school.",
+        "publisher": "Little, Brown and Company"
+      },
+      {
+        "title": "The Lord of the Rings",
+        "author": "J.R.R. Tolkien",
+        "publication_year": 1954,
+        "genre": "Fantasy",
+        "isbn": "978-0-345-33973-7",
+        "image_url": "https://example.com/the-lord-of-the-rings.jpg",
+        "rating": 4.5,
+        "description": "An epic high fantasy novel that follows the quest to destroy the One Ring.",
+        "publisher": "George Allen & Unwin"
+      },
+      {
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "publication_year": 1937,
+        "genre": "Fantasy",
+        "isbn": "978-0-618-00221-3",
+        "image_url": "https://example.com/the-hobbit.jpg",
+        "rating": 4.27,
+        "description": "A fantasy novel about the adventures of a hobbit named Bilbo Baggins.",
+        "publisher": "George Allen & Unwin"
+      },
+      {
+        "title": "Fahrenheit 451",
+        "author": "Ray Bradbury",
+        "publication_year": 1953,
+        "genre": "Dystopian",
+        "isbn": "978-1-4516-7331-9",
+        "image_url": "https://example.com/fahrenheit-451.jpg",
+        "rating": 3.98,
+        "description": "A novel about a future society where books are banned and 'firemen' burn any that are found.",
+        "publisher": "Ballantine Books"
+      },
+      {
+        "title": "Brave New World",
+        "author": "Aldous Huxley",
+        "publication_year": 1932,
+        "genre": "Dystopian",
+        "isbn": "978-0-06-085052-4",
+        "image_url": "https://example.com/brave-new-world.jpg",
+        "rating": 3.98,
+        "description": "A dystopian novel that explores the dangers of a technologically advanced society.",
+        "publisher": "Chatto & Windus"
+      },
+      {
+        "title": "The Alchemist",
+        "author": "Paulo Coelho",
+        "publication_year": 1988,
+        "genre": "Adventure",
+        "isbn": "978-0-06-231500-7",
+        "image_url": "https://example.com/the-alchemist.jpg",
+        "rating": 3.87,
+        "description": "A novel about a shepherd's journey to find his personal legend and fulfill his dreams.",
+        "publisher": "HarperCollins"
+      },
+      {
+        "title": "The Picture of Dorian Gray",
+        "author": "Oscar Wilde",
+        "publication_year": 1890,
+        "genre": "Philosophical Fiction",
+        "isbn": "978-0-14-143957-0",
+        "image_url": "https://example.com/the-picture-of-dorian-gray.jpg",
+        "rating": 3.87,
+        "description": "A story about a young man who remains eternally youthful while his portrait ages.",
+        "publisher": "Lippincott's Monthly Magazine"
+      },
+      {
+        "title": "The Diary of a Young Girl",
+        "author": "Anne Frank",
+        "publication_year": 1947,
+        "genre": "Biography",
+        "isbn": "978-0-553-19698-8",
+        "image_url": "https://example.com/the-diary-of-a-young-girl.jpg",
+        "rating": 4.25,
+        "description": "The diary of a Jewish girl hiding from the Nazis during World War II.",
+        "publisher": "Bantam Books"
+      },
+      {
+        "title": "War and Peace",
+        "author": "Leo Tolstoy",
+        "publication_year": 1869,
+        "genre": "Historical Fiction",
+        "isbn": "978-0-14-303999-0",
+        "image_url": "https://example.com/war-and-peace.jpg",
+        "rating": 4.1,
+        "description": "A historical novel that tells the story of Russian society during the Napoleonic Era.",
+        "publisher": "The Russian Messenger"
+      },
+      {
+        "title": "The Grapes of Wrath",
+        "author": "John Steinbeck",
+        "publication_year": 1939,
+        "genre": "Fiction",
+        "isbn": "978-0-14-303943-3",
+        "image_url": "https://example.com/the-grapes-of-wrath.jpg",
+        "rating": 4.05,
+        "description": "A novel about the struggles of an American family during the Great Depression.",
+        "publisher": "The Viking Press"
+      },
+      {
+        "title": "Jane Eyre",
+        "author": "Charlotte Brontë",
+        "publication_year": 1847,
+        "genre": "Romance",
+        "isbn": "978-0-14-243720-9",
+        "image_url": "https://example.com/jane-eyre.jpg",
+        "rating": 4.24,
+        "description": "The story of a young orphaned girl who overcomes hardships to find love and independence.",
+        "publisher": "Smith, Elder & Co."
+      },
+      {
+        "title": "The Road",
+        "author": "Cormac McCarthy",
+        "publication_year": 2006,
+        "genre": "Post-Apocalyptic",
+        "isbn": "978-0-307-26543-2",
+        "image_url": "https://example.com/the-road.jpg",
+        "rating": 3.99,
+        "description": "A post-apocalyptic novel that follows a father and son's journey through a devastated landscape.",
+        "publisher": "Knopf"
+      },
+      {
+        "title": "Catch-22",
+        "author": "Joseph Heller",
+        "publication_year": 1961,
+        "genre": "Satirical War Fiction",
+        "isbn": "978-0-684-83339-8",
+        "image_url": "https://example.com/catch-22.jpg",
+        "rating": 3.99,
+        "description": "A satirical novel set during World War II that follows Captain John Yossarian as he tries to maintain his sanity amidst the madness of war.",
+        "publisher": "Simon & Schuster"
+      },
+      {
+        "title": "The Fault in Our Stars",
+        "author": "John Green",
+        "publication_year": 2012,
+        "genre": "Young Adult Fiction",
+        "isbn": "978-0-525-47881-2",
+        "image_url": "https://example.com/the-fault-in-our-stars.jpg",
+        "rating": 4.2,
+        "description": "A love story between two teenagers who meet at a cancer support group.",
+        "publisher": "Dutton Books"
+      },
+      {
+        "title": "The Handmaid's Tale",
+        "author": "Margaret Atwood",
+        "publication_year": 1985,
+        "genre": "Dystopian Fiction",
+        "isbn": "978-0-385-72190-9",
+        "image_url": "https://example.com/the-handmaids-tale.jpg",
+        "rating": 4.11,
+        "description": "A dystopian novel set in a totalitarian society that treats women as property.",
+        "publisher": "McClelland and Stewart"
+      },
+      {
+        "title": "The Hitchhiker's Guide to the Galaxy",
+        "author": "Douglas Adams",
+        "publication_year": 1979,
+        "genre": "Science Fiction",
+        "isbn": "978-0-345-39180-3",
+        "image_url": "https://example.com/the-hitchhikers-guide-to-the-galaxy.jpg",
+        "rating": 4.22,
+        "description": "A comic science fiction series that follows the misadventures of Arthur Dent after the Earth is destroyed.",
+        "publisher": "Pan Books"
+      },
+      {
+        "title": "The Kite Runner",
+        "author": "Khaled Hosseini",
+        "publication_year": 2003,
+        "genre": "Fiction",
+        "isbn": "978-1-59420-058-1",
+        "image_url": "https://example.com/the-kite-runner.jpg",
+        "rating": 4.24,
+        "description": "A story of friendship and redemption set against the backdrop of a changing Afghanistan.",
+        "publisher": "Riverhead Books"
+      },
+      {
+        "title": "The Book Thief",
+        "author": "Markus Zusak",
+        "publication_year": 2005,
+        "genre": "Historical Fiction",
+        "isbn": "978-0-7352-1151-1",
+        "image_url": "https://example.com/the-book-thief.jpg",
+        "rating": 4.37,
+        "description": "A young girl living in Nazi Germany finds solace by stealing books and sharing them with others.",
+        "publisher": "Zusak's own imprint"
+      },
+      {
+        "title": "Gone Girl",
+        "author": "Gillian Flynn",
+        "publication_year": 2012,
+        "genre": "Thriller",
+        "isbn": "978-0-307-58837-4",
+        "image_url": "https://example.com/gone-girl.jpg",
+        "rating": 4.1,
+        "description": "A thriller about a man suspected of causing his wife's disappearance.",
+        "publisher": "Crown Publishing Group"
+      },
+      {
+        "title": "Little Fires Everywhere",
+        "author": "Celeste Ng",
+        "publication_year": 2017,
+        "genre": "Contemporary Fiction",
+        "isbn": "978-1-4555-2634-1",
+        "image_url": "https://example.com/little-fires-everywhere.jpg",
+        "rating": 4.14,
+        "description": "A gripping novel about the intertwined lives of two families in suburban Ohio.",
+        "publisher": "Penguin Press"
+      },
+      {
+        "title": "The Night Circus",
+        "author": "Erin Morgenstern",
+        "publication_year": 2011,
+        "genre": "Fantasy",
+        "isbn": "978-0-385-52864-9",
+        "image_url": "https://example.com/the-night-circus.jpg",
+        "rating": 4.01,
+        "description": "A magical competition between two young illusionists takes place within an enchanting circus.",
+        "publisher": "Doubleday"
+      },
+      {
+        "title": "The Silent Patient",
+        "author": "Alex Michaelides",
+        "publication_year": 2019,
+        "genre": "Psychological Thriller",
+        "isbn": "978-1-63159-119-0",
+        "image_url": "https://example.com/the-silent-patient.jpg",
+        "rating": 4.1,
+        "description": "A psychological thriller about a woman who stops speaking after being accused of murdering her husband.",
+        "publisher": "Celadon Books"
+      },
+      {
+        "title": "Becoming",
+        "author": "Michelle Obama",
+        "publication_year": 2018,
+        "genre": "Memoir",
+        "isbn": "978-1-5247-6311-5",
+        "image_url": "https://example.com/becoming.jpg",
+        "rating": 4.55,
+        "description": "The memoir of former First Lady Michelle Obama, chronicling her life from childhood to the White House.",
+        "publisher": "Crown Publishing Group"
+      }
+    ]
+  }
+  
+  
