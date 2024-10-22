@@ -66,7 +66,7 @@ class WelcomePage extends StatelessWidget {
                         ?.copyWith(fontSize: 24),
                     children: [
                       TextSpan(
-                        text: 'ReviewBook 👋',
+                        text: 'ShelfSpeak 👋',
                         style: Theme.of(context)
                             .textTheme
                             .headlineLarge

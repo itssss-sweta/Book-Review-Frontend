@@ -11,8 +11,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          SplashBloc()..add(CheckLoginEvent()), // Trigger login check
+      create: (context) => SplashBloc()..add(CheckLoginEvent()),
       child: Scaffold(
         body: Center(
           child: BlocListener<SplashBloc, SplashState>(
@@ -23,17 +22,8 @@ class SplashScreen extends StatelessWidget {
                 Navigator.of(context).pushReplacementNamed(RoutesName.welcome);
               }
             },
-            child: BlocBuilder<SplashBloc, SplashState>(
-              builder: (context, state) {
-                if (state is SplashLoading) {
-                  return const Center(
-                    child: Text('Book Review'),
-                  );
-                }
-                return const Center(
-                  child: Text('Book Review'),
-                );
-              },
+            child: Center(
+              child: Image.asset('assets/images/logo.png'),
             ),
           ),
         ),
