@@ -1,4 +1,5 @@
 import 'package:book_review/src/core/route/routes_name.dart';
+import 'package:book_review/src/core/utils/constant/ui_texts.dart';
 import 'package:book_review/src/features/splash/presentation/bloc/splash_bloc.dart';
 import 'package:book_review/src/features/splash/presentation/bloc/splash_event.dart';
 import 'package:book_review/src/features/splash/presentation/bloc/splash_state.dart';
@@ -29,7 +30,7 @@ class SplashScreen extends StatelessWidget {
               }
             },
             child: Center(
-              child: Image.asset('assets/images/logo.png'),
+              child: Image.asset(UiTexts.logo),
             ),
           ),
         ),

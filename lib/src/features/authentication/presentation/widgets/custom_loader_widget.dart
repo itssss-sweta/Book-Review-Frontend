@@ -1,4 +1,5 @@
 import 'package:book_review/src/core/styles/app_colors.dart';
+import 'package:book_review/src/core/utils/constant/ui_texts.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -30,7 +31,7 @@ class CustomLoaderWidget extends StatelessWidget {
           child: Column(
             children: [
               LottieBuilder.asset(
-                'assets/json/book-animation.json',
+                UiTexts.bookAnimationJson,
                 height: 100,
               ),
               Text(

@@ -1,0 +1,118 @@
+{
+    "genres":[
+    {
+        "id": 1,
+        "name": "Fiction",
+        "image": "https://images.unsplash.com/photo-1533800087956-0f251616e18e?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 1200
+    },
+    {
+        "id": 2,
+        "name": "Mystery",
+        "image": "https://images.unsplash.com/photo-1533737181121-ae845505976e?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 800
+    },
+    {
+        "id": 3,
+        "name": "Fantasy",
+        "image": "https://images.unsplash.com/photo-1524373050940-8f19e9b858a9?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 1500
+    },
+    {
+        "id": 4,
+        "name": "Science Fiction",
+        "image": "https://plus.unsplash.com/premium_photo-1682124752476-40db22034a58?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 900
+    },
+    {
+        "id": 5,
+        "name": "Non-Fiction",
+        "image": "https://images.unsplash.com/photo-1637681067285-7e7a5d3a1cfa?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 1100
+    },
+    {
+        "id": 6,
+        "name": "Historical Fiction",
+        "image": "https://images.unsplash.com/photo-1678138458795-793494b64ea7?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 600
+    },
+    {
+        "id": 7,
+        "name": "Biography",
+        "image": "https://images.unsplash.com/photo-1595072697075-bebc646eac35?q=80&w=497&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 500
+    },
+    {
+        "id": 8,
+        "name": "Self-Help",
+        "image": "https://images.unsplash.com/photo-1664399400336-e4cba73d6281?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 400
+    },
+    {
+        "id": 9,
+        "name": "Romance",
+        "image": "https://images.unsplash.com/photo-1612490689975-c062b1bdcec7?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 700
+    },
+    {
+        "id": 10,
+        "name": "Thriller",
+        "image": "https://images.unsplash.com/photo-1634830568151-43264becef08?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 950
+    },
+    {
+        "id": 11,
+        "name": "Horror",
+        "image": "https://plus.unsplash.com/premium_photo-1694199668273-4e8a4a501737?q=80&w=954&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 300
+    },
+    {
+        "id": 12,
+        "name": "Children's",
+        "image": "https://plus.unsplash.com/premium_photo-1661274181892-dbe22a647ba9?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 1200
+    },
+    {
+        "id": 15,
+        "name": "Poetry",
+        "image": "https://images.unsplash.com/photo-1598738865218-7809c17181c3?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 300
+    },
+    {
+        "id": 16,
+        "name": "Cookbooks",
+        "image": "https://plus.unsplash.com/premium_photo-1672865349434-b38838dd1182?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 200
+    },
+    {
+        "id": 17,
+        "name": "Travel",
+        "image": "https://plus.unsplash.com/premium_photo-1664362416374-4f734db57037?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 500
+    },
+    {
+        "id": 18,
+        "name": "Comics",
+        "image": "https://images.unsplash.com/photo-1636959237460-dcdc368483a1?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 600
+    },
+    {
+        "id": 19,
+        "name": "Religion",
+        "image": "https://images.unsplash.com/photo-1593900107410-470abc92a26e?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 350
+    },
+    {
+        "id": 24,
+        "name": "Drama",
+        "image": "https://plus.unsplash.com/premium_photo-1684923604408-940b962a701a?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 400
+    },
+    {
+        "id": 25,
+        "name": "Adventure",
+        "image": "https://images.unsplash.com/photo-1489914169085-9b54fdd8f2a2?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "book_count": 600
+    }
+]
+}

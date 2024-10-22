@@ -1,5 +1,6 @@
 import 'package:book_review/src/core/route/routes_name.dart';
 import 'package:book_review/src/core/styles/app_colors.dart';
+import 'package:book_review/src/core/utils/constant/ui_texts.dart';
 import 'package:book_review/src/features/authentication/presentation/widgets/bottom_clipper.dart';
 import 'package:book_review/src/shared/presentation/widgets/base_primary_button.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class WelcomePage extends StatelessWidget {
             child: Stack(
               children: [
                 Image.asset(
-                  'assets/images/welcome_logo.jpg',
+                  UiTexts.welcomeImg,
                   height: MediaQuery.sizeOf(context).height / 2,
                   width: double.infinity,
                   fit: BoxFit.cover,

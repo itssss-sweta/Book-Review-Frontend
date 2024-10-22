@@ -6,7 +6,7 @@
         "publication_year": 1960,
         "genre": "Fiction",
         "isbn": "978-0-06-112008-4",
-        "image_url": "https://example.com/to-kill-a-mockingbird.jpg",
+        "image_url": "https://cdn.britannica.com/21/182021-050-666DB6B1/book-cover-To-Kill-a-Mockingbird-many-1961.jpg?w=300",
         "rating": 4.27,
         "description": "A novel about the serious issues of rape and racial inequality, narrated by the young Scout Finch in the 1930s.",
         "publisher": "J.B. Lippincott & Co."
@@ -17,7 +17,7 @@
         "publication_year": 1949,
         "genre": "Dystopian",
         "isbn": "978-0-452-28423-4",
-        "image_url": "https://example.com/1984.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGITEIVfBKWwxcy_J3_3-k37PyykrIou8WJg&s",
         "rating": 4.17,
         "description": "A dystopian social science fiction novel and cautionary tale about the dangers of totalitarianism.",
         "publisher": "Secker & Warburg"
@@ -28,7 +28,7 @@
         "publication_year": 1925,
         "genre": "Fiction",
         "isbn": "978-0-7432-7356-5",
-        "image_url": "https://example.com/the-great-gatsby.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKi5lknrw7SIwZ01RQRqyvtXz2bFxrUsGVpA&s",
         "rating": 3.91,
         "description": "A story about the young and mysterious millionaire Jay Gatsby and his obsession with the beautiful Daisy Buchanan.",
         "publisher": "Charles Scribner's Sons"
@@ -39,7 +39,7 @@
         "publication_year": 1851,
         "genre": "Adventure",
         "isbn": "978-0-14-243724-7",
-        "image_url": "https://example.com/moby-dick.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrlimtxw_olWw4HpnXfhjWkF6CDV_X95gUcQ&s",
         "rating": 3.52,
         "description": "The narrative of Captain Ahab's obsessive quest to avenge the whale that bit off his leg.",
         "publisher": "Harper & Brothers"
@@ -50,7 +50,7 @@
         "publication_year": 1813,
         "genre": "Romance",
         "isbn": "978-0-19-953556-9",
-        "image_url": "https://example.com/pride-and-prejudice.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrpPwNtwVg53tJUg4asRwcUrSA1qo68jvFQA&s",
         "rating": 4.25,
         "description": "A romantic novel that charts the emotional development of the protagonist, Elizabeth Bennet.",
         "publisher": "T. Egerton"
@@ -61,7 +61,7 @@
         "publication_year": 1951,
         "genre": "Fiction",
         "isbn": "978-0-316-76948-0",
-        "image_url": "https://example.com/the-catcher-in-the-rye.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmtWgq6tTVtT_CluoMU0-PntXerZBCh1aXmA&s",
         "rating": 3.81,
         "description": "A story about a young man's experiences in New York City after being expelled from prep school.",
         "publisher": "Little, Brown and Company"
@@ -72,7 +72,7 @@
         "publication_year": 1954,
         "genre": "Fantasy",
         "isbn": "978-0-345-33973-7",
-        "image_url": "https://example.com/the-lord-of-the-rings.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4gyLe54rPQ7URGli-8z3xjEPLzH-vKk6drQ&s",
         "rating": 4.5,
         "description": "An epic high fantasy novel that follows the quest to destroy the One Ring.",
         "publisher": "George Allen & Unwin"
@@ -83,7 +83,7 @@
         "publication_year": 1937,
         "genre": "Fantasy",
         "isbn": "978-0-618-00221-3",
-        "image_url": "https://example.com/the-hobbit.jpg",
+        "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/The_Hobbit_trilogy_dvd_cover.jpg/220px-The_Hobbit_trilogy_dvd_cover.jpg",
         "rating": 4.27,
         "description": "A fantasy novel about the adventures of a hobbit named Bilbo Baggins.",
         "publisher": "George Allen & Unwin"
@@ -94,7 +94,7 @@
         "publication_year": 1953,
         "genre": "Dystopian",
         "isbn": "978-1-4516-7331-9",
-        "image_url": "https://example.com/fahrenheit-451.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtk9U2xvhPbV4XrmsZ1RRaijEdbci7Y6R0xA&s",
         "rating": 3.98,
         "description": "A novel about a future society where books are banned and 'firemen' burn any that are found.",
         "publisher": "Ballantine Books"
@@ -105,7 +105,7 @@
         "publication_year": 1932,
         "genre": "Dystopian",
         "isbn": "978-0-06-085052-4",
-        "image_url": "https://example.com/brave-new-world.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkSor7LOFTupY3jAzgRqIDSMK8xQJT3y1VOA&s",
         "rating": 3.98,
         "description": "A dystopian novel that explores the dangers of a technologically advanced society.",
         "publisher": "Chatto & Windus"
@@ -116,7 +116,7 @@
         "publication_year": 1988,
         "genre": "Adventure",
         "isbn": "978-0-06-231500-7",
-        "image_url": "https://example.com/the-alchemist.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4T0aNvgYdBX8kfK_qYc046QFsSXhHE2NXWw&s",
         "rating": 3.87,
         "description": "A novel about a shepherd's journey to find his personal legend and fulfill his dreams.",
         "publisher": "HarperCollins"
@@ -127,7 +127,7 @@
         "publication_year": 1890,
         "genre": "Philosophical Fiction",
         "isbn": "978-0-14-143957-0",
-        "image_url": "https://example.com/the-picture-of-dorian-gray.jpg",
+        "image_url": "https://booksmandala.com/_next/image?url=https%3A%2F%2Fbooks.bizmandala.com%2Fmedia%2Fbooks%2F9780141442464%2Fimage.jpeg&w=3840&q=75",
         "rating": 3.87,
         "description": "A story about a young man who remains eternally youthful while his portrait ages.",
         "publisher": "Lippincott's Monthly Magazine"
@@ -138,7 +138,7 @@
         "publication_year": 1947,
         "genre": "Biography",
         "isbn": "978-0-553-19698-8",
-        "image_url": "https://example.com/the-diary-of-a-young-girl.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyfqAf6PRoNFcchlKabOAQn1u0Q7VP3NgKjg&s",
         "rating": 4.25,
         "description": "The diary of a Jewish girl hiding from the Nazis during World War II.",
         "publisher": "Bantam Books"
@@ -149,7 +149,7 @@
         "publication_year": 1869,
         "genre": "Historical Fiction",
         "isbn": "978-0-14-303999-0",
-        "image_url": "https://example.com/war-and-peace.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP3b82jeBLPn7OcB1QgmNIIHhI3HQvQvoDOA&s",
         "rating": 4.1,
         "description": "A historical novel that tells the story of Russian society during the Napoleonic Era.",
         "publisher": "The Russian Messenger"
@@ -160,7 +160,7 @@
         "publication_year": 1939,
         "genre": "Fiction",
         "isbn": "978-0-14-303943-3",
-        "image_url": "https://example.com/the-grapes-of-wrath.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZATJbWgZABolc-kJB6H5sIkjodn7W6-HBRA&s",
         "rating": 4.05,
         "description": "A novel about the struggles of an American family during the Great Depression.",
         "publisher": "The Viking Press"
@@ -171,7 +171,7 @@
         "publication_year": 1847,
         "genre": "Romance",
         "isbn": "978-0-14-243720-9",
-        "image_url": "https://example.com/jane-eyre.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXVpP8QGbWFTvSgcipB5MwIdYNkA0KM58Whw&s",
         "rating": 4.24,
         "description": "The story of a young orphaned girl who overcomes hardships to find love and independence.",
         "publisher": "Smith, Elder & Co."
@@ -182,7 +182,7 @@
         "publication_year": 2006,
         "genre": "Post-Apocalyptic",
         "isbn": "978-0-307-26543-2",
-        "image_url": "https://example.com/the-road.jpg",
+        "image_url": "https://booksmandala.com/_next/image?url=https%3A%2F%2Fbooks.bizmandala.com%2Fmedia%2Fbooks%2F9780330469487%2Fimage.jpeg&w=3840&q=75",
         "rating": 3.99,
         "description": "A post-apocalyptic novel that follows a father and son's journey through a devastated landscape.",
         "publisher": "Knopf"
@@ -193,7 +193,7 @@
         "publication_year": 1961,
         "genre": "Satirical War Fiction",
         "isbn": "978-0-684-83339-8",
-        "image_url": "https://example.com/catch-22.jpg",
+        "image_url": "https://booksmandala.com/_next/image?url=https%3A%2F%2Fbooks.bizmandala.com%2Fmedia%2Fbooks%2F9780099529125%2Fthumbnail-7be8a677-57b3-4726-b2bf-30907e32a7b3.jpg&w=3840&q=75",
         "rating": 3.99,
         "description": "A satirical novel set during World War II that follows Captain John Yossarian as he tries to maintain his sanity amidst the madness of war.",
         "publisher": "Simon & Schuster"
@@ -204,7 +204,7 @@
         "publication_year": 2012,
         "genre": "Young Adult Fiction",
         "isbn": "978-0-525-47881-2",
-        "image_url": "https://example.com/the-fault-in-our-stars.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThSKyGmD1rHZeACJPfIWsSdsxe7hqIvX4wMg&s",
         "rating": 4.2,
         "description": "A love story between two teenagers who meet at a cancer support group.",
         "publisher": "Dutton Books"
@@ -215,7 +215,7 @@
         "publication_year": 1985,
         "genre": "Dystopian Fiction",
         "isbn": "978-0-385-72190-9",
-        "image_url": "https://example.com/the-handmaids-tale.jpg",
+        "image_url": "https://booksmandala.com/_next/image?url=https%3A%2F%2Fbooks.bizmandala.com%2Fmedia%2Fbooks%2F9780099511663%2F9780099511663-6726.webp&w=3840&q=75",
         "rating": 4.11,
         "description": "A dystopian novel set in a totalitarian society that treats women as property.",
         "publisher": "McClelland and Stewart"
@@ -226,7 +226,7 @@
         "publication_year": 1979,
         "genre": "Science Fiction",
         "isbn": "978-0-345-39180-3",
-        "image_url": "https://example.com/the-hitchhikers-guide-to-the-galaxy.jpg",
+        "image_url": "https://booksmandala.com/_next/image?url=https%3A%2F%2Fbooks.bizmandala.com%2Fmedia%2Fbooks%2F9781529034523%2Fimage.jpeg&w=3840&q=75",
         "rating": 4.22,
         "description": "A comic science fiction series that follows the misadventures of Arthur Dent after the Earth is destroyed.",
         "publisher": "Pan Books"
@@ -237,7 +237,7 @@
         "publication_year": 2003,
         "genre": "Fiction",
         "isbn": "978-1-59420-058-1",
-        "image_url": "https://example.com/the-kite-runner.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg3NHw8UjYBqU5xm72OtDcME5tI8QnWtDiFw&s",
         "rating": 4.24,
         "description": "A story of friendship and redemption set against the backdrop of a changing Afghanistan.",
         "publisher": "Riverhead Books"
@@ -248,7 +248,7 @@
         "publication_year": 2005,
         "genre": "Historical Fiction",
         "isbn": "978-0-7352-1151-1",
-        "image_url": "https://example.com/the-book-thief.jpg",
+        "image_url": "https://m.media-amazon.com/images/I/914cHl9v7oL._AC_UF1000,1000_QL80_.jpg",
         "rating": 4.37,
         "description": "A young girl living in Nazi Germany finds solace by stealing books and sharing them with others.",
         "publisher": "Zusak's own imprint"
@@ -259,7 +259,7 @@
         "publication_year": 2012,
         "genre": "Thriller",
         "isbn": "978-0-307-58837-4",
-        "image_url": "https://example.com/gone-girl.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK-mrRzYo0vw53sTk82cxzQ9xK5VCFuA4BEA&s",
         "rating": 4.1,
         "description": "A thriller about a man suspected of causing his wife's disappearance.",
         "publisher": "Crown Publishing Group"
@@ -270,7 +270,7 @@
         "publication_year": 2017,
         "genre": "Contemporary Fiction",
         "isbn": "978-1-4555-2634-1",
-        "image_url": "https://example.com/little-fires-everywhere.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_5Q0Gtc3KsBmSThwEQnFO0NFXl4apxR3btw&s",
         "rating": 4.14,
         "description": "A gripping novel about the intertwined lives of two families in suburban Ohio.",
         "publisher": "Penguin Press"
@@ -281,7 +281,7 @@
         "publication_year": 2011,
         "genre": "Fantasy",
         "isbn": "978-0-385-52864-9",
-        "image_url": "https://example.com/the-night-circus.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcpODNO4Ia_VbdUGWfNqnhVlsSRK13D9zOLQ&s",
         "rating": 4.01,
         "description": "A magical competition between two young illusionists takes place within an enchanting circus.",
         "publisher": "Doubleday"
@@ -292,7 +292,7 @@
         "publication_year": 2019,
         "genre": "Psychological Thriller",
         "isbn": "978-1-63159-119-0",
-        "image_url": "https://example.com/the-silent-patient.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThaFyQoy6lb92b1zntTF-ZFoYVfvYhvz4WfA&s",
         "rating": 4.1,
         "description": "A psychological thriller about a woman who stops speaking after being accused of murdering her husband.",
         "publisher": "Celadon Books"
@@ -303,7 +303,7 @@
         "publication_year": 2018,
         "genre": "Memoir",
         "isbn": "978-1-5247-6311-5",
-        "image_url": "https://example.com/becoming.jpg",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9LbNVyZgiBgJVVjwDG4eptlCWIyNMGOwG3Q&s",
         "rating": 4.55,
         "description": "The memoir of former First Lady Michelle Obama, chronicling her life from childhood to the White House.",
         "publisher": "Crown Publishing Group"
