@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
               ),
               SliverToBoxAdapter(
                 child: SizedBox(
-                  height: 200,
+                  height: 250,
                   child: BlocBuilder<HomePageBloc, HomePageState>(
                       builder: (context, state) {
                     if (state.isLoadingBooks) {
@@ -91,14 +91,50 @@ class _HomePageState extends State<HomePage> {
                         itemCount: bookList!.books?.length ?? 0,
                         itemBuilder: (context, index) {
                           final book = bookList.books?[index];
-                          return Card(
+                          return Container(
                             margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                            width: 140,
                             child: Column(
                               children: [
-                                Image.network(book?.imageUrl ?? '',
-                                    height: 120, width: 80),
-                                Text(book?.title ?? 'No Title'),
-                                Text(book?.author ?? 'Unknown Author'),
+                                Image.network(
+                                  book?.imageUrl ?? '',
+                                  height: 150,
+                                  width: 110,
+                                  fit: BoxFit.cover,
+                                ),
+                                Text(
+                                  book?.title ?? 'No Title',
+                                  style: Theme.of(context).textTheme.titleSmall,
+                                  maxLines: 5,
+                                  softWrap: true,
+                                  textAlign: TextAlign.center,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        const Icon(
+                                          Icons.star,
+                                          size: 18,
+                                          color: AppColors.accentColor,
+                                        ),
+                                        const SizedBox(
+                                          width: 4,
+                                        ),
+                                        Text((book?.rating ?? 0.0).toString()),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      width: 8,
+                                    ),
+                                    Text((book?.publicationYear ?? 0.0)
+                                        .toString()),
+                                  ],
+                                ),
                               ],
                             ),
                           );
@@ -115,7 +151,7 @@ class _HomePageState extends State<HomePage> {
               ),
               SliverToBoxAdapter(
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(12.0),
                   child: Text(
                     'Genres',
                     style: Theme.of(context).textTheme.headlineMedium,
