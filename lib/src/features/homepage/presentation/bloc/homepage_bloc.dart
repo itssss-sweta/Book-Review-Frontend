@@ -8,11 +8,10 @@ import 'package:book_review/src/shared/data/data_source/local/cache_services.dar
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
-  HomePageBloc() : super(HomePageInitial()) {
-    on<LogoutEvent>(_onLogout);
+  HomePageBloc() : super(HomePageState()) {
     on<DataFetchEvent>(_onDataFetch);
+    on<LogoutEvent>(_onLogout);
   }
-
   final HomePageRepository _homePageRepositoryLocal =
       HomePageRepositoryDummyImpl();
   late BookListModel? bookList;
@@ -21,45 +20,46 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
   String errorMessageGenre = "";
 
   Future<void> _onLogout(LogoutEvent event, Emitter<HomePageState> emit) async {
-    emit(LogoutLoading());
+    emit(state.copyWith(
+      isLoggingOut: true,
+    ));
     await Future.delayed(const Duration(seconds: 2));
     CacheServices.getCacheServicesInstance.saveAccessToken('');
     CacheServices.getCacheServicesInstance.saveIsLogin(false);
-    emit(LogoutSuccessful());
-  }
-
-  Future<void> _fetchBooks(Emitter<HomePageState> emit) async {
-    emit(BookListLoading());
-
-    final result = await _homePageRepositoryLocal.getBookList();
-    if (result.success != null) {
-      bookList = result.success;
-      emit(BookListLoaded(bookListModel: bookList!));
-    } else {
-      errorMessage = result.error ?? '';
-      emit(BookListError(error: errorMessage));
-    }
-  }
-
-  Future<void> _fetchGenres(Emitter<HomePageState> emit) async {
-    emit(GenreListLoading());
-
-    final result = await _homePageRepositoryLocal.getGenreList();
-    if (result.success != null) {
-      genreList = result.success;
-      emit(GenreListLoaded(genreModel: genreList!));
-    } else {
-      errorMessageGenre = result.error ?? '';
-      emit(GenreListError(error: errorMessageGenre));
-    }
+    emit(state.copyWith(
+      logoutSuccessful: true,
+    ));
   }
 
   Future<void> _onDataFetch(
       DataFetchEvent event, Emitter<HomePageState> emit) async {
-    // Fetch books and genres independently
+    // Start loading both books and genres
+    emit(state.copyWith(isLoadingBooks: true, isLoadingGenres: true));
+
+    // Fetch books and genres concurrently
     await Future.wait([
       _fetchBooks(emit),
       _fetchGenres(emit),
     ]);
+  }
+
+  Future<void> _fetchBooks(Emitter<HomePageState> emit) async {
+    final result = await _homePageRepositoryLocal.getBookList();
+    if (result.success != null) {
+      // Update only the book-related part of the state
+      emit(state.copyWith(isLoadingBooks: false, bookList: result.success));
+    } else {
+      emit(state.copyWith(isLoadingBooks: false, bookError: result.error));
+    }
+  }
+
+  Future<void> _fetchGenres(Emitter<HomePageState> emit) async {
+    final result = await _homePageRepositoryLocal.getGenreList();
+    if (result.success != null) {
+      // Update only the genre-related part of the state
+      emit(state.copyWith(isLoadingGenres: false, genreList: result.success));
+    } else {
+      emit(state.copyWith(isLoadingGenres: false, genreError: result.error));
+    }
   }
 }

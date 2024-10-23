@@ -1,34 +1,50 @@
 import 'package:book_review/src/features/homepage/domain/models/book_list_model.dart';
 import 'package:book_review/src/features/homepage/domain/models/genre_model.dart';
 
-abstract class HomePageState {}
+class HomePageState {
+  final bool isLoadingBooks;
+  final bool isLoadingGenres;
+  final bool isLoggingOut;
+  final bool logoutSuccessful;
+  final BookListModel? bookList;
+  final GenreListModel? genreList;
+  final String? bookError;
+  final String? genreError;
+  final String? logoutError;
 
-class HomePageInitial extends HomePageState {}
+  HomePageState({
+    this.isLoadingBooks = false,
+    this.isLoadingGenres = false,
+    this.isLoggingOut = false,
+    this.logoutSuccessful = false,
+    this.bookList,
+    this.genreList,
+    this.bookError,
+    this.genreError,
+    this.logoutError,
+  });
 
-class BookListLoading extends HomePageState {}
-
-class GenreListLoading extends HomePageState {}
-
-class BookListLoaded extends HomePageState {
-  BookListModel bookListModel;
-  BookListLoaded({required this.bookListModel});
+  HomePageState copyWith({
+    bool? isLoadingBooks,
+    bool? isLoadingGenres,
+    bool? isLoggingOut,
+    bool? logoutSuccessful,
+    BookListModel? bookList,
+    GenreListModel? genreList,
+    String? bookError,
+    String? genreError,
+    String? logoutError,
+  }) {
+    return HomePageState(
+      isLoadingBooks: isLoadingBooks ?? this.isLoadingBooks,
+      isLoadingGenres: isLoadingGenres ?? this.isLoadingGenres,
+      isLoggingOut: isLoggingOut ?? this.isLoggingOut,
+      logoutSuccessful: logoutSuccessful ?? this.logoutSuccessful,
+      bookList: bookList ?? this.bookList,
+      genreList: genreList ?? this.genreList,
+      bookError: bookError ?? this.bookError,
+      genreError: genreError ?? this.genreError,
+      logoutError: logoutError ?? this.logoutError,
+    );
+  }
 }
-
-class GenreListLoaded extends HomePageState {
-  GenreListModel genreModel;
-  GenreListLoaded({required this.genreModel});
-}
-
-class BookListError extends HomePageState {
-  String error;
-  BookListError({required this.error});
-}
-
-class GenreListError extends HomePageState {
-  String error;
-  GenreListError({required this.error});
-}
-
-class LogoutSuccessful extends HomePageState {}
-
-class LogoutLoading extends HomePageState {}

@@ -52,14 +52,14 @@ class _HomePageState extends State<HomePage> {
       ),
       body: BlocListener<HomePageBloc, HomePageState>(
           listener: (context, state) {
-            if (state is BookListLoading || state is GenreListLoading) {
+            if (state.isLoadingBooks || state.isLoadingGenres) {
               const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (state is LogoutLoading) {
+            } else if (state.isLoggingOut) {
               LoadingDialog.showLoadingDialog(context,
                   loadingTitle: 'Logging out...');
-            } else if (state is LogoutSuccessful) {
+            } else if (state.logoutSuccessful) {
               Navigator.of(context).pushNamedAndRemoveUntil(
                 RoutesName.login,
                 (route) => false,
@@ -82,13 +82,13 @@ class _HomePageState extends State<HomePage> {
                   height: 200,
                   child: BlocBuilder<HomePageBloc, HomePageState>(
                       builder: (context, state) {
-                    if (state is BookListLoading) {
+                    if (state.isLoadingBooks) {
                       return const Center(child: CircularProgressIndicator());
-                    } else if (state is BookListLoaded) {
-                      final bookList = state.bookListModel;
+                    } else if (state.bookList != null) {
+                      final bookList = state.bookList;
                       return ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: bookList.books?.length ?? 0,
+                        itemCount: bookList!.books?.length ?? 0,
                         itemBuilder: (context, index) {
                           final book = bookList.books?[index];
                           return Card(
@@ -104,9 +104,9 @@ class _HomePageState extends State<HomePage> {
                           );
                         },
                       );
-                    } else if (state is BookListError) {
+                    } else if (state.bookError != null) {
                       return Center(
-                        child: Text(state.error),
+                        child: Text(state.bookError!),
                       );
                     }
                     return const SizedBox();
@@ -127,10 +127,10 @@ class _HomePageState extends State<HomePage> {
                   height: 120, // Set a fixed height for horizontal list
                   child: BlocBuilder<HomePageBloc, HomePageState>(
                       builder: (context, state) {
-                    if (state is GenreListLoading) {
+                    if (state.isLoadingGenres) {
                       return const Center(child: CircularProgressIndicator());
-                    } else if (state is GenreListLoaded) {
-                      final genreList = state.genreModel;
+                    } else if (state.genreList != null) {
+                      final genreList = state.genreList!;
                       return ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: genreList.genres?.length,
@@ -163,9 +163,9 @@ class _HomePageState extends State<HomePage> {
                           );
                         },
                       );
-                    } else if (state is BookListError) {
+                    } else if (state.genreError != null) {
                       return Center(
-                        child: Text(state.error),
+                        child: Text(state.genreError!),
                       );
                     }
                     return const SizedBox();
@@ -186,10 +186,10 @@ class _HomePageState extends State<HomePage> {
                   height: 200, // Set a fixed height for horizontal list
                   child: BlocBuilder<HomePageBloc, HomePageState>(
                       builder: (context, state) {
-                    if (state is BookListLoading) {
+                    if (state.isLoadingBooks) {
                       return const Center(child: CircularProgressIndicator());
-                    } else if (state is BookListLoaded) {
-                      final bookList = state.bookListModel;
+                    } else if (state.bookList != null) {
+                      final bookList = state.bookList!;
                       return ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: bookList.books?.length ?? 0,
@@ -208,9 +208,9 @@ class _HomePageState extends State<HomePage> {
                           );
                         },
                       );
-                    } else if (state is BookListError) {
+                    } else if (state.bookError != null) {
                       return Center(
-                        child: Text(state.error),
+                        child: Text(state.bookError!),
                       );
                     }
                     return const SizedBox();
