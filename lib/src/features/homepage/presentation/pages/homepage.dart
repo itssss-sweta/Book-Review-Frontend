@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
               ),
               SliverToBoxAdapter(
                 child: SectionTitleRowWidget(
-                  title: 'Recommnded For You',
+                  title: 'Recommended For You',
                   onPressed: () {},
                 ),
               ),
