@@ -20,6 +20,50 @@ class HomePageService {
     }
   }
 
+  Future<({BookListModel? success, String? error})>
+      fetchRecommendedBookList() async {
+    try {
+      String response = await rootBundle.loadString(UiTexts.recommedBookJson);
+      final decodedJson = jsonDecode(response);
+      final success = BookListModel.fromJson(decodedJson);
+      return (success: success, error: null);
+    } catch (e) {
+      return (
+        success: null,
+        error: "Unexpected Error Occured, please try again later, $e"
+      );
+    }
+  }
+
+  Future<({BookListModel? success, String? error})>
+      fetchTrendingBookList() async {
+    try {
+      String response = await rootBundle.loadString(UiTexts.trendingJson);
+      final decodedJson = jsonDecode(response);
+      final success = BookListModel.fromJson(decodedJson);
+      return (success: success, error: null);
+    } catch (e) {
+      return (
+        success: null,
+        error: "Unexpected Error Occured, please try again later, $e"
+      );
+    }
+  }
+
+  Future<({BookListModel? success, String? error})> fetchNewBookList() async {
+    try {
+      String response = await rootBundle.loadString(UiTexts.newBooksJson);
+      final decodedJson = jsonDecode(response);
+      final success = BookListModel.fromJson(decodedJson);
+      return (success: success, error: null);
+    } catch (e) {
+      return (
+        success: null,
+        error: "Unexpected Error Occured, please try again later, $e"
+      );
+    }
+  }
+
   Future<({GenreListModel? success, String? error})> fetchGenreList() async {
     try {
       String response = await rootBundle.loadString(UiTexts.genreJson);

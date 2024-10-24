@@ -22,4 +22,33 @@ class HomePageRepositoryDummyImpl extends HomePageRepository {
     }
     return (error: response.error, success: null);
   }
+
+  @override
+  Future<({String? error, BookListModel? success})>
+      getRecommendedBookList() async {
+    final response = await _homePageService.fetchRecommendedBookList();
+    if (response.success != null) {
+      return (error: null, success: response.success);
+    }
+    return (error: response.error, success: null);
+  }
+
+  @override
+  Future<({String? error, BookListModel? success})>
+      getTrendingBookList() async {
+    final response = await _homePageService.fetchTrendingBookList();
+    if (response.success != null) {
+      return (error: null, success: response.success);
+    }
+    return (error: response.error, success: null);
+  }
+
+  @override
+  Future<({String? error, BookListModel? success})> getNewBooksList() async {
+    final response = await _homePageService.fetchNewBookList();
+    if (response.success != null) {
+      return (error: null, success: response.success);
+    }
+    return (error: response.error, success: null);
+  }
 }

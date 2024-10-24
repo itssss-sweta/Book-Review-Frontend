@@ -10,7 +10,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
   Future<void> _onCheckLoginEvent(
       CheckLoginEvent event, Emitter<SplashState> emit) async {
     emit(SplashLoading());
-    await Future.delayed(const Duration(seconds: 4));
+    await Future.delayed(const Duration(seconds: 2));
     final token = CacheServices.getCacheServicesInstance.getAccessToken();
     final isLogin = CacheServices.getCacheServicesInstance.getIsLogin();
     if (isLogin && token.isNotEmpty) {
