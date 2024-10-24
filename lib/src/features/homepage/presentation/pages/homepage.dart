@@ -7,6 +7,7 @@ import 'package:book_review/src/features/homepage/presentation/bloc/homepage_sta
 import 'package:book_review/src/features/homepage/presentation/widgets/book_list_view_widget.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/genre_section.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/section_title_row_widget.dart';
+import 'package:book_review/src/shared/presentation/widgets/listview_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -55,11 +56,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: BlocListener<HomePageBloc, HomePageState>(
           listener: (context, state) {
-            if (state.isLoadingBooks || state.isLoadingGenres) {
-              const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (state.isLoggingOut) {
+            if (state.isLoggingOut) {
               LoadingDialog.showLoadingDialog(context,
                   loadingTitle: 'Logging out...');
             } else if (state.logoutSuccessful) {
@@ -78,23 +75,20 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 340,
-                  child: BlocBuilder<HomePageBloc, HomePageState>(
-                      builder: (context, state) {
-                    if (state.isLoadingTrendingBooks) {
-                      return const Center(child: CircularProgressIndicator());
-                    } else if (state.trendingBookList != null) {
-                      final bookList = state.trendingBookList;
-                      return BookListViewWidget(bookList: bookList);
-                    } else if (state.trendingBookError != null) {
-                      return Center(
-                        child: Text(state.trendingBookError!),
-                      );
-                    }
-                    return const SizedBox();
-                  }),
-                ),
+                child: BlocBuilder<HomePageBloc, HomePageState>(
+                    builder: (context, state) {
+                  if (state.isLoadingTrendingBooks) {
+                    return const ListviewShimmer();
+                  } else if (state.trendingBookList != null) {
+                    final bookList = state.trendingBookList;
+                    return BookListViewWidget(bookList: bookList);
+                  } else if (state.trendingBookError != null) {
+                    return Center(
+                      child: Text(state.trendingBookError!),
+                    );
+                  }
+                  return const SizedBox();
+                }),
               ),
               SliverToBoxAdapter(
                 child: Padding(
@@ -115,23 +109,20 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 340,
-                  child: BlocBuilder<HomePageBloc, HomePageState>(
-                      builder: (context, state) {
-                    if (state.isLoadingRecommendedBooks) {
-                      return const Center(child: CircularProgressIndicator());
-                    } else if (state.recommendedBookList != null) {
-                      final bookList = state.recommendedBookList!;
-                      return BookListViewWidget(bookList: bookList);
-                    } else if (state.recommendeBookError != null) {
-                      return Center(
-                        child: Text(state.recommendeBookError!),
-                      );
-                    }
-                    return const SizedBox();
-                  }),
-                ),
+                child: BlocBuilder<HomePageBloc, HomePageState>(
+                    builder: (context, state) {
+                  if (state.isLoadingRecommendedBooks) {
+                    return const ListviewShimmer();
+                  } else if (state.recommendedBookList != null) {
+                    final bookList = state.recommendedBookList!;
+                    return BookListViewWidget(bookList: bookList);
+                  } else if (state.recommendeBookError != null) {
+                    return Center(
+                      child: Text(state.recommendeBookError!),
+                    );
+                  }
+                  return const SizedBox();
+                }),
               ),
               SliverToBoxAdapter(
                 child: SectionTitleRowWidget(
@@ -140,23 +131,20 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 340,
-                  child: BlocBuilder<HomePageBloc, HomePageState>(
-                      builder: (context, state) {
-                    if (state.isLoadingNewBooks) {
-                      return const Center(child: CircularProgressIndicator());
-                    } else if (state.newBookList != null) {
-                      final bookList = state.newBookList!;
-                      return BookListViewWidget(bookList: bookList);
-                    } else if (state.newBookError != null) {
-                      return Center(
-                        child: Text(state.newBookError!),
-                      );
-                    }
-                    return const SizedBox();
-                  }),
-                ),
+                child: BlocBuilder<HomePageBloc, HomePageState>(
+                    builder: (context, state) {
+                  if (state.isLoadingNewBooks) {
+                    return const ListviewShimmer();
+                  } else if (state.newBookList != null) {
+                    final bookList = state.newBookList!;
+                    return BookListViewWidget(bookList: bookList);
+                  } else if (state.newBookError != null) {
+                    return Center(
+                      child: Text(state.newBookError!),
+                    );
+                  }
+                  return const SizedBox();
+                }),
               ),
               const SliverToBoxAdapter(
                 child: SizedBox(

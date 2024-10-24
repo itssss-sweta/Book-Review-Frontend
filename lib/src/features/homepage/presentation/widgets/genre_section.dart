@@ -1,6 +1,7 @@
 import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/homepage_bloc.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/homepage_state.dart';
+import 'package:book_review/src/shared/presentation/widgets/listview_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,7 +17,11 @@ class GenreSection extends StatelessWidget {
       child:
           BlocBuilder<HomePageBloc, HomePageState>(builder: (context, state) {
         if (state.isLoadingGenres) {
-          return const Center(child: CircularProgressIndicator());
+          return const ListviewShimmer(
+            contentHeight: 100,
+            contentWidth: 150,
+            boxHeight: 100,
+          );
         } else if (state.genreList != null) {
           final genreList = state.genreList!;
           return ListView.builder(

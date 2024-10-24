@@ -12,17 +12,20 @@ class BookListViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 8.0),
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: ((bookList!.books?.length ?? 0) >= 10)
-            ? 10
-            : bookList!.books?.length,
-        itemBuilder: (context, index) {
-          final book = bookList?.books?[index];
-          return BookCardWidget(book: book);
-        },
+    return SizedBox(
+      height: 340,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 8.0),
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: ((bookList!.books?.length ?? 0) >= 10)
+              ? 10
+              : bookList!.books?.length,
+          itemBuilder: (context, index) {
+            final book = bookList?.books?[index];
+            return BookCardWidget(book: book);
+          },
+        ),
       ),
     );
   }
