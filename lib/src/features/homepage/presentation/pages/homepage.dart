@@ -1,10 +1,11 @@
 import 'package:book_review/src/core/route/routes_name.dart';
-import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/core/utils/constant/ui_texts.dart';
 import 'package:book_review/src/core/utils/loading_dialog.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/homepage_bloc.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/homepage_event.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/homepage_state.dart';
+import 'package:book_review/src/features/homepage/presentation/widgets/book_list_view_widget.dart';
+import 'package:book_review/src/features/homepage/presentation/widgets/genre_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,6 +40,7 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
+        scrolledUnderElevation: 0,
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
           IconButton(
@@ -70,79 +72,37 @@ class _HomePageState extends State<HomePage> {
             slivers: [
               SliverToBoxAdapter(
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    'Top Trending Books',
-                    style: Theme.of(context).textTheme.headlineMedium,
+                  padding: const EdgeInsets.all(12.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Top Trending Books',
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                      TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'View All',
+                            style: Theme.of(context).textTheme.labelMedium,
+                          )),
+                    ],
                   ),
                 ),
               ),
               SliverToBoxAdapter(
                 child: SizedBox(
-                  height: 250,
+                  height: 325,
                   child: BlocBuilder<HomePageBloc, HomePageState>(
                       builder: (context, state) {
-                    if (state.isLoadingBooks) {
+                    if (state.isLoadingTrendingBooks) {
                       return const Center(child: CircularProgressIndicator());
-                    } else if (state.bookList != null) {
-                      final bookList = state.bookList;
-                      return ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: bookList!.books?.length ?? 0,
-                        itemBuilder: (context, index) {
-                          final book = bookList.books?[index];
-                          return Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 8.0),
-                            width: 140,
-                            child: Column(
-                              children: [
-                                Image.network(
-                                  book?.imageUrl ?? '',
-                                  height: 150,
-                                  width: 110,
-                                  fit: BoxFit.cover,
-                                ),
-                                Text(
-                                  book?.title ?? 'No Title',
-                                  style: Theme.of(context).textTheme.titleSmall,
-                                  maxLines: 5,
-                                  softWrap: true,
-                                  textAlign: TextAlign.center,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        const Icon(
-                                          Icons.star,
-                                          size: 18,
-                                          color: AppColors.accentColor,
-                                        ),
-                                        const SizedBox(
-                                          width: 4,
-                                        ),
-                                        Text((book?.rating ?? 0.0).toString()),
-                                      ],
-                                    ),
-                                    const SizedBox(
-                                      width: 8,
-                                    ),
-                                    Text((book?.publicationYear ?? 0.0)
-                                        .toString()),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      );
-                    } else if (state.bookError != null) {
+                    } else if (state.trendingBookList != null) {
+                      final bookList = state.trendingBookList;
+                      return BookListViewWidget(bookList: bookList);
+                    } else if (state.trendingBookError != null) {
                       return Center(
-                        child: Text(state.bookError!),
+                        child: Text(state.trendingBookError!),
                       );
                     }
                     return const SizedBox();
@@ -153,100 +113,47 @@ class _HomePageState extends State<HomePage> {
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: Text(
-                    'Genres',
+                    'Browse By Genre',
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
               ),
-              SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 120, // Set a fixed height for horizontal list
-                  child: BlocBuilder<HomePageBloc, HomePageState>(
-                      builder: (context, state) {
-                    if (state.isLoadingGenres) {
-                      return const Center(child: CircularProgressIndicator());
-                    } else if (state.genreList != null) {
-                      final genreList = state.genreList!;
-                      return ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: genreList.genres?.length,
-                        itemBuilder: (context, index) {
-                          final genre = genreList.genres?[index];
-                          return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Stack(
-                              children: [
-                                Image.network(
-                                  genre?.image ?? '',
-                                  height: 100,
-                                  width: 200,
-                                  fit: BoxFit.cover,
-                                ),
-                                Positioned(
-                                  bottom: 10,
-                                  left: 10,
-                                  child: Text(
-                                    genre?.name ?? 'No Title',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .labelMedium
-                                        ?.copyWith(
-                                            color: AppColors.backgroundColor),
-                                  ),
-                                )
-                              ],
-                            ),
-                          );
-                        },
-                      );
-                    } else if (state.genreError != null) {
-                      return Center(
-                        child: Text(state.genreError!),
-                      );
-                    }
-                    return const SizedBox();
-                  }),
-                ),
+              const SliverToBoxAdapter(
+                child: GenreSection(),
               ),
               SliverToBoxAdapter(
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    'Recommended For You',
-                    style: Theme.of(context).textTheme.headlineMedium,
+                  padding: const EdgeInsets.all(12.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Recommended For You',
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                      TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'View All',
+                            style: Theme.of(context).textTheme.labelMedium,
+                          )),
+                    ],
                   ),
                 ),
               ),
               SliverToBoxAdapter(
                 child: SizedBox(
-                  height: 200, // Set a fixed height for horizontal list
+                  height: 325,
                   child: BlocBuilder<HomePageBloc, HomePageState>(
                       builder: (context, state) {
-                    if (state.isLoadingBooks) {
+                    if (state.isLoadingRecommendedBooks) {
                       return const Center(child: CircularProgressIndicator());
-                    } else if (state.bookList != null) {
-                      final bookList = state.bookList!;
-                      return ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: bookList.books?.length ?? 0,
-                        itemBuilder: (context, index) {
-                          final book = bookList.books?[index];
-                          return Card(
-                            margin: const EdgeInsets.symmetric(horizontal: 8.0),
-                            child: Column(
-                              children: [
-                                Image.network(book?.imageUrl ?? '',
-                                    height: 120, width: 80),
-                                Text(book?.title ?? 'No Title'),
-                                Text(book?.author ?? 'Unknown Author'),
-                              ],
-                            ),
-                          );
-                        },
-                      );
-                    } else if (state.bookError != null) {
+                    } else if (state.recommendedBookList != null) {
+                      final bookList = state.recommendedBookList!;
+                      return BookListViewWidget(bookList: bookList);
+                    } else if (state.recommendeBookError != null) {
                       return Center(
-                        child: Text(state.bookError!),
+                        child: Text(state.recommendeBookError!),
                       );
                     }
                     return const SizedBox();
