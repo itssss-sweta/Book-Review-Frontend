@@ -1,0 +1,191 @@
+{
+    "books":[
+        {
+            "title": "Lessons in Chemistry",
+            "author": "Bonnie Garmus",
+            "publication_year": 2024,
+            "genre": "Fiction",
+            "isbn": "978-0-593-49722-0",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyw539wUmRrX3aS1BrRbQ0V68NG62jXaPV_A&s",
+            "rating": 4.27,
+            "description": "A humorous yet poignant story about a female chemist in the 1960s who becomes an unlikely television cooking show star.",
+            "publisher": "Doubleday"
+          },
+          {
+            "title": "Fourth Wing",
+            "author": "Rebecca Yarros",
+            "publication_year": 2024,
+            "genre": "Fantasy",
+            "isbn": "978-1-5387-6644-3",
+            "image_url": "https://booksmandala.com/_next/image?url=https%3A%2F%2Fbooks.bizmandala.com%2Fmedia%2Fbooks%2F9780349436999%2F9780349436999-1547.webp&w=3840&q=75",
+            "rating": 4.42,
+            "description": "An exhilarating fantasy tale set in a war-torn world where a young woman must navigate a ruthless military school.",
+            "publisher": "Entangled Publishing"
+          },
+          {
+            "title": "The House Across the Lake",
+            "author": "Riley Sager",
+            "publication_year": 2024,
+            "genre": "Thriller",
+            "isbn": "978-0-593-39719-8",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfHRfoRUjU87_UKyN2YwwFmumzXV7PFl4W4g&s",
+            "rating": 4.03,
+            "description": "A twisty thriller about a woman who becomes entangled in the lives of her glamorous neighbors across the lake.",
+            "publisher": "Dutton"
+          },
+          {
+            "title": "Happy Place",
+            "author": "Emily Henry",
+            "publication_year": 2024,
+            "genre": "Romance",
+            "isbn": "978-0-593-52915-8",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK4qAovFHVTnxyTKlWRI0788n3XlFvedfdtA&s",
+            "rating": 4.34,
+            "description": "A romantic comedy about a couple who pretends to still be together for the sake of their friends during a week-long getaway.",
+            "publisher": "Berkley"
+          },
+          {
+            "title": "I Have Some Questions for You",
+            "author": "Rebecca Makkai",
+            "publication_year": 2024,
+            "genre": "Mystery",
+            "isbn": "978-0-7352-7260-2",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDDCHXG9UlwcyCvh2u7MMvQX-mXC1X2xkqDg&s",
+            "rating": 4.15,
+            "description": "A gripping mystery that unravels past secrets and explores the complexities of memory and justice.",
+            "publisher": "Viking"
+          },
+          {
+            "title": "The Only One Left",
+            "author": "Riley Sager",
+            "publication_year": 2024,
+            "genre": "Thriller",
+            "isbn": "978-0-593-38717-5",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6byD6NFQGbob-66hd4vX3i1Mj4SykYwfg7A&s",
+            "rating": 4.11,
+            "description": "A chilling thriller about a home aide caring for the last survivor of a gruesome murder who holds dark secrets.",
+            "publisher": "Dutton"
+          },
+          {
+            "title": "The Covenant of Water",
+            "author": "Abraham Verghese",
+            "publication_year": 2024,
+            "genre": "Historical Fiction",
+            "isbn": "978-0-593-42863-1",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU4KDtHu09A5TouxNgRdMoDp2Boe725mD_8g&s",
+            "rating": 4.38,
+            "description": "A sweeping epic about a family in Kerala, India, that explores themes of love, loss, and belonging over generations.",
+            "publisher": "Grove Press"
+          },
+          {
+            "title": "Remarkably Bright Creatures",
+            "author": "Shelby Van Pelt",
+            "publication_year": 2024,
+            "genre": "Fiction",
+            "isbn": "978-0-06-306697-8",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAIqrYco2ab0n0jv0GoDMQ2LkwbwUVG-Zydw&s",
+            "rating": 4.28,
+            "description": "A touching story about a widow who forms an unexpected friendship with an octopus in an aquarium.",
+            "publisher": "Ecco"
+          },
+          {
+            "title": "Malibu Rising",
+            "author": "Taylor Jenkins Reid",
+            "publication_year": 2024,
+            "genre": "Contemporary Fiction",
+            "isbn": "978-1-5247-6993-5",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrmf8Iy1pkWxqgMBeM84hR6HFf6LXaMzcKOw&s",
+            "rating": 4.20,
+            "description": "A tale of love, family, and the complexities of relationships set against the backdrop of a Malibu party.",
+            "publisher": "Ballantine Books"
+          },
+          {
+            "title": "The Night Circus",
+            "author": "Erin Morgenstern",
+            "publication_year": 2011,
+            "genre": "Fantasy",
+            "isbn": "978-0-385-52864-9",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcpODNO4Ia_VbdUGWfNqnhVlsSRK13D9zOLQ&s",
+            "rating": 4.01,
+            "description": "A magical competition between two young illusionists takes place within an enchanting circus.",
+            "publisher": "Doubleday"
+          },
+          {
+            "title": "The Invisible Life of Addie LaRue",
+            "author": "V.E. Schwab",
+            "publication_year": 2020,
+            "genre": "Fantasy",
+            "isbn": "978-0-7651-1996-0",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIYgavw2CH_85-JqRMxKENpb_BHHGFyMv3bQ&s",
+            "rating": 4.27,
+            "description": "A young woman makes a Faustian bargain to live forever but is cursed to be forgotten by everyone she meets.",
+            "publisher": "Tor Books"
+        },
+        {
+          "title": "The Seven Husbands of Evelyn Hugo",
+          "author": "Taylor Jenkins Reid",
+          "publication_year": 2017,
+          "genre": "Historical Fiction",
+          "isbn": "978-1-4767-3885-5",
+          "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa8uzPik9iDulA_ZoPX6_1WxuHOAaYn2xGVA&s",
+          "rating": 4.37,
+          "description": "A reclusive Hollywood icon recounts her glamorous and scandalous life to a young journalist, revealing secrets of love and loss.",
+          "publisher": "Atria Books"
+        },
+          {
+            "title": "Our Missing Hearts",
+            "author": "Celeste Ng",
+            "publication_year": 2024,
+            "genre": "Literary Fiction",
+            "isbn": "978-0-593-48492-4",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmhrj3lp-4l9cbmmQXLBOpMzMPMAktcPq-oA&s",
+            "rating": 4.10,
+            "description": "A thought-provoking story set in a dystopian future that examines the complexities of race and family.",
+            "publisher": "Penguin Press"
+          },
+          {
+            "title": "The Book Thief",
+            "author": "Markus Zusak",
+            "publication_year": 2005,
+            "genre": "Historical Fiction",
+            "isbn": "978-0-7352-1151-1",
+            "image_url": "https://m.media-amazon.com/images/I/914cHl9v7oL._AC_UF1000,1000_QL80_.jpg",
+            "rating": 4.37,
+            "description": "A young girl living in Nazi Germany finds solace by stealing books and sharing them with others.",
+            "publisher": "Zusak's own imprint"
+          },
+          {
+            "title": "The Light We Carry",
+            "author": "Michelle Obama",
+            "publication_year": 2024,
+            "genre": "Non-Fiction",
+            "isbn": "978-1-9848-4511-4",
+            "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1658477208l/61355265.jpg",
+            "rating": 4.32,
+            "description": "A powerful and inspiring book from the former First Lady, reflecting on resilience, hope, and personal growth.",
+            "publisher": "Crown"
+          },
+          {
+            "title": "The Midnight Library",
+            "author": "Matt Haig",
+            "publication_year": 2024,
+            "genre": "Fiction",
+            "isbn": "978-0-525-65714-4",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsUJgNN0OT3Uf4iXOU1wI93JfUWfHoRVbQAQ&s",
+            "rating": 4.07,
+            "description": "A thought-provoking novel about the choices we make and the lives we could have lived, set in a library that holds infinite possibilities.",
+            "publisher": "Viking"
+          },
+          {
+            "title": "The Vanishing Half",
+            "author": "Brit Bennett",
+            "publication_year": 2024,
+            "genre": "Literary Fiction",
+            "isbn": "978-0-525-55988-6",
+            "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1577090827l/51791252.jpg",
+            "rating": 4.21,
+            "description": "A multi-generational saga about twin sisters whose lives diverge in surprising ways, exploring themes of identity and race.",
+            "publisher": "Riverhead Books"
+          }
+    ]
+}

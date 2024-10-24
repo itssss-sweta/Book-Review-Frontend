@@ -1,0 +1,191 @@
+{
+   "books":[ 
+    {
+        "title": "Gone Girl",
+        "author": "Gillian Flynn",
+        "publication_year": 2012,
+        "genre": "Thriller",
+        "isbn": "978-0-307-58837-4",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK-mrRzYo0vw53sTk82cxzQ9xK5VCFuA4BEA&s",
+        "rating": 4.1,
+        "description": "A thriller about a man suspected of causing his wife's disappearance.",
+        "publisher": "Crown Publishing Group"
+    },
+    {
+      "title": "The Shining",
+      "author": "Stephen King",
+      "publication_year": 1977,
+      "genre": "Horror",
+      "isbn": "978-0-385-12167-5",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG7dmU8popYbvB7Gds7_UwSP0CqsVAIIq00g&s",
+      "rating": 4.22,
+      "description": "A family heads to an isolated hotel where a sinister presence influences the father into violence.",
+      "publisher": "Doubleday"
+  },
+  {
+      "title": "It",
+      "author": "Stephen King",
+      "publication_year": 1986,
+      "genre": "Horror",
+      "isbn": "978-0-451-21445-3",
+      "image_url": "https://m.media-amazon.com/images/I/613UazqBGHL._AC_UF1000,1000_QL80_.jpg",
+      "rating": 4.24,
+      "description": "A group of children in a small town must face an ancient shape-shifting evil that takes the form of a clown.",
+      "publisher": "Viking Press"
+  },
+  {
+      "title": "The Haunting of Hill House",
+      "author": "Shirley Jackson",
+      "publication_year": 1959,
+      "genre": "Horror",
+      "isbn": "978-0-14-303998-3",
+      "image_url": "https://m.media-amazon.com/images/I/81FMksyikrL._AC_UF1000,1000_QL80_.jpg",
+      "rating": 4.06,
+      "description": "Four people arrive at a notoriously unfriendly mansion to spend a summer investigating paranormal activity.",
+      "publisher": "Viking Press"
+  },
+  {
+      "title": "Bird Box",
+      "author": "Josh Malerman",
+      "publication_year": 2014,
+      "genre": "Horror",
+      "isbn": "978-0-06-225968-3",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcsLhumzY4GfOmGigb4uQosYOOIBBF_VTkFw&s",
+      "rating": 4.00,
+      "description": "In a post-apocalyptic world, a mother and her two children must navigate blindfolded to avoid supernatural entities.",
+      "publisher": "Ecco Press"
+  },
+  {
+      "title": "The Cabin at the End of the World",
+      "author": "Paul Tremblay",
+      "publication_year": 2018,
+      "genre": "Horror",
+      "isbn": "978-1-982134-01-9",
+      "image_url": "https://upload.wikimedia.org/wikipedia/en/c/c5/Cabin_end_world.jpg",
+      "rating": 3.75,
+      "description": "A family's vacation takes a terrifying turn when strangers appear, demanding an unspeakable sacrifice.",
+      "publisher": "William Morrow"
+  },
+  {
+      "title": "The Woman in the Window",
+      "author": "A.J. Finn",
+      "publication_year": 2018,
+      "genre": "Thriller",
+      "isbn": "978-0-06-267841-7",
+      "image_url": "https://books.bizmandala.com/media/books/9780008294373/image.jpeg",
+      "rating": 3.94,
+      "description": "An agoraphobic woman believes she witnessed a crime in her neighbor's house.",
+      "publisher": "William Morrow"
+  },
+  {
+      "title": "The Girl on the Train",
+      "author": "Paula Hawkins",
+      "publication_year": 2015,
+      "genre": "Thriller",
+      "isbn": "978-1-4000-7476-6",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdb94MGx6zH5EVrT34Tk0fEJdxAriYgGMJBw&s",
+      "rating": 3.92,
+      "description": "A psychological thriller about a woman who becomes embroiled in a missing person's investigation.",
+      "publisher": "Riverhead Books"
+  },
+  {
+      "title": "Behind Closed Doors",
+      "author": "B.A. Paris",
+      "publication_year": 2016,
+      "genre": "Thriller",
+      "isbn": "978-1-250-09201-2",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe_Q9cWk9LnhnjEbASrQ-WpiLTf7Ybtv7-_w&s",
+      "rating": 4.30,
+      "description": "A psychological thriller that reveals the dark secrets of a seemingly perfect marriage.",
+      "publisher": "St. Martin's Press"
+  },
+  {
+      "title": "A Court of Thorns and Roses",
+      "author": "Sarah J. Maas",
+      "publication_year": 2015,
+      "genre": "Fantasy",
+      "isbn": "978-1-61963-448-0",
+      "image_url": "https://m.media-amazon.com/images/I/81RrEEMiOCL._AC_UF1000,1000_QL80_.jpg",
+      "rating": 4.19,
+      "description": "A retelling of Beauty and the Beast, featuring a strong heroine and a captivating world.",
+      "publisher": "Bloomsbury USA"
+  },
+  {
+      "title": "City of Bones",
+      "author": "Cassandra Clare",
+      "publication_year": 2007,
+      "genre": "Fantasy",
+      "isbn": "978-1-4169-0064-4",
+      "image_url": "https://booksmandala.com/_next/image?url=https%3A%2F%2Fbooks.bizmandala.com%2Fmedia%2Fbooks%2F9781406307627%2FNone-9781406307627_FZeRYIc.webp&w=3840&q=75",
+      "rating": 4.05,
+      "description": "The first book in the Mortal Instruments series, where a girl discovers the world of Shadowhunters.",
+      "publisher": "Margaret K. McElderry Books"
+  },
+    {
+        "title": "The Silent Patient",
+        "author": "Alex Michaelides",
+        "publication_year": 2019,
+        "genre": "Psychological Thriller",
+        "isbn": "978-1-63159-119-0",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThaFyQoy6lb92b1zntTF-ZFoYVfvYhvz4WfA&s",
+        "rating": 4.1,
+        "description": "A psychological thriller about a woman who stops speaking after being accused of murdering her husband.",
+        "publisher": "Celadon Books"
+      },
+      {
+        "title": "The Lord of the Rings",
+        "author": "J.R.R. Tolkien",
+        "publication_year": 1954,
+        "genre": "Fantasy",
+        "isbn": "978-0-345-33973-7",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4gyLe54rPQ7URGli-8z3xjEPLzH-vKk6drQ&s",
+        "rating": 4.5,
+        "description": "An epic high fantasy novel that follows the quest to destroy the One Ring.",
+        "publisher": "George Allen & Unwin"
+      },
+      {
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "publication_year": 1937,
+        "genre": "Fantasy",
+        "isbn": "978-0-618-00221-3",
+        "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/The_Hobbit_trilogy_dvd_cover.jpg/220px-The_Hobbit_trilogy_dvd_cover.jpg",
+        "rating": 4.27,
+        "description": "A fantasy novel about the adventures of a hobbit named Bilbo Baggins.",
+        "publisher": "George Allen & Unwin"
+      },
+      {
+        "title": "The Night Circus",
+        "author": "Erin Morgenstern",
+        "publication_year": 2011,
+        "genre": "Fantasy",
+        "isbn": "978-0-385-52864-9",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcpODNO4Ia_VbdUGWfNqnhVlsSRK13D9zOLQ&s",
+        "rating": 4.01,
+        "description": "A magical competition between two young illusionists takes place within an enchanting circus.",
+        "publisher": "Doubleday"
+      },
+      {
+        "title": "Moby Dick",
+        "author": "Herman Melville",
+        "publication_year": 1851,
+        "genre": "Adventure",
+        "isbn": "978-0-14-243724-7",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrlimtxw_olWw4HpnXfhjWkF6CDV_X95gUcQ&s",
+        "rating": 3.52,
+        "description": "The narrative of Captain Ahab's obsessive quest to avenge the whale that bit off his leg.",
+        "publisher": "Harper & Brothers"
+      },
+      {
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "publication_year": 1813,
+        "genre": "Romance",
+        "isbn": "978-0-19-953556-9",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrpPwNtwVg53tJUg4asRwcUrSA1qo68jvFQA&s",
+        "rating": 4.25,
+        "description": "A romantic novel that charts the emotional development of the protagonist, Elizabeth Bennet.",
+        "publisher": "T. Egerton"
+      }
+    ]
+}
