@@ -1,0 +1,138 @@
+{
+    "trending_books": [
+        {
+            "title": "The Silent Patient",
+            "author": "Alex Michaelides",
+            "publication_year": 2019,
+            "genre": "Psychological Thriller",
+            "isbn": "978-1-63159-119-0",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThaFyQoy6lb92b1zntTF-ZFoYVfvYhvz4WfA&s",
+            "rating": 4.1,
+            "description": "A psychological thriller about a woman who stops speaking after being accused of murdering her husband.",
+            "publisher": "Celadon Books"
+        },
+        {
+            "title": "Where the Crawdads Sing",
+            "author": "Delia Owens",
+            "publication_year": 2018,
+            "genre": "Literary Fiction",
+            "isbn": "978-0-7352-2560-3",
+            "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1582135294i/36809135.jpg",
+            "rating": 4.42,
+            "description": "A coming-of-age story set in the marshes of North Carolina, blending mystery, romance, and nature writing.",
+            "publisher": "G.P. Putnam's Sons"
+        },
+        {
+            "title": "The Night Circus",
+            "author": "Erin Morgenstern",
+            "publication_year": 2011,
+            "genre": "Fantasy",
+            "isbn": "978-0-385-52864-9",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcpODNO4Ia_VbdUGWfNqnhVlsSRK13D9zOLQ&s",
+            "rating": 4.01,
+            "description": "A magical competition between two young illusionists takes place within an enchanting circus.",
+            "publisher": "Doubleday"
+          },
+        {
+            "title": "The Seven Husbands of Evelyn Hugo",
+            "author": "Taylor Jenkins Reid",
+            "publication_year": 2017,
+            "genre": "Historical Fiction",
+            "isbn": "978-1-4767-3885-5",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa8uzPik9iDulA_ZoPX6_1WxuHOAaYn2xGVA&s",
+            "rating": 4.37,
+            "description": "A reclusive Hollywood icon recounts her glamorous and scandalous life to a young journalist, revealing secrets of love and loss.",
+            "publisher": "Atria Books"
+        },
+        {
+            "title": "The Guest List",
+            "author": "Lucy Foley",
+            "publication_year": 2020,
+            "genre": "Mystery Thriller",
+            "isbn": "978-1-9848-1887-5",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ40lkQ4PjA06cwGZcN0UC-r5qi8RF9GxCBgg&s",
+            "rating": 4.16,
+            "description": "At a wedding on a remote Irish island, secrets are revealed and tensions rise, leading to a shocking murder.",
+            "publisher": "William Morrow"
+        },
+        {
+            "title": "The Invisible Life of Addie LaRue",
+            "author": "V.E. Schwab",
+            "publication_year": 2020,
+            "genre": "Fantasy",
+            "isbn": "978-0-7651-1996-0",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIYgavw2CH_85-JqRMxKENpb_BHHGFyMv3bQ&s",
+            "rating": 4.27,
+            "description": "A young woman makes a Faustian bargain to live forever but is cursed to be forgotten by everyone she meets.",
+            "publisher": "Tor Books"
+        },
+        {
+            "title": "Little Fires Everywhere",
+            "author": "Celeste Ng",
+            "publication_year": 2017,
+            "genre": "Contemporary Fiction",
+            "isbn": "978-1-4555-2634-1",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_5Q0Gtc3KsBmSThwEQnFO0NFXl4apxR3btw&s",
+            "rating": 4.14,
+            "description": "A gripping novel about the intertwined lives of two families in suburban Ohio.",
+            "publisher": "Penguin Press"
+        },
+        {
+            "title": "The Silent Patient",
+            "author": "Alex Michaelides",
+            "publication_year": 2019,
+            "genre": "Psychological Thriller",
+            "isbn": "978-1-63159-119-0",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThaFyQoy6lb92b1zntTF-ZFoYVfvYhvz4WfA&s",
+            "rating": 4.1,
+            "description": "A psychological thriller about a woman who stops speaking after being accused of murdering her husband.",
+            "publisher": "Celadon Books"
+        },
+        {
+            "title": "Project Hail Mary",
+            "author": "Andy Weir",
+            "publication_year": 2021,
+            "genre": "Science Fiction",
+            "isbn": "978-0-593-06820-2",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3gXAL8RDJEHW3GK-Xp3CwtA4HVvMP_0ly1Q&s",
+            "rating": 4.54,
+            "description": "A lone astronaut wakes up on a spaceship with no memory of why he’s there, tasked with saving humanity from an extinction-level event.",
+            "publisher": "Ballantine Books"
+        },
+        {
+            "title": "The Priory of the Orange Tree",
+            "author": "Samantha Shannon",
+            "publication_year": 2019,
+            "genre": "Fantasy",
+            "isbn": "978-1-63557-250-5",
+            "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1700221964i/40275288.jpg",
+            "rating": 4.36,
+            "description": "A standalone epic fantasy about dragons, queens, and a world on the brink of war.",
+            "publisher": "Bloomsbury Publishing"
+        },
+        {
+            "title": "Anxious People",
+            "author": "Fredrik Backman",
+            "publication_year": 2020,
+            "genre": "Contemporary Fiction",
+            "isbn": "978-1-9848-3748-7",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDtNY1YtwZ0xdVxW3rA1hbo3qke9zf-6uadg&s",
+            "rating": 4.25,
+            "description": "A poignant story about a failed bank robber who takes a group of strangers hostage at an open house.",
+            "publisher": "Atria Books"
+        },
+        {
+            "title": "The Hating Game",
+            "author": "Sally Thorne",
+            "publication_year": 2016,
+            "genre": "Romantic Comedy",
+            "isbn": "978-1-250-11510-0",
+            "image_url": "https://m.media-amazon.com/images/I/717uYVw9SSL._AC_UF1000,1000_QL80_.jpg",
+            "rating": 4.31,
+            "description": "An enemies-to-lovers romantic comedy about two coworkers who can't stand each other but find their rivalry turning into romance.",
+            "publisher": "William Morrow"
+        }
+    ]
+  }
+  
+  
