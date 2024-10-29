@@ -1,6 +1,7 @@
 import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/homepage_bloc.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/homepage_state.dart';
+import 'package:book_review/src/shared/presentation/widgets/base_network_image.dart';
 import 'package:book_review/src/shared/presentation/widgets/listview_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,11 +34,11 @@ class GenreSection extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Stack(
                   children: [
-                    Image.network(
-                      genre?.image ?? '',
+                    BaseNetworkImage(
+                      imageUrl: genre?.image ?? '',
                       height: 100,
                       width: 200,
-                      fit: BoxFit.cover,
+                      boxFit: BoxFit.cover,
                     ),
                     Positioned(
                       bottom: 10,

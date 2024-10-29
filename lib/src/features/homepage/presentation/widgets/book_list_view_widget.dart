@@ -1,5 +1,6 @@
 import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/features/homepage/domain/models/book_list_model.dart';
+import 'package:book_review/src/shared/presentation/widgets/base_network_image.dart';
 import 'package:flutter/material.dart';
 
 class BookListViewWidget extends StatelessWidget {
@@ -13,7 +14,7 @@ class BookListViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 340,
+      height: 345,
       child: Padding(
         padding: const EdgeInsets.only(left: 8.0),
         child: ListView.builder(
@@ -42,28 +43,27 @@ class BookCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 12.0),
       margin: const EdgeInsets.symmetric(horizontal: 8.0),
-      width: 160,
+      width: 150,
       decoration: BoxDecoration(
         color: AppColors.cardColor,
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(
-                  color: AppColors.secondaryTextColor.withOpacity(0.5)),
+              border: Border.all(color: AppColors.cardColor.withOpacity(0.5)),
             ),
             clipBehavior: Clip.antiAlias,
-            child: Image.network(
-              book?.imageUrl ?? '',
+            child: BaseNetworkImage(
+              imageUrl: book?.imageUrl ?? '',
               height: 175,
-              width: 145,
-              fit: BoxFit.cover,
+              width: 120,
             ),
           ),
           const SizedBox(
@@ -71,7 +71,7 @@ class BookCardWidget extends StatelessWidget {
           ),
           LayoutBuilder(builder: (context, constraints) {
             return SizedBox(
-              height: constraints.maxWidth * 0.6,
+              height: constraints.maxWidth * 0.69,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
