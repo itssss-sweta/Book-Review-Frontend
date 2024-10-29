@@ -100,6 +100,7 @@ class MyApp extends StatelessWidget {
           ),
           onGenerateRoute: RouterClass.generateRoute,
           initialRoute: RoutesName.splash,
+          debugShowCheckedModeBanner: false,
         ));
   }
 }

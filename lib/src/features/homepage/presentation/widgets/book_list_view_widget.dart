@@ -1,3 +1,4 @@
+import 'package:book_review/src/core/route/routes_name.dart';
 import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/features/homepage/domain/models/book_list_model.dart';
 import 'package:book_review/src/shared/presentation/widgets/base_network_image.dart';
@@ -42,98 +43,103 @@ class BookCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12.0),
-      margin: const EdgeInsets.symmetric(horizontal: 8.0),
-      width: 150,
-      decoration: BoxDecoration(
-        color: AppColors.cardColor,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: AppColors.cardColor.withOpacity(0.5)),
-            ),
-            clipBehavior: Clip.antiAlias,
-            child: BaseNetworkImage(
-              imageUrl: book?.imageUrl ?? '',
-              height: 175,
-              width: 120,
-            ),
-          ),
-          const SizedBox(
-            height: 4,
-          ),
-          LayoutBuilder(builder: (context, constraints) {
-            return SizedBox(
-              height: constraints.maxWidth * 0.69,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    book?.genre ?? '',
-                    style: Theme.of(context)
-                        .textTheme
-                        .labelSmall
-                        ?.copyWith(color: AppColors.secondaryTextColor),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    softWrap: true,
-                  ),
-                  const SizedBox(
-                    height: 4,
-                  ),
-                  Text(
-                    book?.title ?? 'No Title',
-                    style: Theme.of(context).textTheme.titleSmall,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    softWrap: true,
-                  ),
-                  Text(
-                    book?.author ?? 'Unknown Author',
-                    style: Theme.of(context).textTheme.bodySmall,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    softWrap: true,
-                  ),
-                ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed(RoutesName.detail, arguments: book);
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+        margin: const EdgeInsets.symmetric(horizontal: 8.0),
+        width: 150,
+        decoration: BoxDecoration(
+          color: AppColors.cardColor,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: AppColors.cardColor.withOpacity(0.5)),
               ),
-            );
-          }),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  const Icon(
-                    Icons.star,
-                    size: 18,
-                    color: AppColors.accentColor,
-                  ),
-                  const SizedBox(
-                    width: 4,
-                  ),
-                  Text((book?.rating ?? 0.0).toString()),
-                ],
+              clipBehavior: Clip.antiAlias,
+              child: BaseNetworkImage(
+                imageUrl: book?.imageUrl ?? '',
+                height: 175,
+                width: 120,
               ),
-              IconButton(
-                iconSize: 25,
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.bookmark_outline,
-                  size: 25,
+            ),
+            const SizedBox(
+              height: 4,
+            ),
+            LayoutBuilder(builder: (context, constraints) {
+              return SizedBox(
+                height: constraints.maxWidth * 0.69,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      book?.genre ?? '',
+                      style: Theme.of(context)
+                          .textTheme
+                          .labelSmall
+                          ?.copyWith(color: AppColors.secondaryTextColor),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      softWrap: true,
+                    ),
+                    const SizedBox(
+                      height: 4,
+                    ),
+                    Text(
+                      book?.title ?? 'No Title',
+                      style: Theme.of(context).textTheme.titleSmall,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      softWrap: true,
+                    ),
+                    Text(
+                      book?.author ?? 'Unknown Author',
+                      style: Theme.of(context).textTheme.bodySmall,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      softWrap: true,
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          ),
-        ],
+              );
+            }),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const Icon(
+                      Icons.star,
+                      size: 18,
+                      color: AppColors.accentColor,
+                    ),
+                    const SizedBox(
+                      width: 4,
+                    ),
+                    Text((book?.rating ?? 0.0).toString()),
+                  ],
+                ),
+                IconButton(
+                  iconSize: 25,
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.bookmark_outline,
+                    size: 25,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

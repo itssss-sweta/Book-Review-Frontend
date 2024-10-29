@@ -10,8 +10,8 @@ class BaseNetworkImage extends StatelessWidget {
   const BaseNetworkImage(
       {super.key,
       this.imageUrl,
-      this.height = 200,
-      this.width = 100,
+      this.height = 220,
+      this.width,
       this.boxFit = BoxFit.cover});
 
   @override
