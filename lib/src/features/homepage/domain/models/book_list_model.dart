@@ -25,9 +25,12 @@ class Book {
   String? genre;
   String? isbn;
   String? imageUrl;
-  double? rating;
+  String? language;
+  int? pageCount;
+  String? targetAudience;
   String? description;
-  String? publisher;
+  String? edition;
+  double? rating;
 
   Book(
       {this.title,
@@ -36,9 +39,12 @@ class Book {
       this.genre,
       this.isbn,
       this.imageUrl,
-      this.rating,
+      this.language,
+      this.pageCount,
+      this.targetAudience,
       this.description,
-      this.publisher});
+      this.rating,
+      this.edition});
 
   Book.fromJson(Map<String, dynamic> json) {
     title = json["title"];
@@ -47,9 +53,12 @@ class Book {
     genre = json["genre"];
     isbn = json["isbn"];
     imageUrl = json["image_url"];
-    rating = json["rating"];
+    language = json["language"];
+    pageCount = json["page_count"];
+    targetAudience = json["target_audience"];
     description = json["description"];
-    publisher = json["publisher"];
+    rating = json["rating"];
+    edition = json["edition"];
   }
 
   Map<String, dynamic> toJson() {
@@ -60,9 +69,12 @@ class Book {
     json["genre"] = genre;
     json["isbn"] = isbn;
     json["image_url"] = imageUrl;
-    json["rating"] = rating;
+    json["language"] = language;
+    json["page_count"] = pageCount;
+    json["target_audience"] = targetAudience;
     json["description"] = description;
-    json["publisher"] = publisher;
+    json["edition"] = edition;
+    json["rating"] = rating;
     return json;
   }
 }

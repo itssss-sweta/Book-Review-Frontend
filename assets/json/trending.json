@@ -9,7 +9,11 @@
             "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThaFyQoy6lb92b1zntTF-ZFoYVfvYhvz4WfA&s",
             "rating": 4.1,
             "description": "A psychological thriller about a woman who stops speaking after being accused of murdering her husband.",
-            "publisher": "Celadon Books"
+            "publisher": "Celadon Books",
+            "language": "English",
+            "page_count": 336,
+            "target_audience": "Adult",
+            "edition": "First Edition"
         },
         {
             "title": "Where the Crawdads Sing",
@@ -20,7 +24,11 @@
             "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1582135294i/36809135.jpg",
             "rating": 4.42,
             "description": "A coming-of-age story set in the marshes of North Carolina, blending mystery, romance, and nature writing.",
-            "publisher": "G.P. Putnam's Sons"
+            "publisher": "G.P. Putnam's Sons",
+            "language": "English",
+            "page_count": 368,
+            "target_audience": "Adult",
+            "edition": "First Edition"
         },
         {
             "title": "The Night Circus",
@@ -31,8 +39,12 @@
             "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcpODNO4Ia_VbdUGWfNqnhVlsSRK13D9zOLQ&s",
             "rating": 4.01,
             "description": "A magical competition between two young illusionists takes place within an enchanting circus.",
-            "publisher": "Doubleday"
-          },
+            "publisher": "Doubleday",
+            "language": "English",
+            "page_count": 496,
+            "target_audience": "Adult",
+            "edition": "First Edition"
+        },
         {
             "title": "The Seven Husbands of Evelyn Hugo",
             "author": "Taylor Jenkins Reid",
@@ -42,7 +54,11 @@
             "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa8uzPik9iDulA_ZoPX6_1WxuHOAaYn2xGVA&s",
             "rating": 4.37,
             "description": "A reclusive Hollywood icon recounts her glamorous and scandalous life to a young journalist, revealing secrets of love and loss.",
-            "publisher": "Atria Books"
+            "publisher": "Atria Books",
+            "language": "English",
+            "page_count": 400,
+            "target_audience": "Adult",
+            "edition": "First Edition"
         },
         {
             "title": "The Guest List",
@@ -53,7 +69,11 @@
             "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ40lkQ4PjA06cwGZcN0UC-r5qi8RF9GxCBgg&s",
             "rating": 4.16,
             "description": "At a wedding on a remote Irish island, secrets are revealed and tensions rise, leading to a shocking murder.",
-            "publisher": "William Morrow"
+            "publisher": "William Morrow",
+            "language": "English",
+            "page_count": 368,
+            "target_audience": "Adult",
+            "edition": "First Edition"
         },
         {
             "title": "The Invisible Life of Addie LaRue",
@@ -64,7 +84,11 @@
             "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIYgavw2CH_85-JqRMxKENpb_BHHGFyMv3bQ&s",
             "rating": 4.27,
             "description": "A young woman makes a Faustian bargain to live forever but is cursed to be forgotten by everyone she meets.",
-            "publisher": "Tor Books"
+            "publisher": "Tor Books",
+            "language": "English",
+            "page_count": 448,
+            "target_audience": "Adult",
+            "edition": "First Edition"
         },
         {
             "title": "Little Fires Everywhere",
@@ -75,18 +99,11 @@
             "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_5Q0Gtc3KsBmSThwEQnFO0NFXl4apxR3btw&s",
             "rating": 4.14,
             "description": "A gripping novel about the intertwined lives of two families in suburban Ohio.",
-            "publisher": "Penguin Press"
-        },
-        {
-            "title": "The Silent Patient",
-            "author": "Alex Michaelides",
-            "publication_year": 2019,
-            "genre": "Psychological Thriller",
-            "isbn": "978-1-63159-119-0",
-            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThaFyQoy6lb92b1zntTF-ZFoYVfvYhvz4WfA&s",
-            "rating": 4.1,
-            "description": "A psychological thriller about a woman who stops speaking after being accused of murdering her husband.",
-            "publisher": "Celadon Books"
+            "publisher": "Penguin Press",
+            "language": "English",
+            "page_count": 338,
+            "target_audience": "Adult",
+            "edition": "First Edition"
         },
         {
             "title": "Project Hail Mary",
@@ -97,7 +114,11 @@
             "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3gXAL8RDJEHW3GK-Xp3CwtA4HVvMP_0ly1Q&s",
             "rating": 4.54,
             "description": "A lone astronaut wakes up on a spaceship with no memory of why he’s there, tasked with saving humanity from an extinction-level event.",
-            "publisher": "Ballantine Books"
+            "publisher": "Ballantine Books",
+            "language": "English",
+            "page_count": 496,
+            "target_audience": "Adult",
+            "edition": "First Edition"
         },
         {
             "title": "The Priory of the Orange Tree",
@@ -108,7 +129,11 @@
             "image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1700221964i/40275288.jpg",
             "rating": 4.36,
             "description": "A standalone epic fantasy about dragons, queens, and a world on the brink of war.",
-            "publisher": "Bloomsbury Publishing"
+            "publisher": "Bloomsbury Publishing",
+            "language": "English",
+            "page_count": 848,
+            "target_audience": "Adult",
+            "edition": "First Edition"
         },
         {
             "title": "Anxious People",
@@ -119,7 +144,11 @@
             "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDtNY1YtwZ0xdVxW3rA1hbo3qke9zf-6uadg&s",
             "rating": 4.25,
             "description": "A poignant story about a failed bank robber who takes a group of strangers hostage at an open house.",
-            "publisher": "Atria Books"
+            "publisher": "Atria Books",
+            "language": "English",
+            "page_count": 368,
+            "target_audience": "Adult",
+            "edition": "First Edition"
         },
         {
             "title": "The Hating Game",
@@ -130,9 +159,11 @@
             "image_url": "https://m.media-amazon.com/images/I/717uYVw9SSL._AC_UF1000,1000_QL80_.jpg",
             "rating": 4.31,
             "description": "An enemies-to-lovers romantic comedy about two coworkers who can't stand each other but find their rivalry turning into romance.",
-            "publisher": "William Morrow"
+            "publisher": "William Morrow",
+            "language": "English",
+            "page_count": 368,
+            "target_audience": "Adult",
+            "edition": "First Edition"
         }
     ]
-  }
-  
-  
+}
