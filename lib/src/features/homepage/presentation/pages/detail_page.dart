@@ -1,67 +1,186 @@
 import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/features/homepage/domain/models/book_list_model.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/attribute_card.dart';
+import 'package:book_review/src/features/homepage/presentation/widgets/book_detail_animated_header_section.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/book_detail_bottom_sheet.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/book_detail_header_section.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/detail_text_section.dart';
 import 'package:book_review/src/shared/presentation/widgets/base_primary_button.dart';
 import 'package:flutter/material.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
   final Book book;
   const DetailPage({super.key, required this.book});
 
   @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
+  late ScrollController _scrollController;
+  double _scrollOffset = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController()
+      ..addListener(() {
+        setState(() {
+          _scrollOffset = _scrollController.offset;
+        });
+      });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              BookDetailHeaderSection(book: book),
-              Padding(
+        child: CustomScrollView(
+          controller: _scrollController,
+          physics: _scrollOffset < 100
+              ? const BouncingScrollPhysics()
+              : const ClampingScrollPhysics(),
+          slivers: [
+            SliverAppBar(
+              automaticallyImplyLeading: false,
+              pinned: true,
+              expandedHeight: _scrollOffset < 100
+                  ? MediaQuery.sizeOf(context).height / 2
+                  : MediaQuery.sizeOf(context).height / 1.5,
+              flexibleSpace: FlexibleSpaceBar(
+                background: _scrollOffset < 100
+                    ? BookDetailHeaderSection(book: widget.book)
+                    : BookDetailAnimatedHeaderSection(book: widget.book),
+              ),
+            ),
+            _scrollOffset < 100
+                ? SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                        return _buildDetailContents(context);
+                      },
+                      childCount: 1,
+                    ),
+                  )
+                : const SliverToBoxAdapter(),
+            SliverToBoxAdapter(
+              child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 12.0),
-                    _buildBookTitleAuthorSection(context, book),
-                    const SizedBox(height: 12.0),
-                    _buildAttributeCardRow(book),
-                    const SizedBox(height: 12.0),
-                    DetailTextSection(
-                        title: 'Summary', content: book.description),
-                    const SizedBox(height: 12.0),
-                    DetailTextSection(title: 'Genre', content: book.genre),
-                    const SizedBox(height: 12.0),
-                    BasePrimaryButton(
-                      buttonColor: AppColors.primaryColor.withOpacity(0.8),
-                      buttonWidth: MediaQuery.sizeOf(context).width,
-                      onPressed: () => _showBottomSheet(context, book),
-                      borderRadius: 8.0,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(Icons.add,
-                              color: AppColors.backgroundColor, size: 18),
-                          const SizedBox(width: 4.0),
-                          Text(
-                            'Add to List',
-                            style: Theme.of(context)
-                                .textTheme
-                                .labelMedium
-                                ?.copyWith(color: AppColors.backgroundColor),
-                          ),
+                    Text(
+                      'Reviews',
+                      style: Theme.of(context)
+                          .textTheme
+                          .labelLarge
+                          ?.copyWith(fontSize: 20),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.sizeOf(context).height / 2,
+                      child: ListView(
+                        children: const [
+                          ReviewRow(),
+                          ReviewRow(),
+                          ReviewRow(),
+                          ReviewRow(),
+                          ReviewRow(),
+                          ReviewRow(),
+                          ReviewRow(),
+                          ReviewRow(),
+                          ReviewRow(),
+                          ReviewRow(),
+                          ReviewRow(),
+                          ReviewRow(),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
+      ),
+    );
+  }
+
+  Padding _buildDetailContents(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 12.0),
+          _buildBookTitleAuthorSection(context, widget.book),
+          const SizedBox(height: 12.0),
+          _buildAttributeCardRow(widget.book),
+          const SizedBox(height: 12.0),
+          DetailTextSection(title: 'Summary', content: widget.book.description),
+          const SizedBox(height: 12.0),
+          DetailTextSection(title: 'Genre', content: widget.book.genre),
+          const SizedBox(height: 12.0),
+          BasePrimaryButton(
+            buttonColor: AppColors.primaryColor.withOpacity(0.8),
+            buttonWidth: MediaQuery.sizeOf(context).width,
+            onPressed: () => _showBottomSheet(context, widget.book),
+            borderRadius: 8.0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(Icons.add,
+                    color: AppColors.backgroundColor, size: 18),
+                const SizedBox(width: 4.0),
+                Text(
+                  'Add to List',
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelMedium
+                      ?.copyWith(color: AppColors.backgroundColor),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ReviewRow extends StatelessWidget {
+  const ReviewRow({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+      child: Row(
+        children: [
+          CircleAvatar(
+            radius: 20,
+            child: Icon(Icons.person),
+          ),
+          SizedBox(
+            width: 16.0,
+          ),
+          Expanded(
+            child: Text(
+              'hfuidsh dfhsud fsduf sdfhushdf sdhfiksjd jdsfusdh dfhsiudhf sdfdsfdsf dfhsd fsiodjfiosd fjdhfiosjdf jdsfhoduihf sdfsd',
+              maxLines: 10,
+              softWrap: true,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
       ),
     );
   }

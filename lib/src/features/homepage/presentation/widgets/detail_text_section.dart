@@ -17,6 +17,9 @@ class DetailTextSection extends StatelessWidget {
         Text(
           content ?? '',
           style: Theme.of(context).textTheme.bodyMedium,
+          softWrap: true,
+          maxLines: 5,
+          overflow: TextOverflow.ellipsis,
         ),
       ],
     );
