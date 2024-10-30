@@ -40,6 +40,10 @@ class _DetailPageState extends State<DetailPage> {
   @override
   @override
   Widget build(BuildContext context) {
+    double expandedHeight = Tween<double>(
+      begin: MediaQuery.of(context).size.height / 2,
+      end: MediaQuery.of(context).size.height / 1.5,
+    ).transform((_scrollOffset / 100).clamp(0, 1));
     return Scaffold(
       body: SafeArea(
         child: CustomScrollView(
@@ -51,9 +55,7 @@ class _DetailPageState extends State<DetailPage> {
             SliverAppBar(
               automaticallyImplyLeading: false,
               pinned: true,
-              expandedHeight: _scrollOffset < 100
-                  ? MediaQuery.sizeOf(context).height / 2
-                  : MediaQuery.sizeOf(context).height / 1.5,
+              expandedHeight: expandedHeight,
               flexibleSpace: FlexibleSpaceBar(
                 background: _scrollOffset < 100
                     ? BookDetailHeaderSection(book: widget.book)
@@ -84,7 +86,7 @@ class _DetailPageState extends State<DetailPage> {
                           ?.copyWith(fontSize: 20),
                     ),
                     SizedBox(
-                      height: MediaQuery.sizeOf(context).height / 2,
+                      height: MediaQuery.sizeOf(context).height / 2.5,
                       child: ListView(
                         children: const [
                           ReviewRow(),
