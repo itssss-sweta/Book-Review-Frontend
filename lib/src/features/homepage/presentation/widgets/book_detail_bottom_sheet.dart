@@ -13,60 +13,68 @@ class BookDetailBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final keyboardHeight = MediaQuery.viewInsetsOf(context).bottom;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 16.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            book.title ?? '',
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          const SizedBox(height: 12.0),
-          Row(
-            children: [
-              _buildStatusDropDown(),
-              const SizedBox(width: 8.0),
-              _buildPageInputFiels(context, book),
-            ],
-          ),
-          const SizedBox(height: 8.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text('Rate', style: Theme.of(context).textTheme.labelMedium),
-              _buildRateDropDown(),
-            ],
-          ),
-          const SizedBox(height: 8.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Flexible(
-                flex: 2,
-                child: BasePrimaryButton(
-                  onPressed: () => Navigator.pop(context),
-                  label: 'Cancel',
-                  buttonColor: AppColors.cardColor,
-                  textColor: AppColors.primaryColor,
-                  borderColor: AppColors.disabledButtonColor,
-                  borderRadius: 8.0,
+      padding: EdgeInsets.only(
+        top: 24.0,
+        bottom: keyboardHeight + 24.0,
+        left: 16.0,
+        right: 16.0,
+      ),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              book.title ?? '',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            const SizedBox(height: 12.0),
+            Row(
+              children: [
+                _buildStatusDropDown(),
+                const SizedBox(width: 8.0),
+                _buildPageInputFiels(context, book),
+              ],
+            ),
+            const SizedBox(height: 8.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text('Rate', style: Theme.of(context).textTheme.labelMedium),
+                _buildRateDropDown(),
+              ],
+            ),
+            const SizedBox(height: 8.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Flexible(
+                  flex: 2,
+                  child: BasePrimaryButton(
+                    onPressed: () => Navigator.pop(context),
+                    label: 'Cancel',
+                    buttonColor: AppColors.cardColor,
+                    textColor: AppColors.primaryColor,
+                    borderColor: AppColors.disabledButtonColor,
+                    borderRadius: 8.0,
+                  ),
                 ),
-              ),
-              const Flexible(flex: 1, child: SizedBox()),
-              Flexible(
-                flex: 2,
-                child: BasePrimaryButton(
-                  buttonColor: AppColors.secondaryColor.withOpacity(0.8),
-                  onPressed: () {},
-                  label: 'Submit',
-                  borderRadius: 8.0,
+                const Flexible(flex: 1, child: SizedBox()),
+                Flexible(
+                  flex: 2,
+                  child: BasePrimaryButton(
+                    buttonColor: AppColors.secondaryColor.withOpacity(0.8),
+                    onPressed: () {},
+                    label: 'Submit',
+                    borderRadius: 8.0,
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
