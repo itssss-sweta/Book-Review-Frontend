@@ -31,27 +31,35 @@ class GenreSection extends StatelessWidget {
             itemBuilder: (context, index) {
               final genre = genreList.genres?[index];
               return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Stack(
-                  children: [
-                    BaseNetworkImage(
-                      imageUrl: genre?.image ?? '',
-                      height: 100,
-                      width: 200,
-                      boxFit: BoxFit.cover,
-                    ),
-                    Positioned(
-                      bottom: 10,
-                      left: 10,
-                      child: Text(
-                        genre?.name ?? 'No Title',
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelMedium
-                            ?.copyWith(color: AppColors.backgroundColor),
+                padding: const EdgeInsets.all(4.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    border:
+                        Border.all(color: AppColors.cardColor.withOpacity(0.5)),
+                  ),
+                  clipBehavior: Clip.antiAlias,
+                  child: Stack(
+                    children: [
+                      BaseNetworkImage(
+                        imageUrl: genre?.image ?? '',
+                        height: 190,
+                        width: 200,
+                        boxFit: BoxFit.cover,
                       ),
-                    )
-                  ],
+                      Positioned(
+                        bottom: 10,
+                        left: 10,
+                        child: Text(
+                          genre?.name ?? 'No Title',
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelMedium
+                              ?.copyWith(color: AppColors.backgroundColor),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               );
             },

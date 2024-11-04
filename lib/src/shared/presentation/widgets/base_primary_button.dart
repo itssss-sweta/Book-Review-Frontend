@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 /// It uses a TextButton with custom styles for flexibility in various UI parts.
 class BasePrimaryButton extends StatelessWidget {
   /// The label text displayed on the button.
-  final String label;
+  final String? label;
 
   /// The background color of the button. Defaults to `AppColors.secondaryColor` if not provided.
   final Color? buttonColor;
@@ -26,6 +26,11 @@ class BasePrimaryButton extends StatelessWidget {
   /// Width of button.
   final double? buttonWidth;
 
+  /// Radius of border of button.
+  final double? borderRadius;
+
+  final Widget? child;
+
   /// Constructor for the BasePrimaryButton widget.
   ///
   /// * [label] is required and defines the text on the button.
@@ -35,13 +40,15 @@ class BasePrimaryButton extends StatelessWidget {
   /// * [onPressed] is the function to handle button presses, with a default empty function.
   const BasePrimaryButton({
     super.key,
-    required this.label,
+    this.label,
     this.buttonColor = AppColors.secondaryColor,
     this.borderColor,
     this.textColor = AppColors.white,
     required this.onPressed,
     this.buttonHeight,
     this.buttonWidth,
+    this.borderRadius = 28,
+    this.child,
   });
 
   @override
@@ -56,18 +63,21 @@ class BasePrimaryButton extends StatelessWidget {
                 color:
                     borderColor ?? AppColors.primaryTextColor.withOpacity(0.2),
               ),
-              borderRadius: const BorderRadius.all(Radius.circular(28))),
+              borderRadius: BorderRadius.all(Radius.circular(borderRadius!))),
         ),
         fixedSize: WidgetStatePropertyAll(Size(
             buttonWidth ?? MediaQuery.sizeOf(context).width / 1.2,
             buttonHeight ?? 50)),
         backgroundColor: WidgetStatePropertyAll(buttonColor),
       ),
-      child: Text(
-        label,
-        style:
-            Theme.of(context).textTheme.labelLarge?.copyWith(color: textColor),
-      ),
+      child: child ??
+          Text(
+            label ?? '',
+            style: Theme.of(context)
+                .textTheme
+                .labelLarge
+                ?.copyWith(color: textColor),
+          ),
     );
   }
 }

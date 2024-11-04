@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 /// A customizable text field widget used across the app to provide consistent styling
 /// and functionality, such as optional password visibility toggle and input type selection.
-class BaseTextField extends StatelessWidget {
+class UnderLineBorderTextField extends StatelessWidget {
   /// Placeholder text shown inside the text field when it is empty.
   final String hintText;
 
@@ -29,7 +29,7 @@ class BaseTextField extends StatelessWidget {
   /// * [textInputType] defines the type of keyboard layout to be shown, defaulting to standard text input.
   /// * [controller] is required and manages the text input by providing access to its current value.
   /// * [validator]
-  const BaseTextField({
+  const UnderLineBorderTextField({
     super.key,
     required this.hintText,
     this.isObscure = false,

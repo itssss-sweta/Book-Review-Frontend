@@ -44,7 +44,7 @@ class CustomLabeledTextField extends StatelessWidget {
                 ),
               ]),
         ),
-        BaseTextField(
+        UnderLineBorderTextField(
           hintText: hintText,
           controller: controller,
           isObscure: isObscure,
