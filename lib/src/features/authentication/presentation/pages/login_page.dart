@@ -21,6 +21,7 @@ class LoginPage extends StatelessWidget {
       body: BlocListener<AuthBloc, AuthenticationState>(
         listener: (context, state) {
           if (state is Authenticated) {
+            authBloc.close();
             Navigator.of(context).pushNamedAndRemoveUntil(
               RoutesName.home,
               (route) => false,

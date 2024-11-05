@@ -60,6 +60,7 @@ class _HomePageState extends State<HomePage> {
               LoadingDialog.showLoadingDialog(context,
                   loadingTitle: 'Logging out...');
             } else if (state.logoutSuccessful) {
+              context.read<HomePageBloc>().close();
               Navigator.of(context).pushNamedAndRemoveUntil(
                 RoutesName.login,
                 (route) => false,
