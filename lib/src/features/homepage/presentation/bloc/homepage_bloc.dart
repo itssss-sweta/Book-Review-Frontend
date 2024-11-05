@@ -26,8 +26,8 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
   Future<void> _onDataFetch(
       DataFetchEvent event, Emitter<HomePageState> emit) async {
     await Future.wait([
-      _fetchBooks(emit),
       _fetchTrendingBooks(emit),
+      _fetchBooks(emit),
       _fetchRecommendedBooks(emit),
       _fetchNewBooks(emit),
       _fetchGenres(emit),

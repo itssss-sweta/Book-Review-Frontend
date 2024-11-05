@@ -1,5 +1,5 @@
 {
-    "trending_books": [
+    "books": [
         {
             "title": "The Silent Patient",
             "author": "Alex Michaelides",
@@ -90,6 +90,81 @@
             "target_audience": "Adult",
             "edition": "First Edition"
         },
+        {
+            "title": "To Kill a Mockingbird",
+            "author": "Harper Lee",
+            "publication_year": 1960,
+            "genre": "Fiction",
+            "isbn": "978-0-06-112008-4",
+            "image_url": "https://cdn.britannica.com/21/182021-050-666DB6B1/book-cover-To-Kill-a-Mockingbird-many-1961.jpg?w=300",
+            "rating": 4.27,
+            "publisher": "J.B. Lippincott & Co.",
+            "language": "English",
+            "page_count": 281,
+            "target_audience": "Adult",
+            "description": "A young girl, Scout Finch, recounts her childhood in a racially divided Southern town, exploring themes of injustice and moral growth.",
+            "edition": "50th Anniversary Edition"
+          },
+          {
+            "title": "1984",
+            "author": "George Orwell",
+            "publication_year": 1949,
+            "genre": "Dystopian",
+            "isbn": "978-0-452-28423-4",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGITEIVfBKWwxcy_J3_3-k37PyykrIou8WJg&s",
+            "rating": 4.17,
+            "publisher": "Secker & Warburg",
+            "language": "English",
+            "page_count": 328,
+            "target_audience": "Adult",
+            "description": "In a totalitarian society governed by the Party and its leader, Big Brother, Winston Smith struggles with oppression and seeks truth.",
+            "edition": "New Edition"
+          },
+          {
+            "title": "The Great Gatsby",
+            "author": "F. Scott Fitzgerald",
+            "publication_year": 1925,
+            "genre": "Fiction",
+            "isbn": "978-0-7432-7356-5",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKi5lknrw7SIwZ01RQRqyvtXz2bFxrUsGVpA&s",
+            "rating": 3.91,
+            "publisher": "Charles Scribner's Sons",
+            "language": "English",
+            "page_count": 180,
+            "target_audience": "Adult",
+            "description": "Set in the 1920s, the novel explores themes of decadence, idealism, and the American Dream through the eyes of narrator Nick Carraway.",
+            "edition": "Annotated Edition"
+          },
+          {
+            "title": "Moby Dick",
+            "author": "Herman Melville",
+            "publication_year": 1851,
+            "genre": "Adventure",
+            "isbn": "978-0-14-243724-7",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrlimtxw_olWw4HpnXfhjWkF6CDV_X95gUcQ&s",
+            "rating": 3.52,
+            "publisher": "Harper & Brothers",
+            "language": "English",
+            "page_count": 585,
+            "target_audience": "Adult",
+            "description": "Moby Dick is a complex tale that examines themes of obsession, revenge, and humanity's struggle against nature.",
+            "edition": "Collector's Edition"
+          },
+          {
+            "title": "Pride and Prejudice",
+            "author": "Jane Austen",
+            "publication_year": 1813,
+            "genre": "Romance",
+            "isbn": "978-0-19-953556-9",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrpPwNtwVg53tJUg4asRwcUrSA1qo68jvFQA&s",
+            "rating": 4.25,
+            "publisher": "T. Egerton",
+            "language": "English",
+            "page_count": 432,
+            "target_audience": "Adult",
+            "description": "This classic novel explores themes of love, class, and individual agency through the experiences of Elizabeth Bennet and Mr. Darcy.",
+            "edition": "Annotated Edition"
+          },
         {
             "title": "Little Fires Everywhere",
             "author": "Celeste Ng",

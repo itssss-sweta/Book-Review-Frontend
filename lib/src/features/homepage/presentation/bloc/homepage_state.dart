@@ -75,7 +75,7 @@ class HomePageState {
       bookList: bookList ?? this.bookList,
       newBookList: newBookList ?? this.newBookList,
       recommendedBookList: recommendedBookList ?? this.recommendedBookList,
-      trendingBookList: bookList ?? this.bookList,
+      trendingBookList: trendingBookList ?? this.trendingBookList,
       genreList: genreList ?? this.genreList,
       bookError: bookError ?? this.bookError,
       recommendeBookError: recommendeBookError ?? this.recommendeBookError,
