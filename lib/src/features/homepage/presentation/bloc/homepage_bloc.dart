@@ -19,6 +19,7 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
     CacheServices.getCacheServicesInstance.saveAccessToken('');
     CacheServices.getCacheServicesInstance.saveIsLogin(false);
     emit(state.copyWith(
+      isLoggingOut: false,
       logoutSuccessful: true,
     ));
   }
