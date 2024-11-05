@@ -5,6 +5,7 @@ import 'package:book_review/src/features/authentication/presentation/pages/welco
 import 'package:book_review/src/features/homepage/domain/models/book_list_model.dart';
 import 'package:book_review/src/features/homepage/presentation/pages/detail_page.dart';
 import 'package:book_review/src/features/homepage/presentation/pages/homepage.dart';
+import 'package:book_review/src/features/homepage/presentation/pages/view_all_page.dart';
 import 'package:book_review/src/features/splash/presentation/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -37,6 +38,17 @@ class RouterClass {
       case RoutesName.home:
         return MaterialPageRoute(
           builder: (context) => const HomePage(),
+        );
+      case RoutesName.viewAll:
+        final args = settings.arguments as Map<String, dynamic>;
+        final title = args['title'] as String;
+        final bookList = args['bookList'] as BookListModel;
+
+        return MaterialPageRoute(
+          builder: (context) => ViewAllPage(
+            title: title,
+            bookList: bookList,
+          ),
         );
       default:
         return MaterialPageRoute(

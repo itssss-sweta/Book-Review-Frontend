@@ -42,7 +42,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     double expandedHeight = Tween<double>(
       begin: MediaQuery.of(context).size.height / 2,
-      end: MediaQuery.of(context).size.height / 1.5,
+      end: MediaQuery.of(context).size.height / 1.38,
     ).transform((_scrollOffset / 100).clamp(0, 1));
     return Scaffold(
       body: SafeArea(

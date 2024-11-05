@@ -71,7 +71,15 @@ class _HomePageState extends State<HomePage> {
               SliverToBoxAdapter(
                 child: SectionTitleRowWidget(
                   title: 'Top Trending Books',
-                  onPressed: () {},
+                  onPressed: () {
+                    final bookList =
+                        context.read<HomePageBloc>().state.trendingBookList;
+                    Navigator.of(context)
+                        .pushNamed(RoutesName.viewAll, arguments: {
+                      "title": "Top Trending Books",
+                      "bookList": bookList,
+                    });
+                  },
                 ),
               ),
               SliverToBoxAdapter(
@@ -105,7 +113,15 @@ class _HomePageState extends State<HomePage> {
               SliverToBoxAdapter(
                 child: SectionTitleRowWidget(
                   title: 'Recommended For You',
-                  onPressed: () {},
+                  onPressed: () {
+                    final bookList =
+                        context.read<HomePageBloc>().state.recommendedBookList;
+                    Navigator.of(context)
+                        .pushNamed(RoutesName.viewAll, arguments: {
+                      "title": 'Recommended For You',
+                      "bookList": bookList,
+                    });
+                  },
                 ),
               ),
               SliverToBoxAdapter(
@@ -127,7 +143,15 @@ class _HomePageState extends State<HomePage> {
               SliverToBoxAdapter(
                 child: SectionTitleRowWidget(
                   title: 'Recently Updated',
-                  onPressed: () {},
+                  onPressed: () {
+                    final bookList =
+                        context.read<HomePageBloc>().state.newBookList;
+                    Navigator.of(context)
+                        .pushNamed(RoutesName.viewAll, arguments: {
+                      "title": 'Recently Updated',
+                      "bookList": bookList,
+                    });
+                  },
                 ),
               ),
               SliverToBoxAdapter(
