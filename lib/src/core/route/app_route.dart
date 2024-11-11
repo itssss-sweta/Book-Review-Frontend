@@ -6,7 +6,7 @@ import 'package:book_review/src/features/authentication/presentation/pages/welco
 import 'package:book_review/src/features/homepage/domain/models/book_list_model.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/homepage_bloc.dart';
 import 'package:book_review/src/features/homepage/presentation/pages/detail_page.dart';
-import 'package:book_review/src/features/homepage/presentation/pages/homepage.dart';
+import 'package:book_review/src/features/homepage/presentation/pages/main_page.dart';
 import 'package:book_review/src/features/homepage/presentation/pages/view_all_page.dart';
 import 'package:book_review/src/features/splash/presentation/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +45,7 @@ class RouterClass {
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (_) => HomePageBloc(),
-            child: const HomePage(),
+            child: const MainPage(),
           ),
         );
       case RoutesName.viewAll:
@@ -61,7 +61,7 @@ class RouterClass {
         );
       default:
         return MaterialPageRoute(
-          builder: (context) => const HomePage(),
+          builder: (context) => const MainPage(),
         );
     }
   }
