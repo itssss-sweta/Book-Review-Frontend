@@ -5,6 +5,7 @@ import 'package:book_review/src/features/homepage/presentation/widgets/book_deta
 import 'package:book_review/src/features/homepage/presentation/widgets/book_detail_bottom_sheet.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/book_detail_header_section.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/detail_text_section.dart';
+import 'package:book_review/src/features/homepage/presentation/widgets/review_widget.dart';
 import 'package:book_review/src/shared/presentation/widgets/base_primary_button.dart';
 import 'package:flutter/material.dart';
 
@@ -89,18 +90,114 @@ class _DetailPageState extends State<DetailPage> {
                       height: MediaQuery.sizeOf(context).height / 2.5,
                       child: ListView(
                         children: const [
-                          ReviewRow(),
-                          ReviewRow(),
-                          ReviewRow(),
-                          ReviewRow(),
-                          ReviewRow(),
-                          ReviewRow(),
-                          ReviewRow(),
-                          ReviewRow(),
-                          ReviewRow(),
-                          ReviewRow(),
-                          ReviewRow(),
-                          ReviewRow(),
+                          ReviewWidget(
+                            rating: 4,
+                            reviewDate: '02 Jan,2023',
+                            reviewText:
+                                'The Midnight Library is an inspiring novel that explores the regrets, "what-ifs," and second chances we all wish for. The story follows Nora Seed, who finds herself in a magical library between life and death, where each book represents a different version of her life based on the choices she could have made. Haig’s writing is beautifully poignant, gently guiding readers to reflect on their own lives and choices. Each alternate life Nora explores reveals valuable lessons about self-acceptance, resilience, and the beauty of imperfection. This novel is both heartwarming and thought-provoking, leaving a lasting impact on how we view our regrets and aspirations. It\'s a must-read for anyone looking for a blend of whimsy and wisdom. Highly recommended!',
+                            reviewerName: 'Hannah Al Tah.',
+                            profileImageUrl:
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
+                          ),
+                          ReviewWidget(
+                            rating: 4,
+                            reviewDate: '02 Jan,2023',
+                            reviewText:
+                                'skjdfksd fndifjhnskdjfns djfhsidnfsd vsbdviushndivjsdij',
+                            reviewerName: 'Hannah Al Tah.',
+                            profileImageUrl:
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
+                          ),
+                          ReviewWidget(
+                            rating: 4,
+                            reviewDate: '02 Jan,2023',
+                            reviewText:
+                                'skjdfksd fndifjhnskdjfns djfhsidnfsd vsbdviushndivjsdij',
+                            reviewerName: 'Hannah Al Tah.',
+                            profileImageUrl:
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
+                          ),
+                          ReviewWidget(
+                            rating: 4,
+                            reviewDate: '02 Jan,2023',
+                            reviewText:
+                                'skjdfksd fndifjhnskdjfns djfhsidnfsd vsbdviushndivjsdij',
+                            reviewerName: 'Hannah Al Tah.',
+                            profileImageUrl:
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
+                          ),
+                          ReviewWidget(
+                            rating: 4,
+                            reviewDate: '02 Jan,2023',
+                            reviewText:
+                                'skjdfksd fndifjhnskdjfns djfhsidnfsd vsbdviushndivjsdij',
+                            reviewerName: 'Hannah Al Tah.',
+                            profileImageUrl:
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
+                          ),
+                          ReviewWidget(
+                            rating: 4,
+                            reviewDate: '02 Jan,2023',
+                            reviewText:
+                                'skjdfksd fndifjhnskdjfns djfhsidnfsd vsbdviushndivjsdij',
+                            reviewerName: 'Hannah Al Tah.',
+                            profileImageUrl:
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
+                          ),
+                          ReviewWidget(
+                            rating: 4,
+                            reviewDate: '02 Jan,2023',
+                            reviewText:
+                                'skjdfksd fndifjhnskdjfns djfhsidnfsd vsbdviushndivjsdij',
+                            reviewerName: 'Hannah Al Tah.',
+                            profileImageUrl:
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
+                          ),
+                          ReviewWidget(
+                            rating: 4,
+                            reviewDate: '02 Jan,2023',
+                            reviewText:
+                                'skjdfksd fndifjhnskdjfns djfhsidnfsd vsbdviushndivjsdij',
+                            reviewerName: 'Hannah Al Tah.',
+                            profileImageUrl:
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
+                          ),
+                          ReviewWidget(
+                            rating: 4,
+                            reviewDate: '02 Jan,2023',
+                            reviewText:
+                                'skjdfksd fndifjhnskdjfns djfhsidnfsd vsbdviushndivjsdij',
+                            reviewerName: 'Hannah Al Tah.',
+                            profileImageUrl:
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
+                          ),
+                          ReviewWidget(
+                            rating: 4,
+                            reviewDate: '02 Jan,2023',
+                            reviewText:
+                                'skjdfksd fndifjhnskdjfns djfhsidnfsd vsbdviushndivjsdij',
+                            reviewerName: 'Hannah Al Tah.',
+                            profileImageUrl:
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
+                          ),
+                          ReviewWidget(
+                            rating: 4,
+                            reviewDate: '02 Jan,2023',
+                            reviewText:
+                                'skjdfksd fndifjhnskdjfns djfhsidnfsd vsbdviushndivjsdij',
+                            reviewerName: 'Hannah Al Tah.',
+                            profileImageUrl:
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
+                          ),
+                          ReviewWidget(
+                            rating: 4,
+                            reviewDate: '02 Jan,2023',
+                            reviewText:
+                                'skjdfksd fndifjhnskdjfns djfhsidnfsd vsbdviushndivjsdij',
+                            reviewerName: 'Hannah Al Tah.',
+                            profileImageUrl:
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
+                          ),
                         ],
                       ),
                     ),
@@ -148,38 +245,6 @@ class _DetailPageState extends State<DetailPage> {
                       ?.copyWith(color: AppColors.backgroundColor),
                 ),
               ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ReviewRow extends StatelessWidget {
-  const ReviewRow({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
-      child: Row(
-        children: [
-          CircleAvatar(
-            radius: 20,
-            child: Icon(Icons.person),
-          ),
-          SizedBox(
-            width: 16.0,
-          ),
-          Expanded(
-            child: Text(
-              'hfuidsh dfhsud fsduf sdfhushdf sdhfiksjd jdsfusdh dfhsiudhf sdfdsfdsf dfhsd fsiodjfiosd fjdhfiosjdf jdsfhoduihf sdfsd',
-              maxLines: 10,
-              softWrap: true,
-              overflow: TextOverflow.ellipsis,
             ),
           ),
         ],
