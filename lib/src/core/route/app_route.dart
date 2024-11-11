@@ -6,6 +6,7 @@ import 'package:book_review/src/features/authentication/presentation/pages/welco
 import 'package:book_review/src/features/homepage/domain/models/book_list_model.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/homepage_bloc.dart';
 import 'package:book_review/src/features/homepage/presentation/pages/detail_page.dart';
+import 'package:book_review/src/features/homepage/presentation/pages/favourite_page.dart';
 import 'package:book_review/src/features/homepage/presentation/pages/main_page.dart';
 import 'package:book_review/src/features/homepage/presentation/pages/view_all_page.dart';
 import 'package:book_review/src/features/splash/presentation/pages/splash_screen.dart';
@@ -47,6 +48,10 @@ class RouterClass {
             create: (_) => HomePageBloc(),
             child: const MainPage(),
           ),
+        );
+      case RoutesName.favourite:
+        return MaterialPageRoute(
+          builder: (_) => const FavouritePage(),
         );
       case RoutesName.viewAll:
         final args = settings.arguments as Map<String, dynamic>;

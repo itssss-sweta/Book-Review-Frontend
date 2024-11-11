@@ -1,8 +1,8 @@
+import 'package:book_review/src/core/route/routes_name.dart';
 import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/core/utils/constant/ui_texts.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/bottom_nav_bloc.dart';
-import 'package:book_review/src/features/homepage/presentation/bloc/homepage_bloc.dart';
-import 'package:book_review/src/features/homepage/presentation/bloc/homepage_event.dart';
+import 'package:book_review/src/features/homepage/presentation/pages/account_page.dart';
 import 'package:book_review/src/features/homepage/presentation/pages/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,9 +33,9 @@ class MainPage extends StatelessWidget {
           actions: [
             IconButton(
                 onPressed: () {
-                  context.read<HomePageBloc>().add(LogoutEvent());
+                  Navigator.of(context).pushNamed(RoutesName.favourite);
                 },
-                icon: const Icon(Icons.logout)),
+                icon: const Icon(Icons.favorite)),
           ],
         ),
         body: BlocBuilder<BottomNavBloc, int>(
@@ -48,7 +48,7 @@ class MainPage extends StatelessWidget {
               case 2:
                 return const Center(child: Text("Notifications Screen"));
               case 3:
-                return const Center(child: Text("Account Screen"));
+                return const AccountPage();
               default:
                 return const Center(child: Text("Unknown Screen"));
             }
