@@ -33,6 +33,12 @@ class AppColors {
   /// White
   static const Color white = Color(0xFFFFFFFF);
 
+  /// Soft grayish blue
+  static const Color onHoldColor = Color(0xFF5F6368);
+
+  /// Deep Red
+  static const Color droppedColor = Color(0xFFB91C1C);
+
   // Buttons Colors
   /// Muted Gray
   static const Color disabledButtonColor = Color(0xFFD1D5DB);

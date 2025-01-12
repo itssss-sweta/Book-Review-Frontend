@@ -6,6 +6,8 @@ class RoutesName {
   static const String register = '/register';
   static const String home = '/home';
   static const String detail = '/detail';
+
   static const String viewAll = '/viewAll';
   static const String favourite = '/favourite';
+  static const String myList = '/myList';
 }

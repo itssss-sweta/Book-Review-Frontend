@@ -1,4 +1,5 @@
 import 'package:book_review/src/core/route/routes_name.dart';
+import 'package:book_review/src/features/account/presentation/pages/my_list_page.dart';
 import 'package:book_review/src/features/authentication/presentation/bloc/authentication_bloc.dart';
 import 'package:book_review/src/features/authentication/presentation/pages/login_page.dart';
 import 'package:book_review/src/features/authentication/presentation/pages/register_page.dart';
@@ -52,6 +53,10 @@ class RouterClass {
       case RoutesName.favourite:
         return MaterialPageRoute(
           builder: (_) => const FavouritePage(),
+        );
+      case RoutesName.myList:
+        return MaterialPageRoute(
+          builder: (_) => const MyListPage(),
         );
       case RoutesName.viewAll:
         final args = settings.arguments as Map<String, dynamic>;

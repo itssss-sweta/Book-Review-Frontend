@@ -2,7 +2,7 @@ import 'package:book_review/src/core/route/routes_name.dart';
 import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/core/utils/constant/ui_texts.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/bottom_nav_bloc.dart';
-import 'package:book_review/src/features/homepage/presentation/pages/account_page.dart';
+import 'package:book_review/src/features/account/presentation/pages/account_page.dart';
 import 'package:book_review/src/features/homepage/presentation/pages/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
