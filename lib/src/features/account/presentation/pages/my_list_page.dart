@@ -21,47 +21,52 @@ class MyListPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemCount: myListBooks.length,
-          itemBuilder: (context, index) {
-            final book = myListBooks[index];
-            final bookDetail = book.book;
-            return Card(
-              margin: const EdgeInsets.symmetric(vertical: 8.0),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-                side: const BorderSide(color: AppColors.cardColor, width: 1),
+        child: myListBooks.isEmpty
+            ? const Center(
+                child: Text('No Book Found in MyList'),
+              )
+            : ListView.builder(
+                itemCount: myListBooks.length,
+                itemBuilder: (context, index) {
+                  final book = myListBooks[index];
+                  final bookDetail = book.book;
+                  return Card(
+                    margin: const EdgeInsets.symmetric(vertical: 8.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      side: const BorderSide(
+                          color: AppColors.cardColor, width: 1),
+                    ),
+                    child: ListTile(
+                      contentPadding: const EdgeInsets.all(16.0),
+                      leading: CachedNetworkImage(
+                        imageUrl: bookDetail?.imageUrl ?? '',
+                        height: 100,
+                      ),
+                      title: Text(
+                        bookDetail?.title ?? '',
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16,
+                          color: AppColors.primaryTextColor,
+                        ),
+                      ),
+                      subtitle: Row(
+                        children: [
+                          _getStatusBadge(book.bookStatus?.status ?? ''),
+                        ],
+                      ),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.remove_circle_outline),
+                        color: AppColors.errorColor,
+                        onPressed: () {
+                          // Handle remove book action
+                        },
+                      ),
+                    ),
+                  );
+                },
               ),
-              child: ListTile(
-                contentPadding: const EdgeInsets.all(16.0),
-                leading: CachedNetworkImage(
-                  imageUrl: bookDetail?.imageUrl ?? '',
-                  height: 100,
-                ),
-                title: Text(
-                  bookDetail?.title ?? '',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                    color: AppColors.primaryTextColor,
-                  ),
-                ),
-                subtitle: Row(
-                  children: [
-                    _getStatusBadge(book.bookStatus?.status ?? ''),
-                  ],
-                ),
-                trailing: IconButton(
-                  icon: const Icon(Icons.remove_circle_outline),
-                  color: AppColors.errorColor,
-                  onPressed: () {
-                    // Handle remove book action
-                  },
-                ),
-              ),
-            );
-          },
-        ),
       ),
     );
   }

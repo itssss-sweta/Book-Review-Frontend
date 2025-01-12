@@ -19,12 +19,16 @@ class FavouritePage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: ListView.builder(
-          itemCount: books.length,
-          itemBuilder: (context, index) {
-            return BookCard(book: books[index]);
-          },
-        ),
+        child: books.isEmpty
+            ? const Center(
+                child: Text('No Favourite Book'),
+              )
+            : ListView.builder(
+                itemCount: books.length,
+                itemBuilder: (context, index) {
+                  return BookCard(book: books[index]);
+                },
+              ),
       ),
     );
   }
