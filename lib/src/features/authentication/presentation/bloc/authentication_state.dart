@@ -1,5 +1,4 @@
-// auth_state.dart
-abstract class AuthenticationState {}
+sealed class AuthenticationState {}
 
 class AuthenticationInitial extends AuthenticationState {}
 
