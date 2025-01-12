@@ -1,5 +1,6 @@
 import 'package:book_review/src/features/account/domain/models/my_list_model.dart';
 import 'package:book_review/src/features/homepage/data/repository/home_page_repository_dummy_impl.dart';
+import 'package:book_review/src/features/homepage/domain/models/book_list_model.dart';
 import 'package:book_review/src/features/homepage/domain/repository/homepage_repository.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/homepage_event.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/homepage_state.dart';
@@ -9,11 +10,14 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
   HomePageBloc() : super(HomePageState()) {
     on<DataFetchEvent>(_onDataFetch);
     on<AddToListEvent>(_addToMyList);
+    on<AddToFavouriteEvent>(_addToFavourite);
   }
   final HomePageRepository _homePageRepositoryLocal =
       HomePageRepositoryDummyImpl();
 
   List<MyListModel> myListBooks = [];
+
+  List<Book> favouriteBooks = [];
 
   Future<void> _onDataFetch(
       DataFetchEvent event, Emitter<HomePageState> emit) async {
@@ -95,5 +99,12 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
     }
     myListBooks.add(MyListModel(book: event.book, bookStatus: event.status));
     emit(state.copyWith(myListAddedMessage: 'Book Added to My List'));
+  }
+
+  void _addToFavourite(AddToFavouriteEvent event, Emitter<HomePageState> emit) {
+    if (!favouriteBooks.any((book) => book.isbn == event.book.isbn)) {
+      favouriteBooks.add(event.book);
+    }
+    emit(state.copyWith(addToFavouriteMessage: 'Book Added to My Favourites'));
   }
 }

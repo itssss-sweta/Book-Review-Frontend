@@ -12,13 +12,13 @@ class HomePageState {
   final BookListModel? recommendedBookList;
   final BookListModel? newBookList;
   final GenreListModel? genreList;
-  final List<Book>? favouriteBooks;
   final String? bookError;
   final String? trendingBookError;
   final String? recommendeBookError;
   final String? newBookError;
   final String? genreError;
   final String? myListAddedMessage;
+  final String? addToFavouriteMessage;
 
   HomePageState({
     this.isLoadingBooks = false,
@@ -36,8 +36,8 @@ class HomePageState {
     this.genreList,
     this.bookError,
     this.genreError,
-    this.favouriteBooks,
     this.myListAddedMessage,
+    this.addToFavouriteMessage,
   });
 
   HomePageState copyWith({
@@ -56,8 +56,8 @@ class HomePageState {
     String? trendingBookError,
     String? recommendeBookError,
     String? newBookError,
-    List<Book>? favouriteBooks,
     String? myListAddedMessage,
+    String? addToFavouriteMessage,
   }) {
     return HomePageState(
       isLoadingBooks: isLoadingBooks ?? this.isLoadingBooks,
@@ -77,7 +77,8 @@ class HomePageState {
       newBookError: newBookError ?? this.newBookError,
       trendingBookError: trendingBookError ?? this.trendingBookError,
       genreError: genreError ?? this.genreError,
-      favouriteBooks: favouriteBooks ?? this.favouriteBooks,
+      addToFavouriteMessage:
+          addToFavouriteMessage ?? this.addToFavouriteMessage,
       myListAddedMessage: myListAddedMessage ?? this.myListAddedMessage,
     );
   }

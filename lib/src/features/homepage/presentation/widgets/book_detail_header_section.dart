@@ -1,8 +1,11 @@
 import 'package:book_review/src/features/homepage/domain/models/book_list_model.dart';
+import 'package:book_review/src/features/homepage/presentation/bloc/homepage_bloc.dart';
+import 'package:book_review/src/features/homepage/presentation/bloc/homepage_state.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/detail_action_header.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/detail_image_background.dart';
 import 'package:book_review/src/shared/presentation/widgets/base_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BookDetailHeaderSection extends StatelessWidget {
   final Book book;
@@ -10,19 +13,30 @@ class BookDetailHeaderSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        DetailImageBackground(imageUrl: book.imageUrl ?? ''),
-        Positioned(
-          bottom: 20,
-          left: 0,
-          right: 0,
-          child: Center(
-            child: _buildCenteredBookImage(imageUrl: book.imageUrl ?? ''),
+    return BlocListener<HomePageBloc, HomePageState>(
+      listener: (context, state) {
+        if (state.addToFavouriteMessage != null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(state.addToFavouriteMessage!)),
+          );
+        }
+      },
+      child: Stack(
+        children: [
+          DetailImageBackground(imageUrl: book.imageUrl ?? ''),
+          Positioned(
+            bottom: 20,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: _buildCenteredBookImage(imageUrl: book.imageUrl ?? ''),
+            ),
           ),
-        ),
-        const BookActionHeader(),
-      ],
+          BookActionHeader(
+            book: book,
+          ),
+        ],
+      ),
     );
   }
 }

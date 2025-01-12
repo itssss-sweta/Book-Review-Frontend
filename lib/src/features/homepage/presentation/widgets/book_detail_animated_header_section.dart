@@ -144,7 +144,9 @@ class BookDetailAnimatedHeaderSection extends StatelessWidget {
           top: 40 + MediaQuery.paddingOf(context).top,
           left: 0,
           right: 0,
-          child: const BookActionHeader(),
+          child: BookActionHeader(
+            book: book,
+          ),
         ),
       ],
     );

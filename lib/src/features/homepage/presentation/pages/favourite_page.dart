@@ -1,30 +1,15 @@
 import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/features/homepage/domain/models/book_list_model.dart';
+import 'package:book_review/src/features/homepage/presentation/bloc/homepage_bloc.dart';
 import 'package:flutter/material.dart';
-
-final List<Book> books = [
-  Book(
-    title: 'To Kill a Mockingbird',
-    author: 'Harper Lee',
-    imageUrl: 'https://covers.openlibrary.org/b/id/10406807-L.jpg',
-  ),
-  Book(
-    title: '1984',
-    author: 'George Orwell',
-    imageUrl: 'https://covers.openlibrary.org/b/id/11611587-L.jpg',
-  ),
-  Book(
-    title: 'The Great Gatsby',
-    author: 'F. Scott Fitzgerald',
-    imageUrl: 'https://covers.openlibrary.org/b/id/10807994-L.jpg',
-  ),
-];
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FavouritePage extends StatelessWidget {
   const FavouritePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final books = context.read<HomePageBloc>().favouriteBooks;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
