@@ -1,5 +1,7 @@
 import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/features/homepage/domain/models/book_list_model.dart';
+import 'package:book_review/src/features/homepage/presentation/bloc/homepage_bloc.dart';
+import 'package:book_review/src/features/homepage/presentation/bloc/homepage_state.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/attribute_card.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/book_detail_animated_header_section.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/book_detail_bottom_sheet.dart';
@@ -8,6 +10,7 @@ import 'package:book_review/src/features/homepage/presentation/widgets/detail_te
 import 'package:book_review/src/features/homepage/presentation/widgets/review_widget.dart';
 import 'package:book_review/src/shared/presentation/widgets/base_primary_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DetailPage extends StatefulWidget {
   final Book book;
@@ -310,16 +313,24 @@ Widget _buildAttributeCardRow(Book book) {
 
 void _showBottomSheet(BuildContext context, Book book) {
   showModalBottomSheet(
-    context: context,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(12.0),
-        topRight: Radius.circular(12.0),
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(12.0),
+          topRight: Radius.circular(12.0),
+        ),
       ),
-    ),
-    constraints: const BoxConstraints(minWidth: double.infinity),
-    builder: (context) {
-      return BookDetailBottomSheet(book: book);
-    },
-  );
+      constraints: const BoxConstraints(minWidth: double.infinity),
+      builder: (context) {
+        return BlocListener<HomePageBloc, HomePageState>(
+          listener: (context, state) {
+            if (state.myListAddedMessage != null) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(state.myListAddedMessage!)),
+              );
+            }
+          },
+          child: BookDetailBottomSheet(book: book),
+        );
+      });
 }

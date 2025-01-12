@@ -7,25 +7,22 @@ class HomePageState {
   final bool isLoadingTrendingBooks;
   final bool isLoadingNewBooks;
   final bool isLoadingGenres;
-  final bool isLoggingOut;
-  final bool logoutSuccessful;
   final BookListModel? bookList;
   final BookListModel? trendingBookList;
   final BookListModel? recommendedBookList;
   final BookListModel? newBookList;
   final GenreListModel? genreList;
+  final List<Book>? favouriteBooks;
   final String? bookError;
   final String? trendingBookError;
   final String? recommendeBookError;
   final String? newBookError;
   final String? genreError;
-  final String? logoutError;
+  final String? myListAddedMessage;
 
   HomePageState({
     this.isLoadingBooks = false,
     this.isLoadingGenres = false,
-    this.isLoggingOut = false,
-    this.logoutSuccessful = false,
     this.isLoadingRecommendedBooks = false,
     this.isLoadingTrendingBooks = false,
     this.isLoadingNewBooks = false,
@@ -39,19 +36,17 @@ class HomePageState {
     this.genreList,
     this.bookError,
     this.genreError,
-    this.logoutError,
+    this.favouriteBooks,
+    this.myListAddedMessage,
   });
 
   HomePageState copyWith({
     bool? isLoadingBooks,
     bool? isLoadingGenres,
-    bool? isLoggingOut,
-    bool? logoutSuccessful,
     BookListModel? bookList,
     GenreListModel? genreList,
     String? bookError,
     String? genreError,
-    String? logoutError,
     bool? isLoadingRecommendedBooks,
     bool? isLoadingTrendingBooks,
     bool? isLoadingNewBooks,
@@ -61,17 +56,17 @@ class HomePageState {
     String? trendingBookError,
     String? recommendeBookError,
     String? newBookError,
+    List<Book>? favouriteBooks,
+    String? myListAddedMessage,
   }) {
     return HomePageState(
       isLoadingBooks: isLoadingBooks ?? this.isLoadingBooks,
       isLoadingGenres: isLoadingGenres ?? this.isLoadingGenres,
-      isLoggingOut: isLoggingOut ?? this.isLoggingOut,
       isLoadingNewBooks: isLoadingNewBooks ?? this.isLoadingNewBooks,
       isLoadingRecommendedBooks:
           isLoadingRecommendedBooks ?? this.isLoadingRecommendedBooks,
       isLoadingTrendingBooks:
           isLoadingTrendingBooks ?? this.isLoadingTrendingBooks,
-      logoutSuccessful: logoutSuccessful ?? this.logoutSuccessful,
       bookList: bookList ?? this.bookList,
       newBookList: newBookList ?? this.newBookList,
       recommendedBookList: recommendedBookList ?? this.recommendedBookList,
@@ -82,7 +77,8 @@ class HomePageState {
       newBookError: newBookError ?? this.newBookError,
       trendingBookError: trendingBookError ?? this.trendingBookError,
       genreError: genreError ?? this.genreError,
-      logoutError: logoutError ?? this.logoutError,
+      favouriteBooks: favouriteBooks ?? this.favouriteBooks,
+      myListAddedMessage: myListAddedMessage ?? this.myListAddedMessage,
     );
   }
 }

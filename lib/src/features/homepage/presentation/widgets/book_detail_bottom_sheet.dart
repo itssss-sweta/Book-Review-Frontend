@@ -1,9 +1,13 @@
 import 'package:book_review/src/core/styles/app_colors.dart';
+import 'package:book_review/src/features/account/domain/models/my_list_model.dart';
 import 'package:book_review/src/features/homepage/domain/models/book_list_model.dart';
+import 'package:book_review/src/features/homepage/presentation/bloc/homepage_bloc.dart';
+import 'package:book_review/src/features/homepage/presentation/bloc/homepage_event.dart';
 import 'package:book_review/src/shared/presentation/widgets/base_primary_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class BookDetailBottomSheet extends StatelessWidget {
+class BookDetailBottomSheet extends StatefulWidget {
   final Book book;
 
   const BookDetailBottomSheet({
@@ -12,7 +16,19 @@ class BookDetailBottomSheet extends StatelessWidget {
   });
 
   @override
+  State<BookDetailBottomSheet> createState() => _BookDetailBottomSheetState();
+}
+
+class _BookDetailBottomSheetState extends State<BookDetailBottomSheet> {
+  final TextEditingController pageController = TextEditingController();
+
+  final TextEditingController statusController = TextEditingController();
+
+  final TextEditingController rateController = TextEditingController();
+
+  @override
   Widget build(BuildContext context) {
+    final homeBloc = context.read<HomePageBloc>();
     final keyboardHeight = MediaQuery.viewInsetsOf(context).bottom;
     return Padding(
       padding: EdgeInsets.only(
@@ -27,23 +43,26 @@ class BookDetailBottomSheet extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              book.title ?? '',
+              widget.book.title ?? '',
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(height: 12.0),
-            Row(
-              children: [
-                _buildStatusDropDown(),
-                const SizedBox(width: 8.0),
-                _buildPageInputFiels(context, book),
-              ],
+            BlocProvider(
+              create: (context) => HomePageBloc(),
+              child: Row(
+                children: [
+                  _buildStatusDropDown(context, statusController),
+                  const SizedBox(width: 8.0),
+                  _buildPageInputField(context, pageController, widget.book),
+                ],
+              ),
             ),
             const SizedBox(height: 8.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text('Rate', style: Theme.of(context).textTheme.labelMedium),
-                _buildRateDropDown(),
+                _buildRateDropDown(context, rateController),
               ],
             ),
             const SizedBox(height: 8.0),
@@ -66,7 +85,17 @@ class BookDetailBottomSheet extends StatelessWidget {
                   flex: 2,
                   child: BasePrimaryButton(
                     buttonColor: AppColors.secondaryColor.withOpacity(0.8),
-                    onPressed: () {},
+                    onPressed: () {
+                      homeBloc.add(AddToListEvent(
+                          book: widget.book,
+                          status: StatusModel(
+                              pages: int.parse(pageController.text.isEmpty
+                                  ? '0'
+                                  : pageController.text),
+                              rating: double.parse(rateController.value.text),
+                              status: statusController.value.text)));
+                      Navigator.pop(context);
+                    },
                     label: 'Submit',
                     borderRadius: 8.0,
                   ),
@@ -80,10 +109,15 @@ class BookDetailBottomSheet extends StatelessWidget {
   }
 }
 
-_buildStatusDropDown() {
-  return const DropdownMenu(
+_buildStatusDropDown(
+    BuildContext context, TextEditingController statusController) {
+  return DropdownMenu(
+    controller: statusController,
+    onSelected: (value) {
+      statusController.text = value ?? '';
+    },
     hintText: 'Status',
-    dropdownMenuEntries: [
+    dropdownMenuEntries: const [
       DropdownMenuEntry(label: 'Reading', value: 'Reading'),
       DropdownMenuEntry(label: 'Completed', value: 'Completed'),
       DropdownMenuEntry(label: 'On Hold', value: 'On Hold'),
@@ -93,9 +127,11 @@ _buildStatusDropDown() {
   );
 }
 
-_buildPageInputFiels(BuildContext context, Book book) {
+_buildPageInputField(
+    BuildContext context, TextEditingController pageController, Book book) {
   return Flexible(
     child: TextFormField(
+      controller: pageController,
       keyboardType: TextInputType.number,
       textAlign: TextAlign.end,
       decoration: InputDecoration(
@@ -136,11 +172,15 @@ _buildPageInputFiels(BuildContext context, Book book) {
   );
 }
 
-_buildRateDropDown() {
-  return const DropdownMenu(
+_buildRateDropDown(BuildContext context, TextEditingController rateController) {
+  return DropdownMenu(
+    controller: rateController,
     hintText: 'Select',
-    trailingIcon: Icon(Icons.star, color: AppColors.accentColor),
-    dropdownMenuEntries: [
+    onSelected: (value) {
+      rateController.text = value ?? '0';
+    },
+    trailingIcon: const Icon(Icons.star, color: AppColors.accentColor),
+    dropdownMenuEntries: const [
       DropdownMenuEntry(label: '(5) Excellent', value: '5'),
       DropdownMenuEntry(label: '(4) Very Good', value: '4'),
       DropdownMenuEntry(label: '(3) Good', value: '3'),

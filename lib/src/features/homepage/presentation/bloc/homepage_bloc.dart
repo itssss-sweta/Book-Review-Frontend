@@ -1,28 +1,19 @@
+import 'package:book_review/src/features/account/domain/models/my_list_model.dart';
 import 'package:book_review/src/features/homepage/data/repository/home_page_repository_dummy_impl.dart';
 import 'package:book_review/src/features/homepage/domain/repository/homepage_repository.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/homepage_event.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/homepage_state.dart';
-import 'package:book_review/src/shared/data/data_source/local/cache_services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
   HomePageBloc() : super(HomePageState()) {
     on<DataFetchEvent>(_onDataFetch);
-    on<LogoutEvent>(_onLogout);
+    on<AddToListEvent>(_addToMyList);
   }
   final HomePageRepository _homePageRepositoryLocal =
       HomePageRepositoryDummyImpl();
 
-  Future<void> _onLogout(LogoutEvent event, Emitter<HomePageState> emit) async {
-    emit(state.copyWith(isLoggingOut: true));
-    await Future.delayed(const Duration(seconds: 2));
-    CacheServices.getCacheServicesInstance.saveAccessToken('');
-    CacheServices.getCacheServicesInstance.saveIsLogin(false);
-    emit(state.copyWith(
-      isLoggingOut: false,
-      logoutSuccessful: true,
-    ));
-  }
+  List<MyListModel> myListBooks = [];
 
   Future<void> _onDataFetch(
       DataFetchEvent event, Emitter<HomePageState> emit) async {
@@ -95,5 +86,14 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
     } else {
       emit(state.copyWith(isLoadingGenres: false, genreError: result.error));
     }
+  }
+
+  void _addToMyList(AddToListEvent event, Emitter<HomePageState> emit) {
+    if (myListBooks.any((element) => element.book?.isbn == event.book.isbn)) {
+      myListBooks
+          .removeWhere(((element) => element.book?.isbn == event.book.isbn));
+    }
+    myListBooks.add(MyListModel(book: event.book, bookStatus: event.status));
+    emit(state.copyWith(myListAddedMessage: 'Book Added to My List'));
   }
 }

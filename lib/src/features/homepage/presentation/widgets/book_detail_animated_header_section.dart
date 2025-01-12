@@ -1,5 +1,7 @@
 import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/features/homepage/domain/models/book_list_model.dart';
+import 'package:book_review/src/features/homepage/presentation/bloc/homepage_bloc.dart';
+import 'package:book_review/src/features/homepage/presentation/bloc/homepage_state.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/book_detail_bottom_sheet.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/detail_action_header.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/detail_image_background.dart';
@@ -7,6 +9,7 @@ import 'package:book_review/src/features/homepage/presentation/widgets/detail_te
 import 'package:book_review/src/shared/presentation/widgets/base_network_image.dart';
 import 'package:book_review/src/shared/presentation/widgets/base_primary_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class BookDetailAnimatedHeaderSection extends StatelessWidget {
@@ -159,7 +162,16 @@ void _showBottomSheet(BuildContext context, Book book) {
     ),
     constraints: const BoxConstraints(minWidth: double.infinity),
     builder: (context) {
-      return BookDetailBottomSheet(book: book);
+      return BlocListener<HomePageBloc, HomePageState>(
+        listener: (context, state) {
+          if (state.myListAddedMessage != null) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(state.myListAddedMessage!)),
+            );
+          }
+        },
+        child: BookDetailBottomSheet(book: book),
+      );
     },
   );
 }
