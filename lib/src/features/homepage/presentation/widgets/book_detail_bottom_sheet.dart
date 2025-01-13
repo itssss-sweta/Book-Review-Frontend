@@ -51,9 +51,9 @@ class _BookDetailBottomSheetState extends State<BookDetailBottomSheet> {
               create: (context) => HomePageBloc(),
               child: Row(
                 children: [
-                  _buildStatusDropDown(context, statusController),
+                  _buildStatusDropDown(),
                   const SizedBox(width: 8.0),
-                  _buildPageInputField(context, pageController, widget.book),
+                  _buildPageInputField(),
                 ],
               ),
             ),
@@ -62,7 +62,7 @@ class _BookDetailBottomSheetState extends State<BookDetailBottomSheet> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text('Rate', style: Theme.of(context).textTheme.labelMedium),
-                _buildRateDropDown(context, rateController),
+                _buildRateDropDown(),
               ],
             ),
             const SizedBox(height: 8.0),
@@ -107,85 +107,85 @@ class _BookDetailBottomSheetState extends State<BookDetailBottomSheet> {
       ),
     );
   }
-}
 
-_buildStatusDropDown(
-    BuildContext context, TextEditingController statusController) {
-  return DropdownMenu(
-    controller: statusController,
-    onSelected: (value) {
-      statusController.text = value ?? '';
-    },
-    hintText: 'Status',
-    dropdownMenuEntries: const [
-      DropdownMenuEntry(label: 'Reading', value: 'Reading'),
-      DropdownMenuEntry(label: 'Completed', value: 'Completed'),
-      DropdownMenuEntry(label: 'On Hold', value: 'On Hold'),
-      DropdownMenuEntry(label: 'Plan to Read', value: 'Plan to Read'),
-      DropdownMenuEntry(label: 'Dropped', value: 'Dropped'),
-    ],
-  );
-}
+  _buildStatusDropDown() {
+    return DropdownMenu(
+      controller: statusController,
+      onSelected: (value) {
+        statusController.text = value ?? '';
+        pageController.text = (widget.book.pageCount ?? 0).toString();
+      },
+      hintText: 'Status',
+      dropdownMenuEntries: const [
+        DropdownMenuEntry(label: 'Reading', value: 'Reading'),
+        DropdownMenuEntry(label: 'Completed', value: 'Completed'),
+        DropdownMenuEntry(label: 'On Hold', value: 'On Hold'),
+        DropdownMenuEntry(label: 'Plan to Read', value: 'Plan to Read'),
+        DropdownMenuEntry(label: 'Dropped', value: 'Dropped'),
+      ],
+    );
+  }
 
-_buildPageInputField(
-    BuildContext context, TextEditingController pageController, Book book) {
-  return Flexible(
-    child: TextFormField(
-      controller: pageController,
-      keyboardType: TextInputType.number,
-      textAlign: TextAlign.end,
-      decoration: InputDecoration(
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 12.0, vertical: 14.0),
-        hintText: '0',
-        prefixIcon: Padding(
-          padding: const EdgeInsets.only(left: 8.0),
-          child: Align(
+  _buildPageInputField() {
+    return Flexible(
+      child: TextFormField(
+        enabled: statusController.text == 'Completed' ? false : true,
+        controller: pageController,
+        keyboardType: TextInputType.number,
+        textAlign: TextAlign.end,
+        decoration: InputDecoration(
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 12.0, vertical: 14.0),
+          hintText: '0',
+          prefixIcon: Padding(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: Align(
+              alignment: Alignment.center,
+              widthFactor: 1.0,
+              heightFactor: 1.0,
+              child: Text(
+                'Pages',
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+            ),
+          ),
+          suffixIcon: Align(
             alignment: Alignment.center,
             widthFactor: 1.0,
             heightFactor: 1.0,
             child: Text(
-              'Pages',
+              '/${widget.book.pageCount}',
               style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),
-        ),
-        suffixIcon: Align(
-          alignment: Alignment.center,
-          widthFactor: 1.0,
-          heightFactor: 1.0,
-          child: Text(
-            '/${book.pageCount}',
-            style: Theme.of(context).textTheme.bodyLarge,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(4),
+            borderSide: const BorderSide(color: AppColors.secondaryTextColor),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(4),
+            borderSide: const BorderSide(color: AppColors.secondaryTextColor),
           ),
         ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(4),
-          borderSide: const BorderSide(color: AppColors.secondaryTextColor),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(4),
-          borderSide: const BorderSide(color: AppColors.secondaryTextColor),
-        ),
       ),
-    ),
-  );
-}
+    );
+  }
 
-_buildRateDropDown(BuildContext context, TextEditingController rateController) {
-  return DropdownMenu(
-    controller: rateController,
-    hintText: 'Select',
-    onSelected: (value) {
-      rateController.text = value ?? '0';
-    },
-    trailingIcon: const Icon(Icons.star, color: AppColors.accentColor),
-    dropdownMenuEntries: const [
-      DropdownMenuEntry(label: '(5) Excellent', value: '5'),
-      DropdownMenuEntry(label: '(4) Very Good', value: '4'),
-      DropdownMenuEntry(label: '(3) Good', value: '3'),
-      DropdownMenuEntry(label: '(2) Average', value: '2'),
-      DropdownMenuEntry(label: '(1) Bad', value: '1'),
-    ],
-  );
+  _buildRateDropDown() {
+    return DropdownMenu(
+      controller: rateController,
+      hintText: 'Select',
+      onSelected: (value) {
+        rateController.text = value ?? '0';
+      },
+      trailingIcon: const Icon(Icons.star, color: AppColors.accentColor),
+      dropdownMenuEntries: const [
+        DropdownMenuEntry(label: '(5) Excellent', value: '5'),
+        DropdownMenuEntry(label: '(4) Very Good', value: '4'),
+        DropdownMenuEntry(label: '(3) Good', value: '3'),
+        DropdownMenuEntry(label: '(2) Average', value: '2'),
+        DropdownMenuEntry(label: '(1) Bad', value: '1'),
+      ],
+    );
+  }
 }
