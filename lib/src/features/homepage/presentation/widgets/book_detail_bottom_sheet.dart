@@ -1,4 +1,5 @@
 import 'package:book_review/src/core/styles/app_colors.dart';
+import 'package:book_review/src/core/utils/constant/regex.dart';
 import 'package:book_review/src/features/account/domain/models/my_list_model.dart';
 import 'package:book_review/src/features/homepage/domain/models/book_list_model.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/homepage_bloc.dart';
@@ -22,9 +23,11 @@ class BookDetailBottomSheet extends StatefulWidget {
 class _BookDetailBottomSheetState extends State<BookDetailBottomSheet> {
   final TextEditingController pageController = TextEditingController();
 
-  final TextEditingController statusController = TextEditingController();
+  double? rate;
 
-  final TextEditingController rateController = TextEditingController();
+  String? status;
+
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -38,98 +41,140 @@ class _BookDetailBottomSheetState extends State<BookDetailBottomSheet> {
         right: 16.0,
       ),
       child: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              widget.book.title ?? '',
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-            const SizedBox(height: 12.0),
-            BlocProvider(
-              create: (context) => HomePageBloc(),
-              child: Row(
+        child: Form(
+          key: formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                widget.book.title ?? '',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              const SizedBox(height: 12.0),
+              BlocProvider(
+                create: (context) => HomePageBloc(),
+                child: Row(
+                  children: [
+                    _buildStatusDropDown(),
+                    const SizedBox(width: 8.0),
+                    _buildPageInputField(),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  _buildStatusDropDown(),
-                  const SizedBox(width: 8.0),
-                  _buildPageInputField(),
+                  Text('Rate', style: Theme.of(context).textTheme.labelMedium),
+                  const SizedBox(width: 12.0),
+                  _buildRateDropDown(),
                 ],
               ),
-            ),
-            const SizedBox(height: 8.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text('Rate', style: Theme.of(context).textTheme.labelMedium),
-                _buildRateDropDown(),
-              ],
-            ),
-            const SizedBox(height: 8.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Flexible(
-                  flex: 2,
-                  child: BasePrimaryButton(
-                    onPressed: () => Navigator.pop(context),
-                    label: 'Cancel',
-                    buttonColor: AppColors.cardColor,
-                    textColor: AppColors.primaryColor,
-                    borderColor: AppColors.disabledButtonColor,
-                    borderRadius: 8.0,
+              const SizedBox(height: 8.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Flexible(
+                    flex: 2,
+                    child: BasePrimaryButton(
+                      onPressed: () => Navigator.pop(context),
+                      label: 'Cancel',
+                      buttonColor: AppColors.cardColor,
+                      textColor: AppColors.primaryColor,
+                      borderColor: AppColors.disabledButtonColor,
+                      borderRadius: 8.0,
+                    ),
                   ),
-                ),
-                const Flexible(flex: 1, child: SizedBox()),
-                Flexible(
-                  flex: 2,
-                  child: BasePrimaryButton(
-                    buttonColor: AppColors.secondaryColor.withOpacity(0.8),
-                    onPressed: () {
-                      homeBloc.add(AddToListEvent(
-                          book: widget.book,
-                          status: StatusModel(
-                              pages: int.parse(pageController.text.isEmpty
-                                  ? '0'
-                                  : pageController.text),
-                              rating: double.parse(rateController.value.text),
-                              status: statusController.value.text)));
-                      Navigator.pop(context);
-                    },
-                    label: 'Submit',
-                    borderRadius: 8.0,
+                  const Flexible(flex: 1, child: SizedBox()),
+                  Flexible(
+                    flex: 2,
+                    child: BasePrimaryButton(
+                      buttonColor: AppColors.secondaryColor.withOpacity(0.8),
+                      onPressed: () {
+                        if (formKey.currentState?.validate() ?? false) {
+                          homeBloc.add(AddToListEvent(
+                              book: widget.book,
+                              status: StatusModel(
+                                  pages: int.parse(pageController.text.isEmpty
+                                      ? '0'
+                                      : pageController.text),
+                                  rating: rate ?? 0.0,
+                                  status: status)));
+                          Navigator.pop(context);
+                        }
+                      },
+                      label: 'Submit',
+                      borderRadius: 8.0,
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 
   _buildStatusDropDown() {
-    return DropdownMenu(
-      controller: statusController,
-      onSelected: (value) {
-        statusController.text = value ?? '';
-        pageController.text = (widget.book.pageCount ?? 0).toString();
-      },
-      hintText: 'Status',
-      dropdownMenuEntries: const [
-        DropdownMenuEntry(label: 'Reading', value: 'Reading'),
-        DropdownMenuEntry(label: 'Completed', value: 'Completed'),
-        DropdownMenuEntry(label: 'On Hold', value: 'On Hold'),
-        DropdownMenuEntry(label: 'Plan to Read', value: 'Plan to Read'),
-        DropdownMenuEntry(label: 'Dropped', value: 'Dropped'),
-      ],
+    return Flexible(
+      child: DropdownButtonFormField(
+        validator: (value) {
+          if (value.isNullOrEmpty) {
+            return 'Field Required';
+          }
+          return null;
+        },
+        value: status,
+        onChanged: (value) {
+          status = value;
+          if (value == 'Completed') {
+            pageController.text = (widget.book.pageCount ?? 0).toString();
+          }
+        },
+        decoration: const InputDecoration(
+          hintText: 'Status',
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(4.0)),
+            borderSide: BorderSide(
+              color: AppColors.secondaryTextColor,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(4.0)),
+            borderSide: BorderSide(
+              color: AppColors.secondaryTextColor,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(4.0)),
+            borderSide: BorderSide(
+              color: AppColors.secondaryTextColor,
+            ),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(4.0)),
+            borderSide: BorderSide(
+              color: AppColors.errorColor,
+            ),
+          ),
+        ),
+        items: const [
+          DropdownMenuItem(value: 'Reading', child: Text('Reading')),
+          DropdownMenuItem(value: 'Completed', child: Text('Completed')),
+          DropdownMenuItem(value: 'On Hold', child: Text('On Hold')),
+          DropdownMenuItem(value: 'Plan to Read', child: Text('Plan to Read')),
+          DropdownMenuItem(value: 'Dropped', child: Text('Dropped')),
+        ],
+      ),
     );
   }
 
   _buildPageInputField() {
     return Flexible(
       child: TextFormField(
-        enabled: statusController.text == 'Completed' ? false : true,
+        enabled: status == 'Completed' ? false : true,
         controller: pageController,
         keyboardType: TextInputType.number,
         textAlign: TextAlign.end,
@@ -166,26 +211,68 @@ class _BookDetailBottomSheetState extends State<BookDetailBottomSheet> {
             borderRadius: BorderRadius.circular(4),
             borderSide: const BorderSide(color: AppColors.secondaryTextColor),
           ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(4),
+            borderSide: const BorderSide(color: AppColors.secondaryTextColor),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(4),
+            borderSide: const BorderSide(color: AppColors.errorColor),
+          ),
         ),
       ),
     );
   }
 
   _buildRateDropDown() {
-    return DropdownMenu(
-      controller: rateController,
-      hintText: 'Select',
-      onSelected: (value) {
-        rateController.text = value ?? '0';
-      },
-      trailingIcon: const Icon(Icons.star, color: AppColors.accentColor),
-      dropdownMenuEntries: const [
-        DropdownMenuEntry(label: '(5) Excellent', value: '5'),
-        DropdownMenuEntry(label: '(4) Very Good', value: '4'),
-        DropdownMenuEntry(label: '(3) Good', value: '3'),
-        DropdownMenuEntry(label: '(2) Average', value: '2'),
-        DropdownMenuEntry(label: '(1) Bad', value: '1'),
-      ],
+    return Flexible(
+      child: DropdownButtonFormField(
+        validator: (value) {
+          if (value == null || value <= 0) {
+            return 'Field Required';
+          }
+          return null;
+        },
+        value: rate,
+        onChanged: (value) {
+          rate = value;
+        },
+        decoration: const InputDecoration(
+          suffixIcon: Icon(Icons.star, color: AppColors.accentColor),
+          hintText: 'Select',
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(4.0)),
+            borderSide: BorderSide(
+              color: AppColors.secondaryTextColor,
+            ),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(4.0)),
+            borderSide: BorderSide(
+              color: AppColors.secondaryTextColor,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(4.0)),
+            borderSide: BorderSide(
+              color: AppColors.secondaryTextColor,
+            ),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(4.0)),
+            borderSide: BorderSide(
+              color: AppColors.errorColor,
+            ),
+          ),
+        ),
+        items: const [
+          DropdownMenuItem(value: 5.0, child: Text('(5) Excellent')),
+          DropdownMenuItem(value: 4.0, child: Text('(4) Very Good')),
+          DropdownMenuItem(value: 3.0, child: Text('(3) Good')),
+          DropdownMenuItem(value: 2.0, child: Text('(2) Average')),
+          DropdownMenuItem(value: 1.0, child: Text('(1) Bad')),
+        ],
+      ),
     );
   }
 }
