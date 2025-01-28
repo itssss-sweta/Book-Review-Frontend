@@ -10,6 +10,7 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
   HomePageBloc() : super(HomePageState()) {
     on<DataFetchEvent>(_onDataFetch);
     on<AddToListEvent>(_addToMyList);
+    on<RemoveFromListEvent>(_removeFromMyList);
     on<AddToFavouriteEvent>(_addToFavourite);
   }
   final HomePageRepository _homePageRepositoryLocal =
@@ -99,6 +100,15 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
     }
     myListBooks.add(MyListModel(book: event.book, bookStatus: event.status));
     emit(state.copyWith(myListAddedMessage: 'Book Added to My List'));
+  }
+
+  void _removeFromMyList(
+      RemoveFromListEvent event, Emitter<HomePageState> emit) {
+    if (myListBooks.any((element) => element.book?.isbn == event.book.isbn)) {
+      myListBooks
+          .removeWhere(((element) => element.book?.isbn == event.book.isbn));
+    }
+    emit(state.copyWith(myListDeletedMessage: 'Book Removed from My List'));
   }
 
   void _addToFavourite(AddToFavouriteEvent event, Emitter<HomePageState> emit) {

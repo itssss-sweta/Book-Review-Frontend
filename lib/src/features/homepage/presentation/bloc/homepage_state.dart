@@ -19,6 +19,7 @@ class HomePageState {
   final String? genreError;
   final String? myListAddedMessage;
   final String? addToFavouriteMessage;
+  final String? myListDeletedMessage;
 
   HomePageState({
     this.isLoadingBooks = false,
@@ -38,6 +39,7 @@ class HomePageState {
     this.genreError,
     this.myListAddedMessage,
     this.addToFavouriteMessage,
+    this.myListDeletedMessage,
   });
 
   HomePageState copyWith({
@@ -57,6 +59,7 @@ class HomePageState {
     String? recommendeBookError,
     String? newBookError,
     String? myListAddedMessage,
+    String? myListDeletedMessage,
     String? addToFavouriteMessage,
   }) {
     return HomePageState(
@@ -80,6 +83,7 @@ class HomePageState {
       addToFavouriteMessage:
           addToFavouriteMessage ?? this.addToFavouriteMessage,
       myListAddedMessage: myListAddedMessage ?? this.myListAddedMessage,
+      myListDeletedMessage: myListDeletedMessage ?? this.myListDeletedMessage,
     );
   }
 }

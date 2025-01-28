@@ -16,3 +16,9 @@ class AddToListEvent extends HomePageEvent {
 
   AddToListEvent({required this.book, required this.status});
 }
+
+class RemoveFromListEvent extends HomePageEvent {
+  final Book book;
+
+  RemoveFromListEvent({required this.book});
+}
