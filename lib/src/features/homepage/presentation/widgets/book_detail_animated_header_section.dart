@@ -1,4 +1,5 @@
 import 'package:book_review/src/core/styles/app_colors.dart';
+import 'package:book_review/src/core/utils/show_snackbar.dart';
 import 'package:book_review/src/features/homepage/domain/models/book_list_model.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/homepage_bloc.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/homepage_state.dart';
@@ -167,9 +168,9 @@ void _showBottomSheet(BuildContext context, Book book) {
       return BlocListener<HomePageBloc, HomePageState>(
         listener: (context, state) {
           if (state.myListAddedMessage != null) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(state.myListAddedMessage!)),
-            );
+            ShowSnackbar.showSnackBar(context,
+                title: state.myListAddedMessage!,
+                backgroundColor: AppColors.successColor);
           }
         },
         child: BookDetailBottomSheet(book: book),

@@ -1,4 +1,5 @@
 import 'package:book_review/src/core/styles/app_colors.dart';
+import 'package:book_review/src/core/utils/show_snackbar.dart';
 import 'package:book_review/src/features/homepage/domain/models/book_list_model.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/homepage_bloc.dart';
 import 'package:book_review/src/features/homepage/presentation/bloc/homepage_event.dart';
@@ -25,9 +26,9 @@ class MyListPage extends StatelessWidget {
       body: BlocListener<HomePageBloc, HomePageState>(
         listener: (context, state) {
           if (state.myListDeletedMessage != null) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(state.myListDeletedMessage!)),
-            );
+            ShowSnackbar.showSnackBar(context,
+                title: state.myListDeletedMessage!,
+                backgroundColor: AppColors.droppedColor);
           }
         },
         child:

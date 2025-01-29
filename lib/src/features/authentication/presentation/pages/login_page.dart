@@ -1,6 +1,7 @@
 import 'package:book_review/src/core/route/routes_name.dart';
 import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/core/utils/loading_dialog.dart';
+import 'package:book_review/src/core/utils/show_snackbar.dart';
 import 'package:book_review/src/core/utils/validators/form_validator.dart';
 import 'package:book_review/src/features/authentication/presentation/bloc/authentication_bloc.dart';
 import 'package:book_review/src/features/authentication/presentation/bloc/authentication_event.dart';
@@ -28,8 +29,8 @@ class LoginPage extends StatelessWidget {
             );
           } else if (state is AuthenticationError) {
             Navigator.of(context).pop();
-            ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text(state.message)));
+            ShowSnackbar.showSnackBar(context,
+                title: state.message, backgroundColor: AppColors.errorColor);
           } else if (state is AuthenticationLoading) {
             LoadingDialog.showLoadingDialog(context,
                 loadingTitle: 'Logging you in....');

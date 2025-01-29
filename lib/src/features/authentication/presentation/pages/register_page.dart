@@ -1,6 +1,7 @@
 import 'package:book_review/src/core/route/routes_name.dart';
 import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/core/utils/loading_dialog.dart';
+import 'package:book_review/src/core/utils/show_snackbar.dart';
 import 'package:book_review/src/core/utils/validators/form_validator.dart';
 import 'package:book_review/src/features/authentication/presentation/bloc/authentication_bloc.dart';
 import 'package:book_review/src/features/authentication/presentation/bloc/authentication_event.dart';
@@ -26,15 +27,16 @@ class RegisterPage extends StatelessWidget {
             _showSuccessLoadingDialog(context);
             await Future.delayed(const Duration(milliseconds: 5000)).then(
               (value) {
-                ScaffoldMessenger.of(context)
-                    .showSnackBar(SnackBar(content: Text(state.message)));
+                ShowSnackbar.showSnackBar(context,
+                    title: state.message,
+                    backgroundColor: AppColors.successColor);
                 Navigator.of(context).pushReplacementNamed(RoutesName.login);
               },
             );
           } else if (state is RegistrationError) {
             Navigator.of(context).pop();
-            ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text(state.message)));
+            ShowSnackbar.showSnackBar(context,
+                title: state.message, backgroundColor: AppColors.errorColor);
           } else if (state is RegistrationLoading) {
             LoadingDialog.showLoadingDialog(context,
                 loadingTitle: 'Signing up....');
@@ -125,9 +127,10 @@ class RegisterPage extends StatelessWidget {
                             authBloc.registerConfirmPasswordController.text) {
                           authBloc.add(RegisterEvent());
                         } else {
-                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                              content: Text(
-                                  "Passwords didn't match, please recheck and try again.")));
+                          ShowSnackbar.showSnackBar(context,
+                              title:
+                                  "Passwords didn't match, please recheck and try again.",
+                              backgroundColor: AppColors.errorColor);
                         }
                       }
                     },
