@@ -8,6 +8,7 @@ import 'package:book_review/src/features/homepage/presentation/widgets/book_deta
 import 'package:book_review/src/features/homepage/presentation/widgets/book_detail_bottom_sheet.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/book_detail_header_section.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/detail_text_section.dart';
+import 'package:book_review/src/features/homepage/presentation/widgets/review_input_section.dart';
 import 'package:book_review/src/features/homepage/presentation/widgets/review_widget.dart';
 import 'package:book_review/src/shared/presentation/widgets/base_primary_button.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,10 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   late ScrollController _scrollController;
   double _scrollOffset = 0;
+
+  final TextEditingController reviewController = TextEditingController();
+
+  bool writeReview = false;
 
   @override
   void initState() {
@@ -42,7 +47,6 @@ class _DetailPageState extends State<DetailPage> {
     super.dispose();
   }
 
-  @override
   @override
   Widget build(BuildContext context) {
     double expandedHeight = Tween<double>(
@@ -93,8 +97,24 @@ class _DetailPageState extends State<DetailPage> {
                     SizedBox(
                       height: MediaQuery.sizeOf(context).height / 2.5,
                       child: ListView(
-                        children: const [
-                          ReviewWidget(
+                        children: [
+                          !writeReview
+                              ? Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: TextButton(
+                                      onPressed: () {
+                                        writeReview = true;
+                                        setState(() {});
+                                      },
+                                      child: const Text('+ Write a review')),
+                                )
+                              : ReviewInputSection(
+                                  onCancel: () {
+                                    writeReview = false;
+                                    setState(() {});
+                                  },
+                                ),
+                          const ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -103,7 +123,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          ReviewWidget(
+                          const ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -112,7 +132,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          ReviewWidget(
+                          const ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -121,7 +141,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          ReviewWidget(
+                          const ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -130,7 +150,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          ReviewWidget(
+                          const ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -139,7 +159,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          ReviewWidget(
+                          const ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -148,7 +168,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          ReviewWidget(
+                          const ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -157,7 +177,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          ReviewWidget(
+                          const ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -166,7 +186,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          ReviewWidget(
+                          const ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -175,7 +195,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          ReviewWidget(
+                          const ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -184,7 +204,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          ReviewWidget(
+                          const ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -193,7 +213,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          ReviewWidget(
+                          const ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
