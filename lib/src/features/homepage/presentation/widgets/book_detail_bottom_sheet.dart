@@ -178,6 +178,16 @@ class _BookDetailBottomSheetState extends State<BookDetailBottomSheet> {
         controller: pageController,
         keyboardType: TextInputType.number,
         textAlign: TextAlign.end,
+        validator: (value) {
+          if (value.isNullOrEmpty) {
+            value = '0';
+          }
+          if (int.parse(value!) > (widget.book.pageCount ?? 0)) {
+            return 'Invalid Page Count';
+          }
+          return null;
+        },
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         decoration: InputDecoration(
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 12.0, vertical: 14.0),
