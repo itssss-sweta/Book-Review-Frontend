@@ -131,7 +131,7 @@ class _ReviewInputSectionState extends State<ReviewInputSection> {
               ),
               BasePrimaryButton(
                 onPressed: () async {
-                  if (context.mounted) {
+                  if (selectedRating >= 1) {
                     ShowSnackbar.showSnackBar(context,
                         title: "Review Posted!",
                         backgroundColor: AppColors.successColor);
