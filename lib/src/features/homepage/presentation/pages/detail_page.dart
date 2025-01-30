@@ -13,7 +13,6 @@ import 'package:book_review/src/features/homepage/presentation/widgets/review_wi
 import 'package:book_review/src/shared/presentation/widgets/base_primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class DetailPage extends StatefulWidget {
   final Book book;
@@ -26,10 +25,6 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   late ScrollController _scrollController;
   double _scrollOffset = 0;
-
-  final TextEditingController reviewController = TextEditingController();
-
-  bool writeReview = false;
 
   @override
   void initState() {
@@ -98,27 +93,9 @@ class _DetailPageState extends State<DetailPage> {
                     SizedBox(
                       height: MediaQuery.sizeOf(context).height / 2.5,
                       child: ListView(
-                        children: [
-                          !writeReview
-                              ? Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: TextButton(
-                                      onPressed: () {
-                                        writeReview = true;
-                                        setState(() {});
-                                      },
-                                      child: const Text('+ Write a review')),
-                                )
-                              : ReviewInputSection(
-                                  onCancel: () {
-                                    writeReview = false;
-                                    setState(() {});
-                                  },
-                                  onPost: () {
-                                    _showRatingBottomSheet(context);
-                                  },
-                                ),
-                          const ReviewWidget(
+                        children: const [
+                          ReviewInputSection(),
+                          ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -127,7 +104,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          const ReviewWidget(
+                          ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -136,7 +113,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          const ReviewWidget(
+                          ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -145,7 +122,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          const ReviewWidget(
+                          ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -154,7 +131,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          const ReviewWidget(
+                          ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -163,7 +140,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          const ReviewWidget(
+                          ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -172,7 +149,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          const ReviewWidget(
+                          ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -181,7 +158,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          const ReviewWidget(
+                          ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -190,7 +167,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          const ReviewWidget(
+                          ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -199,7 +176,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          const ReviewWidget(
+                          ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -208,7 +185,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          const ReviewWidget(
+                          ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -217,7 +194,7 @@ class _DetailPageState extends State<DetailPage> {
                             profileImageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBlbNR3fbCKdmVfntZCGYmoeummGXHGIE7w&s',
                           ),
-                          const ReviewWidget(
+                          ReviewWidget(
                             rating: 4,
                             reviewDate: '02 Jan,2023',
                             reviewText:
@@ -359,56 +336,4 @@ void _showBottomSheet(BuildContext context, Book book) {
           child: BookDetailBottomSheet(book: book),
         );
       });
-}
-
-void _showRatingBottomSheet(BuildContext context) {
-  double selectedRating = 0;
-  showModalBottomSheet(
-    context: context,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(12.0),
-        topRight: Radius.circular(12.0),
-      ),
-    ),
-    isScrollControlled: true,
-    constraints: const BoxConstraints(minWidth: double.infinity),
-    builder: (context) {
-      return Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              'Rate this book!',
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-            RatingBar.builder(
-              initialRating: selectedRating,
-              direction: Axis.horizontal,
-              itemCount: 5,
-              minRating: 1,
-              itemBuilder: (context, index) => const Icon(
-                Icons.star,
-                color: Colors.amber,
-                size: 14,
-              ),
-              itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-              onRatingUpdate: (rating) {
-                selectedRating = rating;
-              },
-            ),
-            BasePrimaryButton(
-              onPressed: () {},
-              buttonColor: AppColors.accentColor,
-              label: 'Submit',
-              buttonWidth: MediaQuery.sizeOf(context).width / 3,
-              borderRadius: 8.0,
-              buttonHeight: 20,
-            )
-          ],
-        ),
-      );
-    },
-  );
 }
