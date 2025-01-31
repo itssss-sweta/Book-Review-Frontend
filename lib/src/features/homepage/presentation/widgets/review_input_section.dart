@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/core/utils/show_snackbar.dart';
 import 'package:book_review/src/shared/presentation/widgets/base_primary_button.dart';
@@ -19,6 +20,26 @@ class _ReviewInputSectionState extends State<ReviewInputSection> {
   final FocusNode focusNode = FocusNode();
 
   bool reviewWritten = false;
+
+  Future<void> playReviewPostedSound() async {
+    final player = AudioPlayer();
+    try {
+      player.onPlayerStateChanged.listen((state) {
+        print("Player state: $state");
+        if (state == PlayerState.playing) {
+          print("Sound is playing.");
+        } else if (state == PlayerState.completed) {
+          print("Sound completed.");
+          player.dispose();
+          print("Player disposed.");
+        }
+      });
+
+      await player.play(AssetSource('sound/review_posted.mp3'));
+    } catch (e) {
+      print("Error playing sound: $e");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -136,6 +157,7 @@ class _ReviewInputSectionState extends State<ReviewInputSection> {
                         title: "Review Posted!",
                         backgroundColor: AppColors.successColor);
                     Navigator.pop(context);
+                    await playReviewPostedSound();
                     focusNode.unfocus();
                     reviewController.clear();
                     reviewWritten = false;
