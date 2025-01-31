@@ -45,6 +45,7 @@ dependencies:
   shimmer: ^3.0.0
   cached_network_image: ^3.4.1
   rating: ^1.0.0-dev.1
+  audioplayers: ^6.1.1
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +73,7 @@ flutter:
   assets:
     - assets/images/
     - assets/json/
+    - assets/sound/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
