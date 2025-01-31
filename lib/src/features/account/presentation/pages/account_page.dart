@@ -1,3 +1,4 @@
+import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/core/utils/loading_dialog.dart';
 import 'package:book_review/src/features/account/presentation/bloc/account_bloc.dart';
 import 'package:book_review/src/features/account/presentation/bloc/account_event.dart';
@@ -76,7 +77,7 @@ Widget _buildListTile({
     contentPadding: const EdgeInsets.symmetric(vertical: 4.0),
     leading: Icon(
       icon,
-      color: Colors.blueAccent,
+      color: AppColors.secondaryColor,
     ),
     title: Text(
       title,
