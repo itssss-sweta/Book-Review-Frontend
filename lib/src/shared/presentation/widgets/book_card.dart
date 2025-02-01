@@ -1,3 +1,4 @@
+import 'package:book_review/src/core/route/routes_name.dart';
 import 'package:book_review/src/core/styles/app_colors.dart';
 import 'package:book_review/src/features/account/domain/models/my_list_model.dart';
 import 'package:book_review/src/features/homepage/domain/models/book_list_model.dart';
@@ -15,55 +16,60 @@ class BookCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8.0),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: const BorderSide(color: AppColors.cardColor),
-      ),
-      color: AppColors.cardColor,
-      elevation: 4,
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.network(
-                book.imageUrl ?? '',
-                width: 80,
-                height: 120,
-                fit: BoxFit.cover,
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, RoutesName.detail, arguments: book);
+      },
+      child: Card(
+        margin: const EdgeInsets.symmetric(vertical: 8.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+          side: const BorderSide(color: AppColors.cardColor),
+        ),
+        color: AppColors.cardColor,
+        elevation: 4,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.network(
+                  book.imageUrl ?? '',
+                  width: 80,
+                  height: 120,
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    book.title ?? "",
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.primaryTextColor,
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      book.title ?? "",
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.primaryTextColor,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    book.author ?? '',
-                    style: const TextStyle(
-                      fontSize: 14,
-                      color: AppColors.secondaryTextColor,
+                    const SizedBox(height: 4),
+                    Text(
+                      book.author ?? '',
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: AppColors.secondaryTextColor,
+                      ),
                     ),
-                  ),
-                  if (bookStatus != null)
-                    _getStatusBadge(bookStatus?.status ?? '')
-                ],
+                    if (bookStatus != null)
+                      _getStatusBadge(bookStatus?.status ?? '')
+                  ],
+                ),
               ),
-            ),
-            trailingIcon,
-          ],
+              trailingIcon,
+            ],
+          ),
         ),
       ),
     );
