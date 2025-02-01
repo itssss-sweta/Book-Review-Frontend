@@ -10,6 +10,11 @@ class AddToFavouriteEvent extends HomePageEvent {
   AddToFavouriteEvent(this.book);
 }
 
+class RemoveFromFavouriteEvent extends HomePageEvent {
+  final Book book;
+  RemoveFromFavouriteEvent(this.book);
+}
+
 class AddToListEvent extends HomePageEvent {
   final Book book;
   StatusModel status;

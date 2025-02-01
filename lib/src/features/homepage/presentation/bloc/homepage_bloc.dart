@@ -12,6 +12,7 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
     on<AddToListEvent>(_addToMyList);
     on<RemoveFromListEvent>(_removeFromMyList);
     on<AddToFavouriteEvent>(_addToFavourite);
+    on<RemoveFromFavouriteEvent>(_removeFromFavourite);
   }
   final HomePageRepository _homePageRepositoryLocal =
       HomePageRepositoryDummyImpl();
@@ -116,5 +117,12 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
       favouriteBooks.add(event.book);
     }
     emit(state.copyWith(addToFavouriteMessage: 'Book Added to My Favourites'));
+  }
+
+  void _removeFromFavourite(
+      RemoveFromFavouriteEvent event, Emitter<HomePageState> emit) {
+    favouriteBooks.removeWhere((book) => book.isbn == event.book.isbn);
+    emit(state.copyWith(
+        removeFromFavouriteMessage: 'Book Removed from My Favourites'));
   }
 }

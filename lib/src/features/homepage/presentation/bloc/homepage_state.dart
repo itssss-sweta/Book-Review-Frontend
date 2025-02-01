@@ -19,6 +19,7 @@ class HomePageState {
   final String? genreError;
   final String? myListAddedMessage;
   final String? addToFavouriteMessage;
+  final String? removeFromFavouriteMessage;
   final String? myListDeletedMessage;
 
   HomePageState({
@@ -39,6 +40,7 @@ class HomePageState {
     this.genreError,
     this.myListAddedMessage,
     this.addToFavouriteMessage,
+    this.removeFromFavouriteMessage,
     this.myListDeletedMessage,
   });
 
@@ -61,6 +63,7 @@ class HomePageState {
     String? myListAddedMessage,
     String? myListDeletedMessage,
     String? addToFavouriteMessage,
+    String? removeFromFavouriteMessage,
   }) {
     return HomePageState(
       isLoadingBooks: isLoadingBooks ?? this.isLoadingBooks,
@@ -82,6 +85,8 @@ class HomePageState {
       genreError: genreError ?? this.genreError,
       addToFavouriteMessage:
           addToFavouriteMessage ?? this.addToFavouriteMessage,
+      removeFromFavouriteMessage:
+          removeFromFavouriteMessage ?? this.removeFromFavouriteMessage,
       myListAddedMessage: myListAddedMessage ?? this.myListAddedMessage,
       myListDeletedMessage: myListDeletedMessage ?? this.myListDeletedMessage,
     );
